@@ -101,7 +101,7 @@ export default function ThankYouClaude() {
             Add Quote Authority System — $47
           </a>
           <br />
-          <a href="/" className="btn-ghost">
+          <a href="/claude" className="btn-ghost">
             No thanks, I'll pass on this offer
           </a>
         </div>
