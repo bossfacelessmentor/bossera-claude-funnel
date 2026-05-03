@@ -16,6 +16,12 @@ function firePixelPurchase() {
   }
 }
 
+function scrollToDelivery(e) {
+  e.preventDefault();
+  const el = document.getElementById("delivery");
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+}
+
 export default function ThankYouClaude() {
   const [fired, setFired] = useState(false);
 
@@ -43,37 +49,15 @@ export default function ThankYouClaude() {
           font-family: 'Instrument Sans', sans-serif; font-size: 0.8rem;
           letter-spacing: 0.08em; text-transform: uppercase;
           padding: 0.75rem 2rem; text-decoration: none; margin-top: 1rem;
-          transition: opacity 0.2s;
+          transition: opacity 0.2s; cursor: pointer; background: transparent;
+          border-style: solid;
         }
       `}</style>
 
       <span className="gold-bar" />
 
-      {/* Confirmation */}
-      <section style={{ padding: "5rem 1.5rem 3rem", maxWidth: "680px", margin: "0 auto", textAlign: "center" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C1A062", marginBottom: "1.5rem" }}>
-          Boss Era™ · Order Confirmed
-        </p>
-        <div style={{ width: "48px", height: "2px", background: "#C1A062", margin: "0 auto 2rem" }} />
-        <h1 style={{ fontWeight: 300, fontSize: "clamp(2.2rem,5vw,3.5rem)", lineHeight: 1.1, marginBottom: "1.5rem" }}>
-          You're in.<br />
-          <em style={{ color: "#C1A062" }}>Your system is ready.</em>
-        </h1>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.75, color: "rgba(242,238,228,0.78)", marginBottom: "2.5rem", fontSize: "1rem" }}>
-          Thank you for your order. The Claude AI · Content to Cash system is waiting for you. Click below to access your full digital product.
-        </p>
-        <a href={GOOGLE_DRIVE_LINK} className="btn-gold">
-          Access My Product →
-        </a>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.78rem", color: "rgba(242,238,228,0.4)", marginTop: "1rem" }}>
-          A confirmation has been sent to your email via Stripe.
-        </p>
-      </section>
-
-      <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(193,160,98,0.2), transparent)", margin: "1rem 0" }} />
-
-      {/* Upsell */}
-      <section style={{ padding: "3rem 1.5rem 5rem", maxWidth: "680px", margin: "0 auto", textAlign: "center" }}>
+      {/* Upsell — shown first */}
+      <section style={{ padding: "5rem 1.5rem 5rem", maxWidth: "680px", margin: "0 auto", textAlign: "center" }}>
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C1A062", marginBottom: "1.5rem" }}>
           One-Time Offer · For New Customers Only
         </p>
@@ -101,13 +85,36 @@ export default function ThankYouClaude() {
             Add Quote Authority System — $47
           </a>
           <br />
-          <a href="/claude" className="btn-ghost">
+          <button onClick={scrollToDelivery} className="btn-ghost">
             No thanks, I'll pass on this offer
-          </a>
+          </button>
         </div>
 
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.75rem", color: "rgba(242,238,228,0.3)", marginTop: "2rem", lineHeight: 1.7 }}>
           Results depend on individual effort and consistency. This is an educational digital product.
+        </p>
+      </section>
+
+      <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(193,160,98,0.2), transparent)" }} />
+
+      {/* Product delivery — shown after upsell */}
+      <section id="delivery" style={{ padding: "5rem 1.5rem", maxWidth: "680px", margin: "0 auto", textAlign: "center" }}>
+        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C1A062", marginBottom: "1.5rem" }}>
+          Boss Era™ · Order Confirmed
+        </p>
+        <div style={{ width: "48px", height: "2px", background: "#C1A062", margin: "0 auto 2rem" }} />
+        <h1 style={{ fontWeight: 300, fontSize: "clamp(2.2rem,5vw,3.5rem)", lineHeight: 1.1, marginBottom: "1.5rem" }}>
+          You're in.<br />
+          <em style={{ color: "#C1A062" }}>Your system is ready.</em>
+        </h1>
+        <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.75, color: "rgba(242,238,228,0.78)", marginBottom: "2.5rem", fontSize: "1rem" }}>
+          Thank you for your order. The Claude AI · Content to Cash system is waiting for you. Click below to access your full digital product.
+        </p>
+        <a href={GOOGLE_DRIVE_LINK} className="btn-gold">
+          Access My Product →
+        </a>
+        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.78rem", color: "rgba(242,238,228,0.4)", marginTop: "1rem" }}>
+          A confirmation has been sent to your email via Stripe.
         </p>
       </section>
 
