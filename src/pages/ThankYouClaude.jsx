@@ -67,7 +67,7 @@ export default function ThankYouClaude() {
           <em style={{ color: "#C1A062" }}>Now give it authority quotes to work with.</em>
         </h2>
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.75, color: "rgba(242,238,228,0.78)", marginBottom: "1.5rem", maxWidth: "540px", margin: "0 auto 1.5rem" }}>
-          The <strong style={{ color: "#F2EEE4" }}>Boss Era™ Quote Authority System</strong> gives you 127 curated authority quotes across 10 psychological pillars — identity, mindset, feminine authority, business, wealth, and more — with caption frameworks and a complete Instagram formatting system.
+          The <strong style={{ color: "#F2EEE4" }}>Boss Era™ Quote Authority System</strong> gives you 427+ curated authority quotes across 10 psychological pillars — identity, mindset, feminine authority, business, wealth, and more — with caption frameworks and a complete Instagram formatting system.
         </p>
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.75, color: "rgba(242,238,228,0.78)", marginBottom: "2rem", maxWidth: "540px", margin: "0 auto 2rem" }}>
           Use it alongside your Claude AI system: let AI build your content strategy, let the vault supply the authority positioning. Together, they cover everything.
