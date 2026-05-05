@@ -132,186 +132,72 @@ export default function ThankYouQuote() {
         .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(193,160,98,0.2), transparent); margin: 3rem 0; }
       `}</style>
 
+      <header style={{ background:"#0D1B2A", borderBottom:"1px solid rgba(193,160,98,0.15)", padding:"0.85rem 2rem", display:"flex", alignItems:"center", justifyContent:"center" }}>
+        <span style={{ fontFamily:"'Cormorant Garamond', Georgia, serif", fontSize:"1.1rem", color:"#C1A062", letterSpacing:"0.12em" }}>Boss Era™</span>
+      </header>
+
       <span className="gold-bar" />
 
-      {/* Hero / confirmation */}
-      <section style={{ padding: "5rem 1.5rem 3rem", maxWidth: "720px", margin: "0 auto", textAlign: "center" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C1A062", marginBottom: "1.5rem" }}>
+      {/* Confirmation + Delivery */}
+      <section style={{ padding:"5rem 1.5rem 3rem", maxWidth:"680px", margin:"0 auto", textAlign:"center" }}>
+        <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:"#C1A062", marginBottom:"1.5rem" }}>
           Boss Era™ · Order Confirmed
         </p>
-        <div style={{ width: "48px", height: "2px", background: "#C1A062", margin: "0 auto 2rem" }} />
-        <h1 style={{ fontWeight: 300, fontSize: "clamp(2.2rem,5vw,3.5rem)", lineHeight: 1.1, marginBottom: "1.5rem" }}>
+        <div style={{ width:"48px", height:"2px", background:"#C1A062", margin:"0 auto 2rem" }} />
+        <h1 style={{ fontWeight:300, fontSize:"clamp(2.2rem,5vw,3.5rem)", lineHeight:1.1, marginBottom:"1.2rem" }}>
           Your authority vault<br />
-          <em style={{ color: "#C1A062" }}>is ready.</em>
+          <em style={{ color:"#C1A062" }}>is ready.</em>
         </h1>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.75, color: "rgba(242,238,228,0.78)", marginBottom: "2.5rem" }}>
-          The Boss Era™ Quote Authority System is now yours. 427+ authority quotes. 10 psychological pillars. The complete Instagram formatting system and monetization roadmap — all inside.
+        <p style={{ fontFamily:"'Instrument Sans',sans-serif", lineHeight:1.75, color:"rgba(242,238,228,0.78)", marginBottom:"0.75rem", maxWidth:"500px", margin:"0 auto 0.75rem" }}>
+          The Boss Era™ Quote Authority System is now yours.
+        </p>
+        <p style={{ fontFamily:"'Instrument Sans',sans-serif", lineHeight:1.75, color:"rgba(242,238,228,0.78)", marginBottom:"2.5rem", maxWidth:"500px", margin:"0 auto 2.5rem" }}>
+          427+ authority quotes. 10 psychological pillars. The complete Instagram formatting system and monetization roadmap — all inside.
         </p>
         <a href={QAS_DRIVE_LINK} className="btn-gold">
           Access My Quote Authority System →
         </a>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.78rem", color: "rgba(242,238,228,0.4)", marginTop: "1rem" }}>
+        <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.78rem", color:"rgba(242,238,228,0.4)", marginTop:"1rem" }}>
           A confirmation has been sent to your email via Stripe.
         </p>
       </section>
 
-      <div className="divider" style={{ margin: "0 1.5rem" }} />
-
-      {/* 9 Modules */}
-      <section style={{ padding: "3rem 1.5rem", maxWidth: "720px", margin: "0 auto" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C1A062", marginBottom: "1rem", textAlign: "center" }}>
-          What's Inside
+      {/* 4 Sample Quotes */}
+      <section style={{ padding:"3rem 1.5rem", maxWidth:"680px", margin:"0 auto" }}>
+        <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:"#C1A062", textAlign:"center", marginBottom:"0.75rem" }}>
+          A taste of your vault
         </p>
-        <div style={{ width: "48px", height: "2px", background: "#C1A062", margin: "0 auto 2rem" }} />
-        <h2 style={{ fontWeight: 300, fontSize: "clamp(1.8rem,3.5vw,2.5rem)", lineHeight: 1.15, marginBottom: "2rem", textAlign: "center" }}>
-          Nine Modules.<br />
-          <em style={{ color: "#C1A062" }}>One Complete System.</em>
-        </h2>
-        {modules.map((mod) => (
-          <div key={mod.n} className="module-card">
-            <span className="module-num">{mod.n}</span>
-            <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C1A062", marginBottom: "0.3rem" }}>
-              Module {mod.n}
-            </p>
-            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem", fontWeight: 400, color: "#F2EEE4", marginBottom: "0.35rem" }}>
-              {mod.title}
-            </p>
-            <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.87rem", color: "rgba(242,238,228,0.65)", lineHeight: 1.6 }}>
-              {mod.desc}
-            </p>
-          </div>
-        ))}
-      </section>
-
-      <div className="divider" style={{ margin: "0 1.5rem" }} />
-
-      {/* Sample Quotes */}
-      <section style={{ padding: "3rem 1.5rem", maxWidth: "720px", margin: "0 auto" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C1A062", marginBottom: "1rem", textAlign: "center" }}>
-          A Taste of the Vault
-        </p>
-        <div style={{ width: "48px", height: "2px", background: "#C1A062", margin: "0 auto 1rem" }} />
-        <h2 style={{ fontWeight: 300, fontSize: "clamp(1.8rem,3.5vw,2.5rem)", lineHeight: 1.15, marginBottom: "0.5rem", textAlign: "center" }}>
-          Words That Build Empires.
-        </h2>
-        <div className="quotes-grid">
-          {sampleQuotes.map((q) => (
-            <div key={q} className="quote-card">
-              "{q}"
+        <div style={{ width:"48px", height:"2px", background:"#C1A062", margin:"0 auto 2rem" }} />
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"1rem" }}>
+          {[
+            "It's not the money I'm after. It's the freedom to live life on my own terms.",
+            "Either I am going to make it, or I am going to make it. No other options.",
+            "Every time you hesitate, someone less talented takes your spot. The world rewards audacity, not potential.",
+            "Saying no is the ultimate luxury."
+          ].map(q => (
+            <div key={q} style={{ background:"#132236", border:"1px solid rgba(193,160,98,0.15)", padding:"1.5rem" }}>
+              <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"1.1rem", fontStyle:"italic", fontWeight:300, color:"#C1A062", lineHeight:1.6, margin:0 }}>
+                "{q}"
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-      <div className="divider" style={{ margin: "0 1.5rem" }} />
-
-      {/* Built for Her */}
-      <section style={{ padding: "3rem 1.5rem", maxWidth: "720px", margin: "0 auto" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C1A062", marginBottom: "1rem", textAlign: "center" }}>
-          Clarity Before You Use It
-        </p>
-        <div style={{ width: "48px", height: "2px", background: "#C1A062", margin: "0 auto 1.5rem" }} />
-        <h2 style={{ fontWeight: 300, fontSize: "clamp(1.8rem,3.5vw,2.5rem)", lineHeight: 1.15, marginBottom: "2rem", textAlign: "center" }}>
-          Built for Her.<br />
-          <em style={{ color: "#C1A062" }}>Not for Everyone.</em>
-        </h2>
-        <div className="for-grid">
-          <div className="for-col">
-            <h4 style={{ color: "#C1A062" }}>✦ This IS for you if...</h4>
-            {[
-              "Who's building authority-based Instagram pages",
-              "Wants to build a faceless business with quiet authority",
-              "Building something that generates income and impact",
-              "Proven and values strategy over random posting",
-              "Wants to become a voice others follow and trust",
-            ].map((t) => <p key={t} className="for-item" data-marker="✓">{t}</p>)}
-          </div>
-          <div className="for-col">
-            <h4 style={{ color: "rgba(242,238,228,0.45)" }}>✗ This is NOT for you if...</h4>
-            {[
-              "You want overnight results without consistent action",
-              "You're looking for a get-rich-quick shortcut or magic formula",
-              "You're comfortable staying in random-posting mode indefinitely",
-              "You refuse to invest in your own education or tools",
-              "You need every step to feel comfortable before you move",
-            ].map((t) => <p key={t} className="for-item" data-marker="✗" style={{ color: "rgba(242,238,228,0.4)" }}>{t}</p>)}
-          </div>
-        </div>
-      </section>
-
-      <div className="divider" style={{ margin: "0 1.5rem" }} />
-
-      {/* What You Walk Away With */}
-      <section style={{ padding: "3rem 1.5rem", maxWidth: "720px", margin: "0 auto", textAlign: "center" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C1A062", marginBottom: "1rem" }}>
-          Your Outcome
-        </p>
-        <div style={{ width: "48px", height: "2px", background: "#C1A062", margin: "0 auto 1.5rem" }} />
-        <h2 style={{ fontWeight: 300, fontSize: "clamp(1.8rem,3.5vw,2.5rem)", lineHeight: 1.15, marginBottom: "1.5rem" }}>
-          What You Walk Away With.
-        </h2>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.8, color: "rgba(242,238,228,0.78)", maxWidth: "560px", margin: "0 auto 1.5rem", fontSize: "0.97rem" }}>
-          A complete authority system for building a quote page that generates income and impact. Everything you need is immediately. A roadmap to your income calling. A framework for authority building that is unmistakable.
-        </p>
-        <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontStyle: "italic", color: "#C1A062", margin: "0 auto" }}>
-          "This isn't hustle culture. This is authority culture."
-        </p>
-      </section>
-
-      <div className="divider" style={{ margin: "0 1.5rem" }} />
-
-      {/* Value Stack */}
-      <section style={{ padding: "3rem 1.5rem 5rem", maxWidth: "720px", margin: "0 auto" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C1A062", marginBottom: "1rem", textAlign: "center" }}>
-          What You're Getting
-        </p>
-        <div style={{ width: "48px", height: "2px", background: "#C1A062", margin: "0 auto 1.5rem" }} />
-        <h2 style={{ fontWeight: 300, fontSize: "clamp(1.8rem,3.5vw,2.5rem)", lineHeight: 1.15, marginBottom: "2rem", textAlign: "center" }}>
-          Everything Inside.<br />
-          <em style={{ color: "#C1A062" }}>One Price.</em>
-        </h2>
-
-        {valueStack.map(([item, val]) => (
-          <div key={item} className="value-row">
-            <span>{item}</span>
-            <span className="value-price">{val}</span>
-          </div>
-        ))}
-
-        {/* Price tiers */}
-        <div style={{ marginTop: "1.5rem", padding: "1.5rem", background: "#132236", border: "1px solid rgba(193,160,98,0.2)" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.5rem 0", fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.85rem" }}>
-            <span style={{ color: "rgba(242,238,228,0.45)" }}>Total Value</span>
-            <span style={{ color: "rgba(242,238,228,0.35)", textDecoration: "line-through", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem" }}>$261</span>
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.5rem 0", fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.85rem", borderTop: "1px solid rgba(193,160,98,0.1)" }}>
-            <span style={{ color: "rgba(242,238,228,0.45)" }}>Standard Price</span>
-            <span style={{ color: "rgba(242,238,228,0.35)", textDecoration: "line-through", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem" }}>$67</span>
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.75rem 0 0.25rem", borderTop: "1px solid rgba(193,160,98,0.25)" }}>
-            <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#C1A062" }}>Your Investment Today</span>
-            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2.8rem", fontWeight: 300, color: "#C1A062", lineHeight: 1 }}>$47</span>
-          </div>
-          <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.75rem", color: "rgba(242,238,228,0.35)", letterSpacing: "0.05em", textAlign: "right", marginTop: "0.4rem" }}>
-            New customer discount · This page only
-          </p>
-        </div>
-      </section>
-
-      {/* Private diagnosis callout */}
-      <section style={{ padding: "0 1.5rem 5rem", maxWidth: "720px", margin: "0 auto" }}>
-        <div style={{ padding: "2rem", border: "1px solid rgba(193,160,98,0.15)", textAlign: "center" }}>
-          <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#C1A062", marginBottom: "0.75rem" }}>
+      {/* Audit CTA */}
+      <section style={{ padding:"2rem 1.5rem 5rem", maxWidth:"680px", margin:"0 auto" }}>
+        <div style={{ padding:"2rem", border:"1px solid rgba(193,160,98,0.15)", textAlign:"center" }}>
+          <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.72rem", letterSpacing:"0.15em", textTransform:"uppercase", color:"#C1A062", marginBottom:"0.75rem" }}>
             Want a private diagnosis?
           </p>
-          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontStyle: "italic", color: "#F2EEE4", marginBottom: "0.75rem" }}>
+          <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"1.4rem", fontStyle:"italic", color:"#F2EEE4", marginBottom:"0.75rem" }}>
             Instagram Authority & Monetization Audit
           </p>
-          <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.88rem", color: "rgba(242,238,228,0.65)", lineHeight: 1.7, marginBottom: "1.2rem" }}>
-            A 1:1 diagnostic call where we go through your account across six layers — bio, content, offer, funnel, DMs, and positioning. You leave with a 30-day action plan built around your specific gaps.
+          <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.88rem", color:"rgba(242,238,228,0.65)", lineHeight:1.7, marginBottom:"1.2rem", maxWidth:"480px", margin:"0 auto 1.2rem" }}>
+            A 1:1 diagnostic call across six layers — bio, content, offer, funnel, DMs, and positioning. You leave with a 30-day action plan built around your specific gaps.
           </p>
-          <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.78rem", color: "rgba(242,238,228,0.45)", letterSpacing: "0.08em" }}>
-            DM the word <strong style={{ color: "#C1A062" }}>AUDIT</strong> on Instagram → @bossdigitalbusiness
+          <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.82rem", color:"rgba(242,238,228,0.55)", letterSpacing:"0.08em" }}>
+            DM the word <strong style={{ color:"#C1A062" }}>AUDIT</strong> on Instagram → @bossdigitalbusiness
           </p>
         </div>
       </section>

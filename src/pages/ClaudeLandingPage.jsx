@@ -37,7 +37,7 @@ const GoldLine = () => (
   <div style={{ width: "48px", height: "2px", background: "var(--gold)", margin: "0 auto 2rem" }} />
 );
 
-const CTAButton = ({ label = "Get Instant Access — $27", sub }) => (
+const CTAButton = ({ label = "Get Instant Access · $27", sub }) => (
   <div style={{ textAlign: "center" }}>
     <a
       href={STRIPE_LINK}
@@ -47,12 +47,13 @@ const CTAButton = ({ label = "Get Instant Access — $27", sub }) => (
         color: "var(--navy)",
         fontFamily: "var(--font-sans)",
         fontWeight: "700",
-        fontSize: "1rem",
+        fontSize: "1.05rem",
         letterSpacing: "0.08em",
         textTransform: "uppercase",
-        padding: "1.1rem 2.8rem",
+        padding: "1.4rem 3.5rem",
         textDecoration: "none",
         transition: "opacity 0.2s, transform 0.2s",
+        animation: "pulse 2.5s ease-in-out infinite",
       }}
       onMouseEnter={e => { e.currentTarget.style.opacity = "0.88"; e.currentTarget.style.transform = "translateY(-2px)"; }}
       onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
@@ -77,6 +78,9 @@ export default function ClaudeLandingPage() {
 
   return (
     <div style={{ fontFamily: "var(--font-serif)", background: "var(--navy)", color: "var(--cream)", minHeight: "100vh", overflowX: "hidden" }}>
+      <header style={{ background:"var(--navy)", borderBottom:"1px solid rgba(193,160,98,0.15)", padding:"0.85rem 2rem", display:"flex", alignItems:"center", justifyContent:"center" }}>
+        <span style={{ fontFamily:"var(--font-serif)", fontSize:"1.1rem", color:"var(--gold)", letterSpacing:"0.12em" }}>Boss Era™</span>
+      </header>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap');
 
@@ -274,6 +278,12 @@ export default function ClaudeLandingPage() {
           font-weight: 700;
         }
 
+        @keyframes pulse {
+          0% { box-shadow: 0 0 0 0 rgba(193,160,98,0.4); }
+          70% { box-shadow: 0 0 0 12px rgba(193,160,98,0); }
+          100% { box-shadow: 0 0 0 0 rgba(193,160,98,0); }
+        }
+
         blockquote {
           border-left: 2px solid var(--gold);
           padding: 1.2rem 1.8rem;
@@ -312,7 +322,7 @@ export default function ClaudeLandingPage() {
       </div>
 
       {/* Hero */}
-      <section style={{ background: "var(--navy)", paddingTop: "3rem", paddingBottom: "5rem" }}>
+      <section style={{ background: "var(--navy)", paddingTop: "1.5rem", paddingBottom: "5rem" }}>
         <div className="section" style={{ textAlign: "center" }}>
           <div
             style={{
@@ -322,31 +332,30 @@ export default function ClaudeLandingPage() {
           >
             <style>{`@keyframes fadeDown { from { opacity:0; transform: translateY(-18px); } to { opacity:1; transform: translateY(0); } }`}</style>
             <p className="eyebrow">Boss Era™ · Premium Edition</p>
-            <GoldLine />
-            <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" style={{margin: "0 auto 2rem", display: "block"}} aria-hidden="true">
-              <circle cx="60" cy="40" r="5" fill="#C1A062"/>
-              <circle cx="20" cy="15" r="3.5" fill="#C1A062" opacity="0.7"/>
-              <circle cx="100" cy="15" r="3.5" fill="#C1A062" opacity="0.7"/>
-              <circle cx="10" cy="55" r="3" fill="#C1A062" opacity="0.5"/>
-              <circle cx="110" cy="55" r="3" fill="#C1A062" opacity="0.5"/>
-              <circle cx="35" cy="68" r="3" fill="#C1A062" opacity="0.5"/>
-              <circle cx="85" cy="68" r="3" fill="#C1A062" opacity="0.5"/>
-              <circle cx="40" cy="10" r="2.5" fill="#C1A062" opacity="0.4"/>
-              <circle cx="80" cy="10" r="2.5" fill="#C1A062" opacity="0.4"/>
-              <line x1="60" y1="40" x2="20" y2="15" stroke="#C1A062" strokeWidth="0.75" opacity="0.4"/>
-              <line x1="60" y1="40" x2="100" y2="15" stroke="#C1A062" strokeWidth="0.75" opacity="0.4"/>
-              <line x1="60" y1="40" x2="10" y2="55" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="60" y1="40" x2="110" y2="55" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="60" y1="40" x2="35" y2="68" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="60" y1="40" x2="85" y2="68" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="20" y1="15" x2="40" y2="10" stroke="#C1A062" strokeWidth="0.5" opacity="0.25"/>
-              <line x1="100" y1="15" x2="80" y2="10" stroke="#C1A062" strokeWidth="0.5" opacity="0.25"/>
-              <line x1="20" y1="15" x2="10" y2="55" stroke="#C1A062" strokeWidth="0.5" opacity="0.2"/>
-              <line x1="100" y1="15" x2="110" y2="55" stroke="#C1A062" strokeWidth="0.5" opacity="0.2"/>
+            <svg width="160" height="110" viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg" style={{margin: "0 auto 2rem", display: "block"}} aria-hidden="true">
+              <circle cx="80" cy="55" r="5" fill="#C1A062"/>
+              <circle cx="26.6" cy="20.6" r="3.5" fill="#C1A062" opacity="0.7"/>
+              <circle cx="133" cy="20.6" r="3.5" fill="#C1A062" opacity="0.7"/>
+              <circle cx="13.3" cy="75.6" r="3" fill="#C1A062" opacity="0.5"/>
+              <circle cx="146.3" cy="75.6" r="3" fill="#C1A062" opacity="0.5"/>
+              <circle cx="46.6" cy="93.5" r="3" fill="#C1A062" opacity="0.5"/>
+              <circle cx="113.1" cy="93.5" r="3" fill="#C1A062" opacity="0.5"/>
+              <circle cx="53.2" cy="13.75" r="2.5" fill="#C1A062" opacity="0.4"/>
+              <circle cx="106.4" cy="13.75" r="2.5" fill="#C1A062" opacity="0.4"/>
+              <line x1="80" y1="55" x2="26.6" y2="20.6" stroke="#C1A062" strokeWidth="0.75" opacity="0.4"/>
+              <line x1="80" y1="55" x2="133" y2="20.6" stroke="#C1A062" strokeWidth="0.75" opacity="0.4"/>
+              <line x1="80" y1="55" x2="13.3" y2="75.6" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="80" y1="55" x2="146.3" y2="75.6" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="80" y1="55" x2="46.6" y2="93.5" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="80" y1="55" x2="113.1" y2="93.5" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="26.6" y1="20.6" x2="53.2" y2="13.75" stroke="#C1A062" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="133" y1="20.6" x2="106.4" y2="13.75" stroke="#C1A062" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="26.6" y1="20.6" x2="13.3" y2="75.6" stroke="#C1A062" strokeWidth="0.5" opacity="0.2"/>
+              <line x1="133" y1="20.6" x2="146.3" y2="75.6" stroke="#C1A062" strokeWidth="0.5" opacity="0.2"/>
             </svg>
             <h1>
               Stop Using AI<br />
-              <em style={{ color: "var(--gold)" }}>Start Earning With It.</em>
+              <em style={{ color: "var(--gold)" }}>Start Building With It.</em>
             </h1>
             <p style={{ maxWidth: "560px", margin: "0 auto 2.5rem", fontSize: "1.1rem" }}>
               The complete system that turns Claude AI into your personal content engine, offer builder, and income strategy — built for women who are done experimenting and ready to convert.
@@ -563,7 +572,7 @@ export default function ClaudeLandingPage() {
             <p style={{ maxWidth: "520px", margin: "0 auto 2.5rem" }}>
               The difference between where you are and where you want to be is not information. It is implementation. This system gives you both.
             </p>
-            <CTAButton label="Get Instant Access — $27" sub="One-time · Instant digital delivery · No subscription" />
+            <CTAButton label="Get Instant Access · $27" sub="One-time · Instant digital delivery · No subscription" />
             <p style={{ marginTop: "3rem", fontSize: "0.78rem", fontFamily: "var(--font-sans)", color: "var(--cream-muted)", maxWidth: "440px", margin: "3rem auto 0", lineHeight: "1.7" }}>
               Results depend on your individual effort, consistency, and market conditions. This is an educational digital product. Income figures mentioned are examples, not guarantees.
             </p>

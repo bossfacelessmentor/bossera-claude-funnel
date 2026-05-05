@@ -65,6 +65,9 @@ export default function ThankYouClaude() {
 
   return (
     <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", background: "#0D1B2A", color: "#F2EEE4", minHeight: "100vh" }}>
+      <header style={{ background:"#0D1B2A", borderBottom:"1px solid rgba(193,160,98,0.15)", padding:"0.85rem 2rem", display:"flex", alignItems:"center", justifyContent:"center" }}>
+        <span style={{ fontFamily:"'Cormorant Garamond', Georgia, serif", fontSize:"1.1rem", color:"#C1A062", letterSpacing:"0.12em" }}>Boss Era™</span>
+      </header>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Instrument+Sans:wght@400;500;600;700&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -133,7 +136,7 @@ export default function ThankYouClaude() {
           Your Claude AI system builds your content strategy.
         </p>
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.8, color: "rgba(242,238,228,0.65)", maxWidth: "580px", margin: "0 auto 2rem", fontSize: "0.92rem" }}>
-          The <strong style={{ color: "#F2EEE4" }}>Boss Era™ Quote Authority System</strong> supplies the authority positioning. Together, they cover every layer of a faceless brand that converts — content, voice, identity, and income.
+          The <strong style={{ color: "#F2EEE4" }}>Boss Era™ Quote Authority System</strong> supplies the authority positioning. Together, they cover every layer of a faceless brand that converts — content, voice, identity, and direction.
         </p>
 
         <div className="upsell-divider" />
