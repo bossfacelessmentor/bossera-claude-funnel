@@ -187,21 +187,21 @@ export default function ThankYouClaude() {
 
         {/* Price tiers + CTA */}
         <div style={{ background: "#132236", border: "1px solid rgba(193,160,98,0.25)", padding: "2rem", marginTop: "1.5rem" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.4rem 0", fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.85rem" }}>
-            <span style={{ color: "rgba(242,238,228,0.55)" }}>Total Value</span>
-            <span style={{ color: "rgba(242,238,228,0.55)", textDecoration: "line-through", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem" }}>$261</span>
+          <div style={{ borderTop:"1px solid rgba(193,160,98,0.2)", marginTop:"0.5rem", paddingTop:"1rem" }}>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"0.5rem 0" }}>
+              <span style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.82rem", color:"rgba(242,238,228,0.5)", letterSpacing:"0.05em" }}>Total Value</span>
+              <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"1.2rem", color:"rgba(242,238,228,0.5)", textDecoration:"line-through", textDecorationThickness:"2px" }}>$261</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"0.5rem 0" }}>
+              <span style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.82rem", color:"rgba(242,238,228,0.5)", letterSpacing:"0.05em" }}>Standard Price</span>
+              <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"1.2rem", color:"rgba(242,238,228,0.5)", textDecoration:"line-through", textDecorationThickness:"2px" }}>$67</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", padding:"0.75rem 0 0.25rem", borderTop:"1px solid rgba(193,160,98,0.2)", marginTop:"0.5rem" }}>
+              <span style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.82rem", color:"#C1A062", letterSpacing:"0.08em", textTransform:"uppercase", fontWeight:"600" }}>Your Price Today</span>
+              <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"3rem", color:"#C1A062", fontWeight:"300" }}>$47</span>
+            </div>
+            <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.75rem", color:"rgba(242,238,228,0.4)", textAlign:"right", margin:"0 0 1.5rem" }}>New customer discount · This page only</p>
           </div>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.4rem 0", borderTop: "1px solid rgba(193,160,98,0.1)", fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.85rem" }}>
-            <span style={{ color: "rgba(242,238,228,0.55)" }}>Standard Price</span>
-            <span style={{ color: "rgba(242,238,228,0.55)", textDecoration: "line-through", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem" }}>$67</span>
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.75rem 0 0.25rem", borderTop: "1px solid rgba(193,160,98,0.25)" }}>
-            <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.85rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "#C1A062" }}>Your Price Today</span>
-            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2.8rem", fontWeight: 300, color: "#C1A062", lineHeight: 1 }}>$47</span>
-          </div>
-          <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.75rem", color: "rgba(242,238,228,0.35)", letterSpacing: "0.04em", textAlign: "right", marginBottom: "1.5rem" }}>
-            New customer discount · This page only
-          </p>
 
           <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.92rem", color: "#C1A062", fontWeight: "600", lineHeight: 1.6, marginBottom: "1.25rem", textAlign: "center" }}>
             This offer is available on this page only. Once you leave, the $47 price is gone.

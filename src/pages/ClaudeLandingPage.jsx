@@ -465,16 +465,16 @@ export default function ClaudeLandingPage() {
                   <span className="value-price">{val}</span>
                 </div>
               ))}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "1.2rem 0 0.5rem", borderTop: "1px solid rgba(193,160,98,0.3)", marginTop: "0.5rem" }}>
-                <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)" }}>Total Value</span>
-                <span style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", color: "rgba(242,238,228,0.55)", textDecoration: "line-through" }}>$160</span>
+              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", padding:"1.2rem 0 0.5rem", borderTop:"1px solid rgba(193,160,98,0.3)", marginTop:"0.5rem" }}>
+                <span style={{ fontFamily:"var(--font-sans)", fontSize:"0.85rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"rgba(242,238,228,0.6)" }}>Total Value</span>
+                <span style={{ fontFamily:"var(--font-serif)", fontSize:"1.5rem", color:"rgba(242,238,228,0.6)", textDecoration:"line-through", textDecorationColor:"rgba(242,238,228,0.6)", textDecorationThickness:"2px" }}>$160</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.5rem 0 1.5rem" }}>
-                <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)" }}>Your Investment</span>
-                <span style={{ fontFamily: "var(--font-serif)", fontSize: "3rem", color: "var(--gold)", fontWeight: "300" }}>$27</span>
+              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", padding:"0.5rem 0 1.5rem" }}>
+                <span style={{ fontFamily:"var(--font-sans)", fontSize:"0.85rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--gold)" }}>Your Investment</span>
+                <span style={{ fontFamily:"var(--font-serif)", fontSize:"3rem", color:"var(--gold)", fontWeight:"300" }}>$27</span>
               </div>
             </div>
-            <CTAButton sub="Instant access · Delivered digitally · One-time payment" />
+            <CTAButton sub="Instant access · No subscription · Digital delivery" />
           </FadeIn>
         </div>
       </section>
