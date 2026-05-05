@@ -70,7 +70,7 @@ const CTAButton = ({ label = "Get Instant Access — $27", sub }) => (
 export default function ClaudeLandingPage() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -312,7 +312,7 @@ export default function ClaudeLandingPage() {
       </div>
 
       {/* Hero */}
-      <section style={{ background: "var(--navy)", paddingTop: "6rem", paddingBottom: "5rem" }}>
+      <section style={{ background: "var(--navy)", paddingTop: "3rem", paddingBottom: "5rem" }}>
         <div className="section" style={{ textAlign: "center" }}>
           <div
             style={{
@@ -323,39 +323,26 @@ export default function ClaudeLandingPage() {
             <style>{`@keyframes fadeDown { from { opacity:0; transform: translateY(-18px); } to { opacity:1; transform: translateY(0); } }`}</style>
             <p className="eyebrow">Boss Era™ · Premium Edition</p>
             <GoldLine />
-            <svg
-              width="180"
-              height="120"
-              viewBox="0 0 180 120"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ margin: "0 auto 2rem", display: "block" }}
-              aria-hidden="true"
-            >
-              {/* Lines */}
-              <line x1="90" y1="12" x2="40" y2="48" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="90" y1="12" x2="140" y2="48" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="90" y1="12" x2="90" y2="60" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="40" y1="48" x2="18" y2="88" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="40" y1="48" x2="65" y2="90" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="40" y1="48" x2="90" y2="60" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="140" y1="48" x2="162" y2="88" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="140" y1="48" x2="115" y2="90" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="140" y1="48" x2="90" y2="60" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="90" y1="60" x2="65" y2="90" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="90" y1="60" x2="115" y2="90" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.5" />
-              <line x1="65" y1="90" x2="18" y2="88" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.3" />
-              <line x1="115" y1="90" x2="162" y2="88" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.3" />
-              <line x1="65" y1="90" x2="115" y2="90" stroke="#C1A062" strokeWidth="0.8" strokeOpacity="0.3" />
-              {/* Dots */}
-              <circle cx="90" cy="12" r="3.5" fill="#C1A062" />
-              <circle cx="40" cy="48" r="2.5" fill="#C1A062" fillOpacity="0.85" />
-              <circle cx="140" cy="48" r="2.5" fill="#C1A062" fillOpacity="0.85" />
-              <circle cx="90" cy="60" r="4" fill="#C1A062" />
-              <circle cx="18" cy="88" r="2" fill="#C1A062" fillOpacity="0.6" />
-              <circle cx="65" cy="90" r="2.5" fill="#C1A062" fillOpacity="0.75" />
-              <circle cx="115" cy="90" r="2.5" fill="#C1A062" fillOpacity="0.75" />
-              <circle cx="162" cy="88" r="2" fill="#C1A062" fillOpacity="0.6" />
+            <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" style={{margin: "0 auto 2rem", display: "block"}} aria-hidden="true">
+              <circle cx="60" cy="40" r="5" fill="#C1A062"/>
+              <circle cx="20" cy="15" r="3.5" fill="#C1A062" opacity="0.7"/>
+              <circle cx="100" cy="15" r="3.5" fill="#C1A062" opacity="0.7"/>
+              <circle cx="10" cy="55" r="3" fill="#C1A062" opacity="0.5"/>
+              <circle cx="110" cy="55" r="3" fill="#C1A062" opacity="0.5"/>
+              <circle cx="35" cy="68" r="3" fill="#C1A062" opacity="0.5"/>
+              <circle cx="85" cy="68" r="3" fill="#C1A062" opacity="0.5"/>
+              <circle cx="40" cy="10" r="2.5" fill="#C1A062" opacity="0.4"/>
+              <circle cx="80" cy="10" r="2.5" fill="#C1A062" opacity="0.4"/>
+              <line x1="60" y1="40" x2="20" y2="15" stroke="#C1A062" strokeWidth="0.75" opacity="0.4"/>
+              <line x1="60" y1="40" x2="100" y2="15" stroke="#C1A062" strokeWidth="0.75" opacity="0.4"/>
+              <line x1="60" y1="40" x2="10" y2="55" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="60" y1="40" x2="110" y2="55" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="60" y1="40" x2="35" y2="68" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="60" y1="40" x2="85" y2="68" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="20" y1="15" x2="40" y2="10" stroke="#C1A062" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="100" y1="15" x2="80" y2="10" stroke="#C1A062" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="20" y1="15" x2="10" y2="55" stroke="#C1A062" strokeWidth="0.5" opacity="0.2"/>
+              <line x1="100" y1="15" x2="110" y2="55" stroke="#C1A062" strokeWidth="0.5" opacity="0.2"/>
             </svg>
             <h1>
               Stop Using AI<br />
@@ -365,9 +352,6 @@ export default function ClaudeLandingPage() {
               The complete system that turns Claude AI into your personal content engine, offer builder, and income strategy — built for women who are done experimenting and ready to convert.
             </p>
             <CTAButton sub="Instant digital access · $27 one-time · No subscription" />
-            <p style={{ marginTop: "2rem", fontSize: "0.8rem", fontFamily: "var(--font-sans)", color: "var(--cream-muted)", letterSpacing: "0.05em" }}>
-              STARTER · ADVANCED · PRO — One complete system.
-            </p>
           </div>
         </div>
         <span className="gold-bar" />
@@ -379,7 +363,7 @@ export default function ClaudeLandingPage() {
           <FadeIn>
             <p className="eyebrow">The Real Problem</p>
             <GoldLine />
-            <h2>Most women are using AI.<br />Almost none are earning from it.</h2>
+            <h2>Most women are using AI.<br />Almost none are building with it.</h2>
             <p style={{ maxWidth: "580px", margin: "0 auto 2rem" }}>
               You've opened Claude. You've typed a prompt. You got something generic back and thought: <em>"This isn't that useful."</em>
             </p>
@@ -474,11 +458,11 @@ export default function ClaudeLandingPage() {
               ))}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "1.2rem 0 0.5rem", borderTop: "1px solid rgba(193,160,98,0.3)", marginTop: "0.5rem" }}>
                 <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)" }}>Total Value</span>
-                <span style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", color: "var(--cream-muted)", textDecoration: "line-through" }}>$160</span>
+                <span style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", color: "rgba(242,238,228,0.55)", textDecoration: "line-through" }}>$160</span>
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.5rem 0 1.5rem" }}>
                 <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)" }}>Your Investment</span>
-                <span style={{ fontFamily: "var(--font-serif)", fontSize: "2.5rem", color: "var(--gold)", fontWeight: "300" }}>$27</span>
+                <span style={{ fontFamily: "var(--font-serif)", fontSize: "3rem", color: "var(--gold)", fontWeight: "300" }}>$27</span>
               </div>
             </div>
             <CTAButton sub="Instant access · Delivered digitally · One-time payment" />
@@ -554,6 +538,18 @@ export default function ClaudeLandingPage() {
               ))}
             </div>
           </FadeIn>
+        </div>
+      </section>
+
+      {/* Social proof bar */}
+      <section style={{ background: "var(--navy-light)", borderTop: "1px solid rgba(193,160,98,0.1)", borderBottom: "1px solid rgba(193,160,98,0.1)" }}>
+        <div style={{ maxWidth: "780px", margin: "0 auto", padding: "2.5rem 1.5rem", display: "flex", justifyContent: "center", gap: "3rem", flexWrap: "wrap", textAlign: "center" }}>
+          {[["427+", "Authority Quotes"], ["9", "Complete Modules"], ["$27", "One-Time Access"]].map(([num, label]) => (
+            <div key={label}>
+              <p style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: "300", color: "var(--gold)", margin: "0 0 0.25rem" }}>{num}</p>
+              <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(242,238,228,0.55)", margin: 0 }}>{label}</p>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -35,10 +35,10 @@ const modules = [
 ];
 
 const sampleQuotes = [
-  "I created authority to be a choice and built a life that required no permission.",
-  "I show women build empires.",
-  "The goal isn't to go viral. The goal is to become sustainable.",
-  "Transition your trial. It's positioned to be viral.",
+  "It's not the money I'm after. It's the freedom to live life on my own terms.",
+  "Either I am going to make it, or I am going to make it. No other options.",
+  "Every time you hesitate, someone less talented takes your spot. The world rewards audacity, not potential.",
+  "Saying no is the ultimate luxury.",
 ];
 
 const valueStack = [
@@ -129,11 +129,11 @@ export default function ThankYouClaude() {
           Your AI creates the content.<br />
           <em style={{ color: "#C1A062" }}>Now give it authority quotes to work with.</em>
         </h2>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.8, color: "rgba(242,238,228,0.78)", maxWidth: "580px", margin: "0 auto 1.5rem", fontSize: "0.97rem" }}>
-          Your Claude AI system builds your content strategy. The <strong style={{ color: "#F2EEE4" }}>Boss Era™ Quote Authority System</strong> supplies the authority positioning. Together, they cover every layer of a faceless brand that converts — content, voice, identity, and income.
+        <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.8, color: "rgba(242,238,228,0.78)", maxWidth: "580px", margin: "0 auto 1.25rem", fontSize: "0.97rem" }}>
+          Your Claude AI system builds your content strategy.
         </p>
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.8, color: "rgba(242,238,228,0.65)", maxWidth: "580px", margin: "0 auto 2rem", fontSize: "0.92rem" }}>
-          427+ curated authority quotes. 9 complete modules. The Instagram blueprint, monetization roadmap, and growth system — all built to pair directly with everything you just purchased.
+          The <strong style={{ color: "#F2EEE4" }}>Boss Era™ Quote Authority System</strong> supplies the authority positioning. Together, they cover every layer of a faceless brand that converts — content, voice, identity, and income.
         </p>
 
         <div className="upsell-divider" />
@@ -143,7 +143,7 @@ export default function ThankYouClaude() {
           What's Inside — 9 Modules
         </p>
         {modules.map((mod) => (
-          <div key={mod.n} className="module-card">
+          <div key={mod.n} className="module-card" style={mod.n === "02" ? { borderColor: "rgba(193,160,98,0.5)" } : undefined}>
             <span className="module-num">{mod.n}</span>
             <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C1A062", marginBottom: "0.25rem" }}>
               Module {mod.n}
@@ -185,12 +185,12 @@ export default function ThankYouClaude() {
         {/* Price tiers + CTA */}
         <div style={{ background: "#132236", border: "1px solid rgba(193,160,98,0.25)", padding: "2rem", marginTop: "1.5rem" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.4rem 0", fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.85rem" }}>
-            <span style={{ color: "rgba(242,238,228,0.4)" }}>Total Value</span>
-            <span style={{ color: "rgba(242,238,228,0.3)", textDecoration: "line-through", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem" }}>$261</span>
+            <span style={{ color: "rgba(242,238,228,0.55)" }}>Total Value</span>
+            <span style={{ color: "rgba(242,238,228,0.55)", textDecoration: "line-through", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem" }}>$261</span>
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.4rem 0", borderTop: "1px solid rgba(193,160,98,0.1)", fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.85rem" }}>
-            <span style={{ color: "rgba(242,238,228,0.4)" }}>Standard Price</span>
-            <span style={{ color: "rgba(242,238,228,0.3)", textDecoration: "line-through", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem" }}>$67</span>
+            <span style={{ color: "rgba(242,238,228,0.55)" }}>Standard Price</span>
+            <span style={{ color: "rgba(242,238,228,0.55)", textDecoration: "line-through", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem" }}>$67</span>
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.75rem 0 0.25rem", borderTop: "1px solid rgba(193,160,98,0.25)" }}>
             <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.85rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "#C1A062" }}>Your Price Today</span>
@@ -200,11 +200,9 @@ export default function ThankYouClaude() {
             New customer discount · This page only
           </p>
 
-          {/* Urgency line */}
-          <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.82rem", color: "rgba(242,238,228,0.55)", lineHeight: 1.65, marginBottom: "1.5rem", letterSpacing: "0.01em" }}>
+          <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.92rem", color: "#C1A062", fontWeight: "600", lineHeight: 1.6, marginBottom: "1.25rem", textAlign: "center" }}>
             This offer is available on this page only. Once you leave, the $47 price is gone.
           </p>
-
           <a href={QAS_STRIPE} className="btn-gold" style={{ display: "block", textAlign: "center" }}>
             Add Quote Authority System — $47
           </a>
@@ -220,7 +218,12 @@ export default function ThankYouClaude() {
         </p>
       </section>
 
-      <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(193,160,98,0.2), transparent)" }} />
+      <div style={{ background: "#132236", borderTop: "2px solid rgba(193,160,98,0.3)", padding: "2rem 1.5rem", textAlign: "center" }}>
+        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(242,238,228,0.4)" }}>
+          Scroll down to access your product
+        </p>
+        <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", color: "rgba(242,238,228,0.3)", margin: "0.5rem 0 0" }}>↓</p>
+      </div>
 
       {/* Product delivery — shown after upsell */}
       <section id="delivery" style={{ padding: "5rem 1.5rem", maxWidth: "680px", margin: "0 auto", textAlign: "center" }}>

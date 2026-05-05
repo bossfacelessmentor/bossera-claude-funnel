@@ -28,10 +28,10 @@ const modules = [
 ];
 
 const sampleQuotes = [
-  "I created authority to be a choice and built a life that required no permission.",
-  "I show women build empires.",
-  "The goal isn't to go viral. The goal is to become sustainable.",
-  "Transition your trial. It's positioned to be viral.",
+  "It's not the money I'm after. It's the freedom to live life on my own terms.",
+  "Either I am going to make it, or I am going to make it. No other options.",
+  "Every time you hesitate, someone less talented takes your spot. The world rewards audacity, not potential.",
+  "Saying no is the ultimate luxury.",
 ];
 
 const valueStack = [
