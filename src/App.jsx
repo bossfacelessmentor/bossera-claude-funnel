@@ -3,6 +3,7 @@ import ClaudeLandingPage from './pages/ClaudeLandingPage'
 import ThankYouClaude from './pages/ThankYouClaude'
 import ThankYouQuote from './pages/ThankYouQuote'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import AiMUSE from './pages/AiMUSE'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/thankyou-claude" element={<ThankYouClaude />} />
         <Route path="/thankyou-quote" element={<ThankYouQuote />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/aimuse" element={<AiMUSE />} />
         <Route path="*" element={<Navigate to="/claude" replace />} />
       </Routes>
     </BrowserRouter>

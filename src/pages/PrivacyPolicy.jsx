@@ -1,21 +1,25 @@
 export default function PrivacyPolicy() {
   return (
-    <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", background: "#0D1B2A", color: "#F2EEE4", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", background: "#E8D5C4", color: "#3D2B1F", minHeight: "100vh" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Instrument+Sans:wght@400;600&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        .gold-bar { display: block; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #C1A062, transparent); }
-        h1 { font-weight: 300; font-size: 2.2rem; margin-bottom: 1.5rem; color: #F2EEE4; }
-        h2 { font-weight: 400; font-size: 1.3rem; color: #C1A062; margin: 2rem 0 0.75rem; font-family: 'Instrument Sans', sans-serif; font-size: 1rem; letter-spacing: 0.05em; text-transform: uppercase; }
-        p, li { font-family: 'Instrument Sans', sans-serif; font-size: 0.92rem; line-height: 1.8; color: rgba(242,238,228,0.75); margin-bottom: 0.75rem; }
+        .gold-bar { display: block; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #C9A96E, transparent); }
+        h1 { font-weight: 300; font-size: 2.2rem; margin-bottom: 1.5rem; color: #1A1025; }
+        h2 { font-weight: 400; font-size: 1rem; color: #8B5E3C; margin: 2rem 0 0.75rem; font-family: 'Instrument Sans', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+        p, li { font-family: 'Instrument Sans', sans-serif; font-size: 0.92rem; line-height: 1.8; color: rgba(26,16,37,0.72); margin-bottom: 0.75rem; }
         ul { padding-left: 1.5rem; }
-        a { color: #C1A062; }
+        a { color: #8B5E3C; }
       `}</style>
+
+      <header style={{ background: "#1A1025", borderBottom: "1px solid rgba(201,169,110,0.15)", padding: "0.85rem 2rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", color: "#C9A96E", letterSpacing: "0.12em" }}>Boss Era™</span>
+      </header>
 
       <span className="gold-bar" />
 
       <div style={{ maxWidth: "720px", margin: "0 auto", padding: "5rem 1.5rem" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C1A062", marginBottom: "1rem" }}>
+        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A5C3E", marginBottom: "1rem" }}>
           Boss Era™ · Legal
         </p>
         <h1>Privacy Policy</h1>
@@ -59,8 +63,8 @@ export default function PrivacyPolicy() {
 
       <span className="gold-bar" />
 
-      <footer style={{ padding: "2rem 1.5rem", textAlign: "center", borderTop: "1px solid rgba(193,160,98,0.1)" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", color: "rgba(242,238,228,0.3)" }}>
+      <footer style={{ padding: "2rem 1.5rem", textAlign: "center", borderTop: "1px solid rgba(201,169,110,0.1)" }}>
+        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", color: "rgba(26,16,37,0.35)" }}>
           © 2026 Boss Era™ · bossfacelessmentor.com
         </p>
       </footer>

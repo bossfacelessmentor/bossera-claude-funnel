@@ -43,8 +43,8 @@ const CTAButton = ({ label = "Get Instant Access · $27", sub }) => (
       href={STRIPE_LINK}
       style={{
         display: "inline-block",
-        background: "var(--gold)",
-        color: "var(--navy)",
+        background: "#1A1025",
+        color: "#C9A96E",
         fontFamily: "var(--font-sans)",
         fontWeight: "700",
         fontSize: "1.05rem",
@@ -78,19 +78,19 @@ export default function ClaudeLandingPage() {
 
   return (
     <div style={{ fontFamily: "var(--font-serif)", background: "var(--navy)", color: "var(--cream)", minHeight: "100vh", overflowX: "hidden" }}>
-      <header style={{ background:"var(--navy)", borderBottom:"1px solid rgba(193,160,98,0.15)", padding:"0.85rem 2rem", display:"flex", alignItems:"center", justifyContent:"center" }}>
+      <header style={{ background:"#1A1025", borderBottom:"1px solid rgba(201,169,110,0.15)", padding:"0.85rem 2rem", display:"flex", alignItems:"center", justifyContent:"center" }}>
         <span style={{ fontFamily:"var(--font-serif)", fontSize:"1.1rem", color:"var(--gold)", letterSpacing:"0.12em" }}>Boss Era™</span>
       </header>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap');
 
         :root {
-          --navy: #0D1B2A;
-          --navy-light: #132236;
-          --gold: #C1A062;
+          --navy: #E8D5C4;
+          --navy-light: #F5EDE8;
+          --gold: #C9A96E;
           --gold-light: #D4B87A;
-          --cream: #F2EEE4;
-          --cream-muted: rgba(242,238,228,0.55);
+          --cream: #1A1025;
+          --cream-muted: rgba(26,16,37,0.55);
           --font-serif: 'Cormorant Garamond', Georgia, serif;
           --font-sans: 'Instrument Sans', Helvetica, sans-serif;
         }
@@ -106,7 +106,7 @@ export default function ClaudeLandingPage() {
           font-size: 0.72rem;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: var(--gold);
+          color: #7A5C3E;
           margin-bottom: 1.2rem;
         }
 
@@ -140,7 +140,7 @@ export default function ClaudeLandingPage() {
           font-family: var(--font-sans);
           font-size: 1rem;
           line-height: 1.75;
-          color: rgba(242,238,228,0.82);
+          color: rgba(26,16,37,0.75);
         }
 
         .gold-bar {
@@ -154,9 +154,9 @@ export default function ClaudeLandingPage() {
           position: fixed;
           top: 0; left: 0; right: 0;
           z-index: 100;
-          background: rgba(13,27,42,0.97);
+          background: rgba(26,16,37,0.97);
           backdrop-filter: blur(8px);
-          border-bottom: 1px solid rgba(193,160,98,0.2);
+          border-bottom: 1px solid rgba(201,169,110,0.2);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -166,7 +166,7 @@ export default function ClaudeLandingPage() {
 
         .module-card {
           background: var(--navy-light);
-          border: 1px solid rgba(193,160,98,0.18);
+          border: 1px solid rgba(201,169,110,0.2);
           padding: 1.8rem 2rem;
           margin-bottom: 1rem;
           position: relative;
@@ -178,7 +178,7 @@ export default function ClaudeLandingPage() {
           font-family: var(--font-serif);
           font-size: 3rem;
           font-weight: 300;
-          color: rgba(193,160,98,0.12);
+          color: rgba(201,169,110,0.12);
           line-height: 1;
         }
 
@@ -189,7 +189,7 @@ export default function ClaudeLandingPage() {
           margin-bottom: 1rem;
           font-family: var(--font-sans);
           font-size: 0.95rem;
-          color: rgba(242,238,228,0.82);
+          color: rgba(26,16,37,0.75);
           line-height: 1.5;
         }
 
@@ -198,7 +198,7 @@ export default function ClaudeLandingPage() {
           height: 20px;
           min-width: 20px;
           border-radius: 50%;
-          background: rgba(193,160,98,0.15);
+          background: rgba(201,169,110,0.15);
           border: 1px solid var(--gold);
           display: flex;
           align-items: center;
@@ -213,10 +213,10 @@ export default function ClaudeLandingPage() {
           justify-content: space-between;
           align-items: baseline;
           padding: 0.85rem 0;
-          border-bottom: 1px solid rgba(193,160,98,0.1);
+          border-bottom: 1px solid rgba(201,169,110,0.1);
           font-family: var(--font-sans);
           font-size: 0.92rem;
-          color: rgba(242,238,228,0.78);
+          color: #3D2B1F;
         }
 
         .value-price {
@@ -230,7 +230,7 @@ export default function ClaudeLandingPage() {
         .divider {
           width: 100%;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(193,160,98,0.25), transparent);
+          background: linear-gradient(90deg, transparent, rgba(201,169,110,0.25), transparent);
           margin: 4rem 0;
         }
 
@@ -248,7 +248,7 @@ export default function ClaudeLandingPage() {
 
         .for-col {
           background: var(--navy-light);
-          border: 1px solid rgba(193,160,98,0.18);
+          border: 1px solid rgba(201,169,110,0.18);
           padding: 1.8rem;
         }
 
@@ -263,7 +263,7 @@ export default function ClaudeLandingPage() {
         .for-item {
           font-family: var(--font-sans);
           font-size: 0.9rem;
-          color: rgba(242,238,228,0.78);
+          color: rgba(26,16,37,0.7);
           line-height: 1.6;
           margin-bottom: 0.75rem;
           padding-left: 1.2rem;
@@ -279,9 +279,9 @@ export default function ClaudeLandingPage() {
         }
 
         @keyframes pulse {
-          0% { box-shadow: 0 0 0 0 rgba(193,160,98,0.4); }
-          70% { box-shadow: 0 0 0 12px rgba(193,160,98,0); }
-          100% { box-shadow: 0 0 0 0 rgba(193,160,98,0); }
+          0% { box-shadow: 0 0 0 0 rgba(201,169,110,0.4); }
+          70% { box-shadow: 0 0 0 12px rgba(201,169,110,0); }
+          100% { box-shadow: 0 0 0 0 rgba(201,169,110,0); }
         }
 
         blockquote {
@@ -311,8 +311,8 @@ export default function ClaudeLandingPage() {
             fontWeight: "700",
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "var(--navy)",
-            background: "var(--gold)",
+            color: "#1A1025",
+            background: "#C9A96E",
             padding: "0.55rem 1.4rem",
             textDecoration: "none",
           }}
@@ -333,29 +333,29 @@ export default function ClaudeLandingPage() {
             <style>{`@keyframes fadeDown { from { opacity:0; transform: translateY(-18px); } to { opacity:1; transform: translateY(0); } }`}</style>
             <p className="eyebrow">Boss Era™ · Premium Edition</p>
             <svg width="160" height="110" viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg" style={{margin: "0 auto 2rem", display: "block"}} aria-hidden="true">
-              <circle cx="80" cy="55" r="5" fill="#C1A062"/>
-              <circle cx="26.6" cy="20.6" r="3.5" fill="#C1A062" opacity="0.7"/>
-              <circle cx="133" cy="20.6" r="3.5" fill="#C1A062" opacity="0.7"/>
-              <circle cx="13.3" cy="75.6" r="3" fill="#C1A062" opacity="0.5"/>
-              <circle cx="146.3" cy="75.6" r="3" fill="#C1A062" opacity="0.5"/>
-              <circle cx="46.6" cy="93.5" r="3" fill="#C1A062" opacity="0.5"/>
-              <circle cx="113.1" cy="93.5" r="3" fill="#C1A062" opacity="0.5"/>
-              <circle cx="53.2" cy="13.75" r="2.5" fill="#C1A062" opacity="0.4"/>
-              <circle cx="106.4" cy="13.75" r="2.5" fill="#C1A062" opacity="0.4"/>
-              <line x1="80" y1="55" x2="26.6" y2="20.6" stroke="#C1A062" strokeWidth="0.75" opacity="0.4"/>
-              <line x1="80" y1="55" x2="133" y2="20.6" stroke="#C1A062" strokeWidth="0.75" opacity="0.4"/>
-              <line x1="80" y1="55" x2="13.3" y2="75.6" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="80" y1="55" x2="146.3" y2="75.6" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="80" y1="55" x2="46.6" y2="93.5" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="80" y1="55" x2="113.1" y2="93.5" stroke="#C1A062" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="26.6" y1="20.6" x2="53.2" y2="13.75" stroke="#C1A062" strokeWidth="0.5" opacity="0.25"/>
-              <line x1="133" y1="20.6" x2="106.4" y2="13.75" stroke="#C1A062" strokeWidth="0.5" opacity="0.25"/>
-              <line x1="26.6" y1="20.6" x2="13.3" y2="75.6" stroke="#C1A062" strokeWidth="0.5" opacity="0.2"/>
-              <line x1="133" y1="20.6" x2="146.3" y2="75.6" stroke="#C1A062" strokeWidth="0.5" opacity="0.2"/>
+              <circle cx="80" cy="55" r="5" fill="#C9A96E"/>
+              <circle cx="26.6" cy="20.6" r="3.5" fill="#C9A96E" opacity="0.7"/>
+              <circle cx="133" cy="20.6" r="3.5" fill="#C9A96E" opacity="0.7"/>
+              <circle cx="13.3" cy="75.6" r="3" fill="#C9A96E" opacity="0.5"/>
+              <circle cx="146.3" cy="75.6" r="3" fill="#C9A96E" opacity="0.5"/>
+              <circle cx="46.6" cy="93.5" r="3" fill="#C9A96E" opacity="0.5"/>
+              <circle cx="113.1" cy="93.5" r="3" fill="#C9A96E" opacity="0.5"/>
+              <circle cx="53.2" cy="13.75" r="2.5" fill="#C9A96E" opacity="0.4"/>
+              <circle cx="106.4" cy="13.75" r="2.5" fill="#C9A96E" opacity="0.4"/>
+              <line x1="80" y1="55" x2="26.6" y2="20.6" stroke="#C9A96E" strokeWidth="0.75" opacity="0.4"/>
+              <line x1="80" y1="55" x2="133" y2="20.6" stroke="#C9A96E" strokeWidth="0.75" opacity="0.4"/>
+              <line x1="80" y1="55" x2="13.3" y2="75.6" stroke="#C9A96E" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="80" y1="55" x2="146.3" y2="75.6" stroke="#C9A96E" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="80" y1="55" x2="46.6" y2="93.5" stroke="#C9A96E" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="80" y1="55" x2="113.1" y2="93.5" stroke="#C9A96E" strokeWidth="0.75" opacity="0.3"/>
+              <line x1="26.6" y1="20.6" x2="53.2" y2="13.75" stroke="#C9A96E" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="133" y1="20.6" x2="106.4" y2="13.75" stroke="#C9A96E" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="26.6" y1="20.6" x2="13.3" y2="75.6" stroke="#C9A96E" strokeWidth="0.5" opacity="0.2"/>
+              <line x1="133" y1="20.6" x2="146.3" y2="75.6" stroke="#C9A96E" strokeWidth="0.5" opacity="0.2"/>
             </svg>
             <h1>
               Stop Using AI<br />
-              <em style={{ color: "var(--gold)" }}>Start Building With It.</em>
+              <em style={{ color: "#8B5E3C" }}>Start Building With It.</em>
             </h1>
             <p style={{ maxWidth: "560px", margin: "0 auto 2.5rem", fontSize: "1.1rem" }}>
               The complete system that turns Claude AI into your personal content engine, offer builder, and income strategy — built for women who are done experimenting and ready to convert.
@@ -394,7 +394,7 @@ export default function ClaudeLandingPage() {
           <FadeIn>
             <p className="eyebrow">Claude AI · Content to Cash</p>
             <GoldLine />
-            <h2>A Start-to-Finish<br /><em style={{ color: "var(--gold)" }}>AI Business Blueprint.</em></h2>
+            <h2>A Start-to-Finish<br /><em style={{ color: "#8B5E3C" }}>AI Business Blueprint.</em></h2>
             <p style={{ maxWidth: "580px", margin: "0 auto" }}>
               Nine parts. Three levels. One outcome: you go from unsure how to prompt to running a structured content and income system — with AI doing the heavy work.
             </p>
@@ -429,7 +429,7 @@ export default function ClaudeLandingPage() {
           ))}
 
           <FadeIn delay={0.1}>
-            <div className="module-card" style={{ borderColor: "rgba(193,160,98,0.4)", background: "rgba(193,160,98,0.06)" }}>
+            <div className="module-card" style={{ borderColor: "rgba(201,169,110,0.4)", background: "rgba(201,169,110,0.06)" }}>
               <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.5rem" }}>Bonus</p>
               <h3>Swipe Files & Action Plans</h3>
               <p style={{ fontSize: "0.92rem", marginTop: "0.5rem" }}>20 ready-to-use prompts across content creation, sales copywriting, business strategy, and mindset clarity. Quick-start checklist. 7-day action plan. Everything you need to go from reading to revenue.</p>
@@ -444,7 +444,7 @@ export default function ClaudeLandingPage() {
           <FadeIn>
             <p className="eyebrow">What You're Getting</p>
             <GoldLine />
-            <h2>Everything Inside.<br /><em style={{ color: "var(--gold)" }}>One Price.</em></h2>
+            <h2>Everything Inside.<br /><em style={{ color: "#8B5E3C" }}>One Price.</em></h2>
           </FadeIn>
           <FadeIn delay={0.1}>
             <div style={{ marginTop: "2rem", textAlign: "left" }}>
@@ -465,9 +465,9 @@ export default function ClaudeLandingPage() {
                   <span className="value-price">{val}</span>
                 </div>
               ))}
-              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", padding:"1.2rem 0 0.5rem", borderTop:"1px solid rgba(193,160,98,0.3)", marginTop:"0.5rem" }}>
-                <span style={{ fontFamily:"var(--font-sans)", fontSize:"0.85rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"rgba(242,238,228,0.6)" }}>Total Value</span>
-                <span style={{ fontFamily:"var(--font-serif)", fontSize:"1.5rem", color:"rgba(242,238,228,0.6)", textDecoration:"line-through", textDecorationColor:"rgba(242,238,228,0.6)", textDecorationThickness:"2px" }}>$160</span>
+              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", padding:"1.2rem 0 0.5rem", borderTop:"1px solid rgba(201,169,110,0.3)", marginTop:"0.5rem" }}>
+                <span style={{ fontFamily:"var(--font-sans)", fontSize:"0.85rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"rgba(26,16,37,0.55)" }}>Total Value</span>
+                <span style={{ fontFamily:"var(--font-serif)", fontSize:"1.5rem", color:"rgba(26,16,37,0.55)", textDecoration:"line-through", textDecorationColor:"rgba(26,16,37,0.55)", textDecorationThickness:"2px" }}>$160</span>
               </div>
               <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", padding:"0.5rem 0 1.5rem" }}>
                 <span style={{ fontFamily:"var(--font-sans)", fontSize:"0.85rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--gold)" }}>Your Investment</span>
@@ -485,7 +485,7 @@ export default function ClaudeLandingPage() {
           <FadeIn>
             <p className="eyebrow">Clarity Before You Buy</p>
             <GoldLine />
-            <h2>Built for Her.<br /><em style={{ color: "var(--gold)" }}>Not for Everyone.</em></h2>
+            <h2>Built for Her.<br /><em style={{ color: "#8B5E3C" }}>Not for Everyone.</em></h2>
           </FadeIn>
           <FadeIn delay={0.1}>
             <div className="for-notfor" style={{ marginTop: "2.5rem", textAlign: "left" }}>
@@ -507,7 +507,7 @@ export default function ClaudeLandingPage() {
                   "You refuse to invest in learning — even at $27",
                   "You want theory and inspiration instead of systems and execution",
                   "You're not building a real offer or digital product",
-                ].map(t => <p key={t} className="for-item" data-marker="✗" style={{ color: "rgba(242,238,228,0.45)" }}>{t}</p>)}
+                ].map(t => <p key={t} className="for-item" data-marker="✗" style={{ color: "rgba(26,16,37,0.4)" }}>{t}</p>)}
               </div>
             </div>
           </FadeIn>
@@ -551,24 +551,24 @@ export default function ClaudeLandingPage() {
       </section>
 
       {/* Social proof bar */}
-      <section style={{ background: "var(--navy-light)", borderTop: "1px solid rgba(193,160,98,0.1)", borderBottom: "1px solid rgba(193,160,98,0.1)" }}>
+      <section style={{ background: "var(--navy-light)", borderTop: "1px solid rgba(201,169,110,0.1)", borderBottom: "1px solid rgba(201,169,110,0.1)" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto", padding: "2.5rem 1.5rem", display: "flex", justifyContent: "center", gap: "3rem", flexWrap: "wrap", textAlign: "center" }}>
           {[["427+", "Authority Quotes"], ["9", "Complete Modules"], ["$27", "One-Time Access"]].map(([num, label]) => (
             <div key={label}>
               <p style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: "300", color: "var(--gold)", margin: "0 0 0.25rem" }}>{num}</p>
-              <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(242,238,228,0.55)", margin: 0 }}>{label}</p>
+              <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(26,16,37,0.5)", margin: 0 }}>{label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Final CTA */}
-      <section style={{ background: "var(--navy)", borderTop: "1px solid rgba(193,160,98,0.15)" }}>
+      <section style={{ background: "var(--navy)", borderTop: "1px solid rgba(201,169,110,0.15)" }}>
         <div className="section" style={{ textAlign: "center" }}>
           <FadeIn>
             <p className="eyebrow">Boss Era™ · Claude AI System</p>
             <GoldLine />
-            <h2>Your AI Era<br /><em style={{ color: "var(--gold)" }}>Starts Now.</em></h2>
+            <h2>Your AI Era<br /><em style={{ color: "#8B5E3C" }}>Starts Now.</em></h2>
             <p style={{ maxWidth: "520px", margin: "0 auto 2.5rem" }}>
               The difference between where you are and where you want to be is not information. It is implementation. This system gives you both.
             </p>
@@ -582,14 +582,14 @@ export default function ClaudeLandingPage() {
       </section>
 
       {/* Footer */}
-      <footer style={{ background: "var(--navy)", borderTop: "1px solid rgba(193,160,98,0.1)", padding: "2rem 1.5rem", textAlign: "center" }}>
+      <footer style={{ background: "var(--navy)", borderTop: "1px solid rgba(201,169,110,0.1)", padding: "2rem 1.5rem", textAlign: "center" }}>
         <p style={{ fontFamily: "var(--font-serif)", fontSize: "1rem", color: "var(--gold)", letterSpacing: "0.1em", marginBottom: "0.75rem" }}>
           Boss Era™
         </p>
         <p style={{ fontSize: "0.75rem", fontFamily: "var(--font-sans)", color: "var(--cream-muted)", letterSpacing: "0.05em" }}>
           © 2026 Boss Era™ · bossfacelessmentor.com
         </p>
-        <p style={{ fontSize: "0.75rem", fontFamily: "var(--font-sans)", color: "rgba(242,238,228,0.3)", marginTop: "0.5rem" }}>
+        <p style={{ fontSize: "0.75rem", fontFamily: "var(--font-sans)", color: "rgba(26,16,37,0.3)", marginTop: "0.5rem" }}>
           <a href="/privacy" style={{ color: "inherit", textDecoration: "underline" }}>Privacy Policy</a>
         </p>
       </footer>
