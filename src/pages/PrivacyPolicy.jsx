@@ -67,6 +67,12 @@ export default function PrivacyPolicy() {
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", color: "rgba(26,16,37,0.35)" }}>
           © 2026 Boss Era™ · bossfacelessmentor.com
         </p>
+        <div style={{ borderTop:"1px solid rgba(201,169,110,0.15)", paddingTop:"1.2rem", marginTop:"1.2rem" }}>
+          <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.68rem", letterSpacing:"0.15em", textTransform:"uppercase", color:"rgba(26,16,37,0.35)", marginBottom:"0.5rem" }}>Partner offer</p>
+          <a href="/aimuse" style={{ display:"inline-block" }}>
+            <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ height:"22px", width:"auto", opacity:"0.7" }} />
+          </a>
+        </div>
       </footer>
     </div>
   );

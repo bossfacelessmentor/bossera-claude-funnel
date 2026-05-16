@@ -67,8 +67,10 @@ export default function AiMUSE() {
         @media (max-width: 640px) { .section { padding: 4rem 1.25rem; } }
       `}</style>
 
-      <header style={{ background: "#2C4A47", borderBottom: "1px solid rgba(122,158,155,0.3)", padding: "0.85rem 2rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", color: "#D4B99A", letterSpacing: "0.12em" }}>Boss Era™</span>
+      <header style={{ background:"#2C4A47", borderBottom:"1px solid rgba(122,158,155,0.3)", padding:"0.85rem 2rem", display:"flex", alignItems:"center", justifyContent:"center", gap:"1.5rem" }}>
+        <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"1.1rem", color:"#D4B99A", letterSpacing:"0.12em" }}>Boss Era™</span>
+        <span style={{ color:"rgba(212,185,154,0.3)", fontSize:"1rem" }}>×</span>
+        <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ height:"28px", width:"auto" }} />
       </header>
 
       <span className="teal-bar" />
@@ -76,6 +78,7 @@ export default function AiMUSE() {
       {/* Hero */}
       <section style={{ background: "#F5EDE8", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="section" style={{ textAlign: "center", paddingTop: "1.5rem" }}>
+          <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ width:"220px", margin:"0 auto 2rem", display:"block" }} />
           <p className="eyebrow">Boss Era™ · Exclusive Partner Offer</p>
           <div style={{ width: "48px", height: "2px", background: "#7A9E9B", margin: "0 auto 2rem" }} />
           <h1>

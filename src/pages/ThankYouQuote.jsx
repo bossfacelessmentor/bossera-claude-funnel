@@ -204,6 +204,7 @@ export default function ThankYouQuote() {
 
       <section style={{ padding:"1.5rem 1.5rem 4rem", maxWidth:"680px", margin:"0 auto" }}>
         <div style={{ background:"#F5EDE8", border:"1px solid rgba(122,158,155,0.2)", padding:"1.8rem", textAlign:"center" }}>
+          <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ width:"140px", margin:"0 auto 1rem", display:"block" }} />
           <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.72rem", letterSpacing:"0.15em", textTransform:"uppercase", color:"#7A9E9B", marginBottom:"0.75rem" }}>
             Also available
           </p>
@@ -226,6 +227,12 @@ export default function ThankYouQuote() {
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", color: "rgba(26,16,37,0.3)" }}>
           © 2026 Boss Era™ · <a href="/privacy" style={{ color: "inherit" }}>Privacy Policy</a>
         </p>
+        <div style={{ borderTop:"1px solid rgba(201,169,110,0.15)", paddingTop:"1.2rem", marginTop:"1.2rem" }}>
+          <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.68rem", letterSpacing:"0.15em", textTransform:"uppercase", color:"rgba(26,16,37,0.35)", marginBottom:"0.5rem" }}>Partner offer</p>
+          <a href="/aimuse" style={{ display:"inline-block" }}>
+            <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ height:"22px", width:"auto", opacity:"0.7" }} />
+          </a>
+        </div>
       </footer>
     </div>
   );

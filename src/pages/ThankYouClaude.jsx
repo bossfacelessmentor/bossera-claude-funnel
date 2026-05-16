@@ -121,7 +121,7 @@ export default function ThankYouClaude() {
 
       {/* Upsell — shown first */}
       <section style={{ padding: "5rem 1.5rem 5rem", maxWidth: "720px", margin: "0 auto", textAlign: "center" }}>
-
+        <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ width:"160px", margin:"0 auto 1.5rem", display:"block" }} />
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A96E", marginBottom: "1.5rem" }}>
           One-Time Offer · For New Customers Only
         </p>
@@ -256,6 +256,12 @@ export default function ThankYouClaude() {
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", color: "rgba(26,16,37,0.3)" }}>
           © 2026 Boss Era™ · <a href="/privacy" style={{ color: "inherit" }}>Privacy Policy</a>
         </p>
+        <div style={{ borderTop:"1px solid rgba(201,169,110,0.15)", paddingTop:"1.2rem", marginTop:"1.2rem" }}>
+          <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.68rem", letterSpacing:"0.15em", textTransform:"uppercase", color:"rgba(26,16,37,0.35)", marginBottom:"0.5rem" }}>Partner offer</p>
+          <a href="/aimuse" style={{ display:"inline-block" }}>
+            <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ height:"22px", width:"auto", opacity:"0.7" }} />
+          </a>
+        </div>
       </footer>
     </div>
   );
