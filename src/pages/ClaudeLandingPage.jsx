@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import LeadMagnetPopup from "../components/LeadMagnetPopup";
 
 const STRIPE_LINK = "https://buy.stripe.com/fZu00ka9ofAzcvA2jFbQY0n";
 
@@ -78,6 +79,7 @@ export default function ClaudeLandingPage() {
 
   return (
     <div style={{ fontFamily: "var(--font-serif)", background: "var(--navy)", color: "var(--cream)", minHeight: "100vh", overflowX: "hidden" }}>
+      <LeadMagnetPopup />
       <header style={{ background:"#1A1025", borderBottom:"1px solid rgba(201,169,110,0.15)", padding:"0.85rem 2rem", display:"flex", alignItems:"center", justifyContent:"center" }}>
         <span style={{ fontFamily:"var(--font-serif)", fontSize:"1.1rem", color:"var(--gold)", letterSpacing:"0.12em" }}>Boss Era™</span>
       </header>

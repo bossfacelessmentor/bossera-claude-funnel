@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import LeadMagnetPopup from "../components/LeadMagnetPopup";
 
 const BEACON_LINK = "https://shop.beacons.ai/bossera.digital/9d39a1a8-a094-4381-b622-011dac59a0f5?t=1778939518112";
 
@@ -51,6 +52,7 @@ const CTAButton = () => (
 export default function AiMUSE() {
   return (
     <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", background: "#F5EDE8", color: "#2C4A47", minHeight: "100vh", overflowX: "hidden" }}>
+      <LeadMagnetPopup />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
