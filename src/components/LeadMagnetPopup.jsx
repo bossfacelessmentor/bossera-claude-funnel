@@ -2,9 +2,20 @@ import { useState, useEffect } from "react";
 
 const PDF_URL = "/downloads/free-guide-how-to-start-building-an-ai-influencer.pdf";
 
+const inputStyle = {
+  width: "100%", padding: "0.75rem 1rem", marginBottom: "0.75rem",
+  fontFamily: "'Instrument Sans',sans-serif", fontSize: "0.85rem",
+  border: "1px solid rgba(26,16,37,0.15)", background: "#fff",
+  color: "#1A1025", outline: "none", boxSizing: "border-box",
+};
+
 export default function LeadMagnetPopup() {
   const [show, setShow] = useState(false);
   const [done, setDone] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem("bossera_popup_seen")) return;
@@ -12,10 +23,26 @@ export default function LeadMagnetPopup() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleAccess = () => {
-    localStorage.setItem("bossera_popup_seen", "true");
-    setDone(true);
-    window.open(PDF_URL, "_blank");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch("/.netlify/functions/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email }),
+      });
+      if (!res.ok) throw new Error("Something went wrong");
+      localStorage.setItem("bossera_popup_seen", "true");
+      setDone(true);
+      window.open(PDF_URL, "_blank");
+    } catch {
+      setError("Could not subscribe. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleClose = () => {
@@ -37,7 +64,6 @@ export default function LeadMagnetPopup() {
         position: "relative", padding: "2.5rem 2rem",
         borderTop: "4px solid #C9A96E",
       }}>
-        {/* Close */}
         <button onClick={handleClose} style={{
           position: "absolute", top: "1rem", right: "1rem",
           background: "none", border: "none", cursor: "pointer",
@@ -58,25 +84,41 @@ export default function LeadMagnetPopup() {
             <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.9rem",
               color:"rgba(26,16,37,0.65)", lineHeight:1.7, marginBottom:"1.5rem" }}>
               The feminine framework for AI-powered content, authority, and digital income.
-              Free PDF — no email required.
             </p>
             <ul style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.85rem",
-              color:"rgba(26,16,37,0.7)", lineHeight:1.8, marginBottom:"1.8rem",
+              color:"rgba(26,16,37,0.7)", lineHeight:1.8, marginBottom:"1.5rem",
               paddingLeft:"1.2rem" }}>
               <li>The 6-step AI Influencer Starter Framework</li>
               <li>AiMUSE Alchemy™ sneak peek — 1,600+ Muses & 2K+ prompts</li>
               <li>Claude + Higgsfield MCP workflow guide</li>
               <li>7 sample luxury Muse prompts</li>
             </ul>
-            <button onClick={handleAccess} style={{
-              width:"100%", background:"#1A1025", color:"#C9A96E",
-              fontFamily:"'Instrument Sans',sans-serif", fontWeight:"700",
-              fontSize:"0.9rem", letterSpacing:"0.1em", textTransform:"uppercase",
-              padding:"1rem", border:"none", cursor:"pointer",
-              marginBottom:"0.75rem",
-            }}>
-              Get Instant Access →
-            </button>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text" placeholder="First name" value={name}
+                onChange={(e) => setName(e.target.value)}
+                style={inputStyle}
+              />
+              <input
+                type="email" placeholder="Email address" value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                style={inputStyle}
+              />
+              {error && (
+                <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.78rem",
+                  color:"#c0392b", marginBottom:"0.5rem" }}>{error}</p>
+              )}
+              <button type="submit" disabled={sending} style={{
+                width:"100%", background: sending ? "#3a2d4a" : "#1A1025", color:"#C9A96E",
+                fontFamily:"'Instrument Sans',sans-serif", fontWeight:"700",
+                fontSize:"0.9rem", letterSpacing:"0.1em", textTransform:"uppercase",
+                padding:"1rem", border:"none", cursor: sending ? "wait" : "pointer",
+                marginBottom:"0.75rem", opacity: sending ? 0.7 : 1,
+              }}>
+                {sending ? "Sending…" : "Get Instant Access →"}
+              </button>
+            </form>
             <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.72rem",
               color:"rgba(26,16,37,0.35)", textAlign:"center", lineHeight:1.6 }}>
               By accessing this guide you agree to our{" "}
