@@ -56,7 +56,7 @@ const CTAButton = ({ label = "Get Instant Access · $27", sub }) => (
         transition: "opacity 0.2s, transform 0.2s",
         animation: "pulse 2.5s ease-in-out infinite",
       }}
-      onClick={() => { console.log("AddToCart firing"); if (typeof fbq !== "undefined") { fbq("track", "AddToCart", { value: 27.00, currency: "USD", content_name: "Claude AI Content to Cash", content_type: "product" }); } }}
+      onClick={() => { if (typeof fbq !== "undefined") { fbq("track", "AddToCart", { value: 27.00, currency: "USD", content_name: "Claude AI Content to Cash", content_type: "product" }); } }}
       onMouseEnter={e => { e.currentTarget.style.opacity = "0.88"; e.currentTarget.style.transform = "translateY(-2px)"; }}
       onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
     >
