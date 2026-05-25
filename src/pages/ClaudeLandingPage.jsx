@@ -38,6 +38,19 @@ const GoldLine = () => (
   <div style={{ width: "48px", height: "2px", background: "var(--gold)", margin: "0 auto 2rem" }} />
 );
 
+const handleStripeClick = () => {
+  try {
+    if (window.fbq) {
+      window.fbq('track', 'AddToCart', {
+        value: 27.00,
+        currency: 'USD',
+        content_name: 'Claude AI Content to Cash',
+        content_type: 'product'
+      });
+    }
+  } catch (e) {}
+};
+
 const CTAButton = ({ label = "Get Instant Access · $27", sub }) => (
   <div style={{ textAlign: "center" }}>
     <a
@@ -56,7 +69,7 @@ const CTAButton = ({ label = "Get Instant Access · $27", sub }) => (
         transition: "opacity 0.2s, transform 0.2s",
         animation: "pulse 2.5s ease-in-out infinite",
       }}
-      onClick={() => { if (typeof fbq !== "undefined") { fbq("track", "AddToCart", { value: 27.00, currency: "USD", content_name: "Claude AI Content to Cash", content_type: "product" }); } }}
+      onClick={handleStripeClick}
       onMouseEnter={e => { e.currentTarget.style.opacity = "0.88"; e.currentTarget.style.transform = "translateY(-2px)"; }}
       onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
     >
