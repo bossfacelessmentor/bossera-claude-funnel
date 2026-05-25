@@ -5,12 +5,11 @@ const QAS_STRIPE = "https://buy.stripe.com/9B628s95k2NNfHM0bxbQY0o";
 const GOOGLE_DRIVE_LINK = "https://drive.google.com/drive/folders/13l6SKdu_m03LrRpH7kpbeN0YQ53xOyOx?usp=sharing";
 
 function firePixelPurchase() {
-  if (typeof window !== "undefined" && window.fbq) {
-    window.fbq("track", "Purchase", {
+  if (typeof fbq !== "undefined") {
+    fbq("track", "Purchase", {
       value: 27.00,
       currency: "USD",
       content_name: "Claude AI Content to Cash",
-      content_ids: ["claude-ai-content-to-cash"],
       content_type: "product",
     });
   }
