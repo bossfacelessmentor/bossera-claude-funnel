@@ -90,7 +90,7 @@ export default function LeadMagnetPopup() {
               paddingLeft:"1.2rem" }}>
               <li>The 6-step AI Influencer Starter Framework</li>
               <li>AiMUSE Alchemy™ sneak peek — 1,600+ Muses & 2K+ prompts</li>
-              <li>Claude + Higgsfield MCP workflow guide</li>
+              <li>AI assistant + Higgsfield MCP workflow guide</li>
               <li>7 sample luxury Muse prompts</li>
             </ul>
             <form onSubmit={handleSubmit}>
