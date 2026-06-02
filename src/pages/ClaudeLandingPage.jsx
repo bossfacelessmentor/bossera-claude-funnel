@@ -44,7 +44,7 @@ const handleStripeClick = () => {
       window.fbq('track', 'AddToCart', {
         value: 27.00,
         currency: 'USD',
-        content_name: 'Claude AI Content to Cash',
+        content_name: 'AI Content to Cash System',
         content_type: 'product'
       });
     }
@@ -373,8 +373,11 @@ export default function ClaudeLandingPage() {
               Stop Using AI<br />
               <em style={{ color: "#8B5E3C" }}>Start Building With It.</em>
             </h1>
+            <p style={{ maxWidth: "560px", margin: "0 auto 1.25rem", fontSize: "1.1rem" }}>
+              For the woman who knows AI matters — but still hasn't turned it into something real yet.
+            </p>
             <p style={{ maxWidth: "560px", margin: "0 auto 2.5rem", fontSize: "1.1rem" }}>
-              The complete system that turns Claude AI into your personal content engine, offer builder, and income strategy — built for women who are done experimenting and ready to convert.
+              The complete system that turns AI into your personal content engine, offer builder, and income strategy — built for women who are done experimenting and ready to convert.
             </p>
             <CTAButton sub="Instant digital access · $27 one-time · No subscription" />
           </div>
@@ -390,7 +393,7 @@ export default function ClaudeLandingPage() {
             <GoldLine />
             <h2>Most women are using AI.<br />Almost none are building with it.</h2>
             <p style={{ maxWidth: "580px", margin: "0 auto 2rem" }}>
-              You've opened Claude. You've typed a prompt. You got something generic back and thought: <em>"This isn't that useful."</em>
+              You've opened your AI assistant. You've typed a prompt. You got something generic back and thought: <em>"This isn't that useful."</em>
             </p>
             <p style={{ maxWidth: "580px", margin: "0 auto 2rem" }}>
               That moment isn't AI failing you. It's the absence of a system. The tool is powerful. The missing piece is how to use it with precision — for content that converts, offers that sell, and a business that compounds.
@@ -408,7 +411,7 @@ export default function ClaudeLandingPage() {
       <section style={{ background: "var(--navy)" }}>
         <div className="section" style={{ textAlign: "center" }}>
           <FadeIn>
-            <p className="eyebrow">Claude AI · Content to Cash</p>
+            <p className="eyebrow">AI Content to Cash System</p>
             <GoldLine />
             <h2>A Start-to-Finish<br /><em style={{ color: "#8B5E3C" }}>AI Business Blueprint.</em></h2>
             <p style={{ maxWidth: "580px", margin: "0 auto" }}>
@@ -422,12 +425,12 @@ export default function ClaudeLandingPage() {
       <section style={{ background: "var(--navy)", paddingTop: "1rem" }}>
         <div className="section" style={{ paddingTop: "1rem" }}>
           {[
-            { n: "01", title: "AI Foundations", sub: "Mindset · Mechanics · Method", desc: "Understand exactly how Claude works, why most people use it wrong, and the single shift that changes your results immediately." },
+            { n: "01", title: "AI Foundations", sub: "Mindset · Mechanics · Method", desc: "Understand exactly how AI works, why most people use it wrong, and the single shift that changes your results immediately." },
             { n: "02", title: "How to Think When Using AI", sub: "The Four-Element Framework", desc: "The ROLE + CONTEXT + TASK + FORMAT system that produces professional-grade output every time — and how to iterate until it's perfect." },
             { n: "03", title: "Content Creation System", sub: "Hooks · Carousels · Viral Topics", desc: "Ten high-converting content prompts, the carousel structure that drives saves, and the difference between content that gets likes versus content that builds buyers." },
             { n: "04", title: "Content → Cash System", sub: "The Conversion Chain", desc: "How to turn posts into leads, the CTA swipe file that works without pressure, and how to use keywords and DMs to close sales — calmly." },
             { n: "05", title: "DM Sales System", sub: "Scripts · Flows · Closes", desc: "The exact DM conversation flow from first message to confirmed purchase — without chasing, without pressure, and without losing the sale at the objection stage." },
-            { n: "06", title: "Offer Creation with AI", sub: "Build Something Worth Selling", desc: "Use Claude to design, name, price, and position a digital product. The framework for creating an offer people feel they'd be foolish to pass up." },
+            { n: "06", title: "Offer Creation with AI", sub: "Build Something Worth Selling", desc: "Use your AI assistant to design, name, price, and position a digital product. The framework for creating an offer people feel they'd be foolish to pass up." },
             { n: "07", title: "Email & Funnel Strategy", sub: "Sequences That Sell on Autopilot", desc: "How to build a simple email funnel using AI — from lead magnet to welcome sequence to conversion emails — without a tech background." },
             { n: "08", title: "First-Sales Roadmap", sub: "Weeks 1–4 Plan", desc: "A realistic, day-by-day plan for your first 10 sales. Foundation, visibility, offers, and closing — sequenced so nothing falls through." },
             { n: "09", title: "Mistakes & Reset Strategy", sub: "Fix It in 72 Hours", desc: "Why people fail with AI, how to diagnose your specific block, and the 72-hour reset that gets you back to forward momentum." },
@@ -582,7 +585,7 @@ export default function ClaudeLandingPage() {
       <section style={{ background: "var(--navy)", borderTop: "1px solid rgba(201,169,110,0.15)" }}>
         <div className="section" style={{ textAlign: "center" }}>
           <FadeIn>
-            <p className="eyebrow">Boss Era™ · Claude AI System</p>
+            <p className="eyebrow">Boss Era™ · AI Content to Cash System</p>
             <GoldLine />
             <h2>Your AI Era<br /><em style={{ color: "#8B5E3C" }}>Starts Now.</em></h2>
             <p style={{ maxWidth: "520px", margin: "0 auto 2.5rem" }}>

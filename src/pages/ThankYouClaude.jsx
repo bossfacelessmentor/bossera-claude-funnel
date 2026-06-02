@@ -9,7 +9,7 @@ function firePixelPurchase() {
     fbq("track", "Purchase", {
       value: 27.00,
       currency: "USD",
-      content_name: "Claude AI Content to Cash",
+      content_name: "AI Content to Cash System",
       content_type: "product",
     });
   }
@@ -132,7 +132,7 @@ export default function ThankYouClaude() {
           <em style={{ color: "#C9A96E" }}>Now give it authority quotes to work with.</em>
         </h2>
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.8, color: "rgba(26,16,37,0.7)", maxWidth: "580px", margin: "0 auto 1.25rem", fontSize: "0.97rem" }}>
-          Your Claude AI system builds your content strategy.
+          Your AI Content to Cash System builds your content strategy.
         </p>
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.8, color: "rgba(26,16,37,0.6)", maxWidth: "580px", margin: "0 auto 2rem", fontSize: "0.92rem" }}>
           The <strong style={{ color: "#1A1025" }}>Boss Era™ Quote Authority System</strong> supplies the authority positioning. Together, they cover every layer of a faceless brand that converts — content, voice, identity, and direction.
@@ -238,7 +238,7 @@ export default function ThankYouClaude() {
           <em style={{ color: "#C9A96E" }}>Your system is ready.</em>
         </h1>
         <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.75, color: "rgba(26,16,37,0.7)", marginBottom: "2.5rem", fontSize: "1rem" }}>
-          Thank you for your order. The Claude AI · Content to Cash system is waiting for you. Click below to access your full digital product.
+          Thank you for your order. The AI Content to Cash System is waiting for you. Click below to access your full digital product.
         </p>
         <a href={GOOGLE_DRIVE_LINK} className="btn-gold">
           Access My Product →
