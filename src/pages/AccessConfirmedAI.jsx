@@ -52,7 +52,7 @@ const valueStack = [
   ["Module 9: Empire Assets Vault™", "$29"],
 ];
 
-export default function ThankYouClaude() {
+export default function AccessConfirmedAI() {
   const [fired, setFired] = useState(false);
 
   useEffect(() => {

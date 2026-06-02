@@ -83,7 +83,7 @@ const CTAButton = ({ label = "Get Instant Access · $27", sub }) => (
   </div>
 );
 
-export default function ClaudeLandingPage() {
+export default function AILandingPage() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
