@@ -53,14 +53,31 @@ const valueStack = [
 ];
 
 export default function AccessConfirmedAI() {
-  const [fired, setFired] = useState(false);
+  const [allowed, setAllowed] = useState(null);
 
   useEffect(() => {
-    if (!fired) {
+    // Inject noindex so thank-you pages are never indexed
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, nofollow';
+    document.head.appendChild(meta);
+
+    // Session guard — only Stripe buyers have ?session_id=
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+    if (sessionId && sessionId.trim() !== '') {
+      setAllowed(true);
       firePixelPurchase();
-      setFired(true);
+    } else {
+      window.location.replace('/ai');
     }
-  }, [fired]);
+
+    return () => {
+      if (document.head.contains(meta)) document.head.removeChild(meta);
+    };
+  }, []);
+
+  if (!allowed) return null;
 
   return (
     <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", background: "#E8D5C4", color: "#1A1025", minHeight: "100vh" }}>

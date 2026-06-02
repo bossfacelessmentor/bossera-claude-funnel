@@ -1,0 +1,18 @@
+# 301 redirects for renamed routes
+[[redirects]]
+  from = "/claude"
+  to = "/ai"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/thankyou-claude"
+  to = "/access-confirmed-ai"
+  status = 301
+  force = true
+
+# SPA fallback — must be last
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
