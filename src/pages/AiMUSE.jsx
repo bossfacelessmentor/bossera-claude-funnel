@@ -54,7 +54,9 @@ export default function AiMUSE() {
     <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", background: "#F5EDE8", color: "#2C4A47", minHeight: "100vh", overflowX: "hidden" }}>
       <LeadMagnetPopup />
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+        h1, h2, h3 { font-family: 'Bodoni Moda', Georgia, serif; }
+        body, p, li, span, button, input, label { font-family: 'Jost', sans-serif; font-weight: 300; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         .teal-bar { display: block; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #7A9E9B, transparent); }
         .section { padding: 5rem 1.5rem; max-width: 780px; margin: 0 auto; }

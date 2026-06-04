@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
+// DO NOT MODIFY — Pixel ID and purchase event
 const PIXEL_ID = "1000857132611840";
 const QAS_STRIPE = "https://buy.stripe.com/9B628s95k2NNfHM0bxbQY0o";
 const GOOGLE_DRIVE_LINK = "https://drive.google.com/drive/folders/13l6SKdu_m03LrRpH7kpbeN0YQ53xOyOx?usp=sharing";
 
+// DO NOT MODIFY — Meta Pixel Purchase event
 function firePixelPurchase() {
   if (typeof fbq !== "undefined") {
     fbq("track", "Purchase", {
@@ -55,14 +57,13 @@ const valueStack = [
 export default function AccessConfirmedAI() {
   const [allowed, setAllowed] = useState(null);
 
+  // DO NOT MODIFY — session guard + noindex + pixel
   useEffect(() => {
-    // Inject noindex so thank-you pages are never indexed
     const meta = document.createElement('meta');
     meta.name = 'robots';
     meta.content = 'noindex, nofollow';
     document.head.appendChild(meta);
 
-    // Session guard — only Stripe buyers have ?session_id=
     const params = new URLSearchParams(window.location.search);
     const sessionId = params.get('session_id');
     if (sessionId && sessionId.trim() !== '') {
@@ -80,202 +81,189 @@ export default function AccessConfirmedAI() {
   if (!allowed) return null;
 
   return (
-    <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", background: "#E8D5C4", color: "#1A1025", minHeight: "100vh" }}>
-      <header style={{ background:"#1A1025", borderBottom:"1px solid rgba(201,169,110,0.15)", padding:"0.85rem 2rem", display:"flex", alignItems:"center", justifyContent:"center" }}>
-        <span style={{ fontFamily:"'Cormorant Garamond', Georgia, serif", fontSize:"1.1rem", color:"#C9A96E", letterSpacing:"0.12em" }}>Boss Era™</span>
-      </header>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: "#F0E8DC", color: "#1A1A1A", minHeight: "100vh" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        .gold-bar { display: block; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #C9A96E, transparent); }
-        .btn-gold {
-          display: inline-block; background: #1A1025; color: #C9A96E;
-          font-family: 'Instrument Sans', sans-serif; font-weight: 700;
-          font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
-          padding: 1.1rem 2.5rem; text-decoration: none; transition: opacity 0.2s;
+        h1, h2, h3 { font-family: 'Bodoni Moda', Georgia, serif; }
+        body, p, li, span, a, button, input, label { font-family: 'Jost', sans-serif; font-weight: 300; }
+        .gold-accent { display: block; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #C9A84C, transparent); }
+        .eyebrow {
+          font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: 0.25em;
+          text-transform: uppercase; color: #8B7340;
         }
-        .btn-ghost {
-          display: inline-block; border: 1px solid rgba(201,169,110,0.4); color: rgba(26,16,37,0.5);
-          font-family: 'Instrument Sans', sans-serif; font-size: 0.8rem;
-          letter-spacing: 0.08em; text-transform: uppercase;
-          padding: 0.75rem 2rem; text-decoration: none; margin-top: 1rem;
-          transition: opacity 0.2s; cursor: pointer; background: transparent;
-          border-style: solid;
+        .module-card-ai {
+          background: #EDE2D4; border: 1px solid rgba(201,168,76,0.18);
+          padding: 1.2rem 1.4rem; margin-bottom: 0.5rem; position: relative; text-align: left;
         }
-        .module-card {
-          background: #F5EDE8; border: 1px solid rgba(201,169,110,0.2);
-          padding: 1.2rem 1.4rem; margin-bottom: 0.65rem; position: relative; text-align: left;
-        }
-        .module-num {
-          position: absolute; top: 1rem; right: 1.2rem;
-          font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
-          font-weight: 300; color: rgba(201,169,110,0.1); line-height: 1;
-        }
-        .quotes-grid {
-          display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; text-align: left;
-        }
-        @media (max-width: 580px) {
-          .quotes-grid { grid-template-columns: 1fr; }
-        }
-        .quote-card {
-          border-left: 2px solid #C9A96E; padding: 1.2rem 1.4rem;
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.1rem; font-style: italic; font-weight: 300;
-          color: #C9A96E; line-height: 1.55;
-        }
-        .value-row {
+        .value-row-ai {
           display: flex; justify-content: space-between; align-items: baseline;
-          padding: 0.6rem 0; border-bottom: 1px solid rgba(201,169,110,0.1);
-          font-family: 'Instrument Sans', sans-serif; font-size: 0.85rem;
-          color: #3D2B1F; text-align: left;
+          padding: 0.6rem 0; border-bottom: 1px solid rgba(201,168,76,0.12);
+          font-family: 'Jost', sans-serif; font-size: 0.85rem; color: #444; text-align: left;
         }
-        .value-price { color: #C9A96E; font-weight: 600; font-size: 0.82rem; white-space: nowrap; margin-left: 1rem; }
-        .upsell-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,169,110,0.2), transparent); margin: 2.5rem 0; }
+        .value-price-ai { color: #C9A84C; font-weight: 500; font-size: 0.82rem; white-space: nowrap; margin-left: 1rem; }
+        .upsell-divider { width: 100%; height: 0.5px; background: rgba(201,168,76,0.25); margin: 2.5rem 0; }
+        .quote-card-ai {
+          background: #EDE2D4; border-left: 2px solid #C9A84C; padding: 1.2rem 1.4rem;
+          font-family: 'Bodoni Moda', Georgia, serif; font-size: 1.05rem; font-style: italic;
+          color: #8B7340; line-height: 1.55;
+        }
+        .quotes-grid-ai { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+        @media (max-width: 580px) { .quotes-grid-ai { grid-template-columns: 1fr; } }
       `}</style>
 
-      <span className="gold-bar" />
+      {/* Nav */}
+      <header style={{ background: "#1E1530", padding: "14px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "14px", letterSpacing: "0.15em", color: "#C9A84C" }}>Boss Era™</span>
+      </header>
+
+      <span className="gold-accent" />
 
       {/* Upsell — shown first */}
-      <section style={{ padding: "5rem 1.5rem 5rem", maxWidth: "720px", margin: "0 auto", textAlign: "center" }}>
-        <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ width:"160px", margin:"0 auto 1.5rem", display:"block" }} />
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A96E", marginBottom: "1.5rem" }}>
-          One-Time Offer · For New Customers Only
-        </p>
-        <div style={{ width: "48px", height: "2px", background: "#C9A96E", margin: "0 auto 2rem" }} />
+      <section style={{ padding: "5rem 1.5rem", maxWidth: "720px", margin: "0 auto", textAlign: "center" }}>
+        <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ width: "160px", margin: "0 auto 1.5rem", display: "block" }} />
+        <p className="eyebrow" style={{ marginBottom: "1.5rem" }}>One-Time Offer · For New Customers Only</p>
+        <div style={{ width: "40px", height: "0.5px", background: "#C9A84C", margin: "0 auto 2rem" }} />
 
-        {/* Bridge headline */}
-        <h2 style={{ fontWeight: 300, fontSize: "clamp(1.8rem,4vw,2.8rem)", lineHeight: 1.15, marginBottom: "1.5rem" }}>
+        <h2 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1.7rem,4vw,2.6rem)", color: "#1A1A1A", lineHeight: 1.15, marginBottom: "1.5rem" }}>
           Your AI creates the content.<br />
-          <em style={{ color: "#C9A96E" }}>Now give it authority quotes to work with.</em>
+          <em style={{ color: "#8B7340" }}>Now give it authority quotes to work with.</em>
         </h2>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.8, color: "rgba(26,16,37,0.7)", maxWidth: "580px", margin: "0 auto 1.25rem", fontSize: "0.97rem" }}>
+
+        <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, lineHeight: 1.8, color: "#555", maxWidth: "580px", margin: "0 auto 1.25rem", fontSize: "0.97rem" }}>
           Your AI Content to Cash System builds your content strategy.
         </p>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.8, color: "rgba(26,16,37,0.6)", maxWidth: "580px", margin: "0 auto 2rem", fontSize: "0.92rem" }}>
-          The <strong style={{ color: "#1A1025" }}>Boss Era™ Quote Authority System</strong> supplies the authority positioning. Together, they cover every layer of a faceless brand that converts — content, voice, identity, and direction.
+        <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, lineHeight: 1.8, color: "#666", maxWidth: "580px", margin: "0 auto 2rem", fontSize: "0.92rem" }}>
+          The <strong style={{ color: "#1A1A1A", fontWeight: 500 }}>Boss Era™ Quote Authority System</strong> supplies the authority positioning. Together, they cover every layer of a faceless brand that converts — content, voice, identity, and direction.
         </p>
 
         <div className="upsell-divider" />
 
-        {/* 9 Modules */}
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A96E", marginBottom: "1.25rem" }}>
-          What's Inside — 9 Modules
-        </p>
+        <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>What's Inside — 9 Modules</p>
         {modules.map((mod) => (
-          <div key={mod.n} className="module-card" style={mod.n === "02" ? { borderColor: "rgba(201,169,110,0.5)" } : undefined}>
-            <span className="module-num">{mod.n}</span>
-            <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A96E", marginBottom: "0.25rem" }}>
-              Module {mod.n}
-            </p>
-            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 400, color: "#1A1025", marginBottom: "0.25rem" }}>
-              {mod.title}
-            </p>
-            <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.84rem", color: "rgba(26,16,37,0.55)", lineHeight: 1.6 }}>
-              {mod.desc}
-            </p>
+          <div key={mod.n} className="module-card-ai">
+            <p className="eyebrow" style={{ marginBottom: "0.25rem" }}>Module {mod.n}</p>
+            <p style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "1rem", color: "#1A1A1A", marginBottom: "0.25rem" }}>{mod.title}</p>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.84rem", fontWeight: 300, color: "#666", lineHeight: 1.6 }}>{mod.desc}</p>
           </div>
         ))}
 
         <div className="upsell-divider" />
 
-        {/* Sample quotes */}
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A96E", marginBottom: "0.75rem" }}>
-          Words That Build Empires
-        </p>
-        <div className="quotes-grid">
+        <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>Words That Build Empires</p>
+        <div className="quotes-grid-ai">
           {sampleQuotes.map((q) => (
-            <div key={q} className="quote-card">"{q}"</div>
+            <div key={q} className="quote-card-ai">"{q}"</div>
           ))}
         </div>
 
         <div className="upsell-divider" />
 
-        {/* Value stack */}
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A96E", marginBottom: "1.25rem" }}>
-          Value Stack
-        </p>
+        <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Value Stack</p>
         {valueStack.map(([item, val]) => (
-          <div key={item} className="value-row">
+          <div key={item} className="value-row-ai">
             <span>{item}</span>
-            <span className="value-price">{val}</span>
+            <span className="value-price-ai">{val}</span>
           </div>
         ))}
 
-        {/* Price tiers + CTA */}
-        <div style={{ background: "#F5EDE8", border: "1px solid rgba(201,169,110,0.25)", padding: "2rem", marginTop: "1.5rem" }}>
-          <div style={{ borderTop:"1px solid rgba(201,169,110,0.2)", marginTop:"0.5rem", paddingTop:"1rem" }}>
-            <div style={{ display:"flex", justifyContent:"space-between", padding:"0.5rem 0" }}>
-              <span style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.82rem", color:"rgba(26,16,37,0.5)", letterSpacing:"0.05em" }}>Total Value</span>
-              <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"1.2rem", color:"rgba(26,16,37,0.5)", textDecoration:"line-through", textDecorationThickness:"2px" }}>$261</span>
+        {/* Price tiers + Stripe CTA — DO NOT MODIFY STRIPE LOGIC */}
+        <div style={{ background: "#EDE2D4", border: "1px solid rgba(201,168,76,0.2)", padding: "2rem", marginTop: "1.5rem" }}>
+          <div style={{ borderTop: "0.5px solid rgba(201,168,76,0.2)", marginTop: "0.5rem", paddingTop: "1rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "0.5rem 0" }}>
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.82rem", color: "#AAA" }}>Total Value</span>
+              <span style={{ fontFamily: "'Bodoni Moda', serif", fontSize: "1.2rem", color: "#AAA", textDecoration: "line-through" }}>$261</span>
             </div>
-            <div style={{ display:"flex", justifyContent:"space-between", padding:"0.5rem 0" }}>
-              <span style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.82rem", color:"rgba(26,16,37,0.5)", letterSpacing:"0.05em" }}>Standard Price</span>
-              <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"1.2rem", color:"rgba(26,16,37,0.5)", textDecoration:"line-through", textDecorationThickness:"2px" }}>$67</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "0.5rem 0" }}>
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.82rem", color: "#AAA" }}>Standard Price</span>
+              <span style={{ fontFamily: "'Bodoni Moda', serif", fontSize: "1.2rem", color: "#AAA", textDecoration: "line-through" }}>$67</span>
             </div>
-            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", padding:"0.75rem 0 0.25rem", borderTop:"1px solid rgba(201,169,110,0.2)", marginTop:"0.5rem" }}>
-              <span style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.82rem", color:"#C9A96E", letterSpacing:"0.08em", textTransform:"uppercase", fontWeight:"600" }}>Your Price Today</span>
-              <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"3rem", color:"#C9A96E", fontWeight:"300" }}>$47</span>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "0.75rem 0 0.25rem", borderTop: "0.5px solid rgba(201,168,76,0.2)", marginTop: "0.5rem" }}>
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.82rem", color: "#C9A84C", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 500 }}>Your Price Today</span>
+              <span style={{ fontFamily: "'Bodoni Moda', serif", fontSize: "3rem", color: "#2D1B3D" }}>$47</span>
             </div>
-            <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.75rem", color:"rgba(26,16,37,0.35)", textAlign:"right", margin:"0 0 1.5rem" }}>New customer discount · This page only</p>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.75rem", color: "#AAA", textAlign: "right", margin: "0 0 1.5rem" }}>New customer discount · This page only</p>
           </div>
 
-          <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.92rem", color: "#C9A96E", fontWeight: "600", lineHeight: 1.6, marginBottom: "1.25rem", textAlign: "center" }}>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.9rem", color: "#C9A84C", fontWeight: 500, lineHeight: 1.6, marginBottom: "1.25rem", textAlign: "center" }}>
             This offer is available on this page only. Once you leave, the $47 price is gone.
           </p>
-          <a href={QAS_STRIPE} className="btn-gold" style={{ display: "block", textAlign: "center" }}>
+          {/* DO NOT MODIFY — Stripe upsell button */}
+          <a
+            href={QAS_STRIPE}
+            style={{
+              display: "block", textAlign: "center", background: "#2D1B3D", color: "#C9A84C",
+              fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: "10px",
+              letterSpacing: "0.22em", textTransform: "uppercase", padding: "16px 40px",
+              textDecoration: "none",
+            }}
+          >
             Add Quote Authority System — $47
           </a>
           <div style={{ textAlign: "center" }}>
-            <button onClick={scrollToDelivery} className="btn-ghost">
+            <button
+              onClick={scrollToDelivery}
+              style={{
+                display: "inline-block", border: "1px solid rgba(201,168,76,0.3)", color: "#AAA",
+                fontFamily: "'Jost', sans-serif", fontSize: "0.8rem", letterSpacing: "0.08em",
+                textTransform: "uppercase", padding: "0.75rem 2rem", marginTop: "1rem",
+                cursor: "pointer", background: "transparent",
+              }}
+            >
               No thanks, I'll pass on this offer
             </button>
           </div>
         </div>
 
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.75rem", color: "rgba(26,16,37,0.3)", marginTop: "1.5rem", lineHeight: 1.7 }}>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.75rem", color: "#AAA", marginTop: "1.5rem", lineHeight: 1.7 }}>
           Results depend on individual effort and consistency. This is an educational digital product.
         </p>
       </section>
 
-      <div style={{ background: "#F5EDE8", borderTop: "2px solid rgba(201,169,110,0.3)", padding: "2rem 1.5rem", textAlign: "center" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(26,16,37,0.4)" }}>
-          Scroll down to access your product
-        </p>
-        <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", color: "rgba(26,16,37,0.3)", margin: "0.5rem 0 0" }}>↓</p>
+      <div style={{ background: "#EDE2D4", borderTop: "2px solid rgba(201,168,76,0.2)", padding: "2rem 1.5rem", textAlign: "center" }}>
+        <p className="eyebrow">Scroll down to access your product</p>
+        <p style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "1.5rem", color: "#8B7340", margin: "0.5rem 0 0" }}>↓</p>
       </div>
 
-      {/* Product delivery — shown after upsell */}
+      {/* Product delivery — DO NOT MODIFY delivery link */}
       <section id="delivery" style={{ padding: "5rem 1.5rem", maxWidth: "680px", margin: "0 auto", textAlign: "center" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A96E", marginBottom: "1.5rem" }}>
-          Boss Era™ · Order Confirmed
-        </p>
-        <div style={{ width: "48px", height: "2px", background: "#C9A96E", margin: "0 auto 2rem" }} />
-        <h1 style={{ fontWeight: 300, fontSize: "clamp(2.2rem,5vw,3.5rem)", lineHeight: 1.1, marginBottom: "1.5rem" }}>
+        <p className="eyebrow" style={{ marginBottom: "1.5rem" }}>Boss Era™ · Order Confirmed</p>
+        <div style={{ width: "40px", height: "0.5px", background: "#C9A84C", margin: "0 auto 2rem" }} />
+        <h1 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 400, fontSize: "clamp(2.2rem,5vw,3.2rem)", lineHeight: 1.1, marginBottom: "1.5rem", color: "#1A1A1A" }}>
           You're in.<br />
-          <em style={{ color: "#C9A96E" }}>Your system is ready.</em>
+          <em style={{ color: "#8B7340" }}>Your system is ready.</em>
         </h1>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", lineHeight: 1.75, color: "rgba(26,16,37,0.7)", marginBottom: "2.5rem", fontSize: "1rem" }}>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, lineHeight: 1.75, color: "#555", marginBottom: "2.5rem", fontSize: "1rem" }}>
           Thank you for your order. The AI Content to Cash System is waiting for you. Click below to access your full digital product.
         </p>
-        <a href={GOOGLE_DRIVE_LINK} className="btn-gold">
+        <a
+          href={GOOGLE_DRIVE_LINK}
+          style={{
+            display: "inline-block", background: "#2D1B3D", color: "#C9A84C",
+            fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: "10px",
+            letterSpacing: "0.22em", textTransform: "uppercase",
+            padding: "16px 40px", textDecoration: "none",
+          }}
+        >
           Access My Product →
         </a>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.78rem", color: "rgba(26,16,37,0.35)", marginTop: "1rem" }}>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.78rem", color: "#AAA", marginTop: "1rem" }}>
           A confirmation has been sent to your email via Stripe.
         </p>
       </section>
 
-      <span className="gold-bar" />
+      <span className="gold-accent" />
 
-      <footer style={{ padding: "2rem 1.5rem", textAlign: "center", borderTop: "1px solid rgba(201,169,110,0.1)" }}>
-        <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", color: "#C9A96E", letterSpacing: "0.1em", marginBottom: "0.5rem" }}>Boss Era™</p>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", color: "rgba(26,16,37,0.3)" }}>
-          © 2026 Boss Era™ · <a href="/privacy" style={{ color: "inherit" }}>Privacy Policy</a>
+      <footer style={{ background: "#0F0B1A", padding: "2rem 1.5rem", textAlign: "center" }}>
+        <p style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "12px", letterSpacing: "0.18em", color: "#C9A84C", marginBottom: "6px" }}>Boss Era™</p>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", color: "#8B7340", letterSpacing: "0.1em", marginBottom: "12px" }}>@bossdigitalbusiness</p>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", color: "#444" }}>
+          © 2026 Boss Era™ · <a href="/privacy" style={{ color: "#8B7340", textDecoration: "none" }}>Privacy Policy</a>
         </p>
-        <div style={{ borderTop:"1px solid rgba(201,169,110,0.15)", paddingTop:"1.2rem", marginTop:"1.2rem" }}>
-          <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.68rem", letterSpacing:"0.15em", textTransform:"uppercase", color:"rgba(26,16,37,0.35)", marginBottom:"0.5rem" }}>Partner offer</p>
-          <a href="/aimuse" style={{ display:"inline-block" }}>
-            <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ height:"22px", width:"auto", opacity:"0.7" }} />
+        <div style={{ borderTop: "0.5px solid rgba(201,168,76,0.15)", paddingTop: "1.2rem", marginTop: "1.2rem" }}>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(139,115,64,0.5)", marginBottom: "0.5rem" }}>Partner offer</p>
+          <a href="/aimuse" style={{ display: "inline-block" }}>
+            <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ height: "22px", width: "auto", opacity: 0.6 }} />
           </a>
         </div>
       </footer>

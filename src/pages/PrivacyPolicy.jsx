@@ -1,25 +1,29 @@
 export default function PrivacyPolicy() {
   return (
-    <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", background: "#E8D5C4", color: "#3D2B1F", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: "#F0E8DC", color: "#444", minHeight: "100vh" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Instrument+Sans:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        .gold-bar { display: block; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #C9A96E, transparent); }
-        h1 { font-weight: 300; font-size: 2.2rem; margin-bottom: 1.5rem; color: #1A1025; }
-        h2 { font-weight: 400; font-size: 1rem; color: #8B5E3C; margin: 2rem 0 0.75rem; font-family: 'Instrument Sans', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
-        p, li { font-family: 'Instrument Sans', sans-serif; font-size: 0.92rem; line-height: 1.8; color: rgba(26,16,37,0.72); margin-bottom: 0.75rem; }
+        h1, h2, h3 { font-family: 'Bodoni Moda', Georgia, serif; color: #1A1A1A; }
+        body, p, li { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.8; color: #444; }
+        h1 { font-size: 2.2rem; font-weight: 400; margin-bottom: 1.5rem; }
+        h2 { font-size: 0.9rem; font-weight: 500; margin: 2rem 0 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #8B7340; font-family: 'Jost', sans-serif; }
+        p, li { margin-bottom: 0.75rem; }
         ul { padding-left: 1.5rem; }
-        a { color: #8B5E3C; }
+        a { color: #8B7340; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .gold-accent { display: block; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #C9A84C, transparent); }
       `}</style>
 
-      <header style={{ background: "#1A1025", borderBottom: "1px solid rgba(201,169,110,0.15)", padding: "0.85rem 2rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", color: "#C9A96E", letterSpacing: "0.12em" }}>Boss Era™</span>
+      {/* Nav */}
+      <header style={{ background: "#1E1530", padding: "14px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "14px", letterSpacing: "0.15em", color: "#C9A84C" }}>Boss Era™</span>
       </header>
 
-      <span className="gold-bar" />
+      <span className="gold-accent" />
 
       <div style={{ maxWidth: "720px", margin: "0 auto", padding: "5rem 1.5rem" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A5C3E", marginBottom: "1rem" }}>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.25em", textTransform: "uppercase", color: "#8B7340", marginBottom: "1rem" }}>
           Boss Era™ · Legal
         </p>
         <h1>Privacy Policy</h1>
@@ -61,16 +65,17 @@ export default function PrivacyPolicy() {
         <p>We may update this policy periodically. Continued use of our website constitutes acceptance of any changes.</p>
       </div>
 
-      <span className="gold-bar" />
+      <span className="gold-accent" />
 
-      <footer style={{ padding: "2rem 1.5rem", textAlign: "center", borderTop: "1px solid rgba(201,169,110,0.1)" }}>
-        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: "0.72rem", color: "rgba(26,16,37,0.35)" }}>
-          © 2026 Boss Era™ · bossfacelessmentor.com
+      <footer style={{ background: "#0F0B1A", padding: "2rem 1.5rem", textAlign: "center" }}>
+        <p style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "12px", letterSpacing: "0.18em", color: "#C9A84C", marginBottom: "6px" }}>Boss Era™</p>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", color: "#444" }}>
+          © 2026 Boss Era™ · bossfacelessmentor.com · <a href="/privacy" style={{ color: "#8B7340" }}>Privacy Policy</a>
         </p>
-        <div style={{ borderTop:"1px solid rgba(201,169,110,0.15)", paddingTop:"1.2rem", marginTop:"1.2rem" }}>
-          <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.68rem", letterSpacing:"0.15em", textTransform:"uppercase", color:"rgba(26,16,37,0.35)", marginBottom:"0.5rem" }}>Partner offer</p>
-          <a href="/aimuse" style={{ display:"inline-block" }}>
-            <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ height:"22px", width:"auto", opacity:"0.7" }} />
+        <div style={{ borderTop: "0.5px solid rgba(201,168,76,0.15)", paddingTop: "1.2rem", marginTop: "1.2rem" }}>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(139,115,64,0.5)", marginBottom: "0.5rem" }}>Partner offer</p>
+          <a href="/aimuse" style={{ display: "inline-block" }}>
+            <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ height: "22px", width: "auto", opacity: 0.6 }} />
           </a>
         </div>
       </footer>

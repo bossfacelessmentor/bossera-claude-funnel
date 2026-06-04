@@ -20,24 +20,17 @@ function useInView(threshold = 0.15) {
 function FadeIn({ children, delay = 0, className = "" }) {
   const [ref, inView] = useInView();
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(28px)",
-        transition: `opacity 0.75s ease ${delay}s, transform 0.75s ease ${delay}s`,
-      }}
-    >
+    <div ref={ref} className={className} style={{
+      opacity: inView ? 1 : 0,
+      transform: inView ? "translateY(0)" : "translateY(24px)",
+      transition: `opacity 0.75s ease ${delay}s, transform 0.75s ease ${delay}s`,
+    }}>
       {children}
     </div>
   );
 }
 
-const GoldLine = () => (
-  <div style={{ width: "48px", height: "2px", background: "var(--gold)", margin: "0 auto 2rem" }} />
-);
-
+// DO NOT MODIFY — Meta Pixel AddToCart handler
 const handleStripeClick = () => {
   try {
     if (window.fbq) {
@@ -51,37 +44,43 @@ const handleStripeClick = () => {
   } catch (e) {}
 };
 
-const CTAButton = ({ label = "Get Instant Access · $27", sub }) => (
-  <div style={{ textAlign: "center" }}>
-    <a
-      href={STRIPE_LINK}
-      style={{
-        display: "inline-block",
-        background: "#1A1025",
-        color: "#C9A96E",
-        fontFamily: "var(--font-sans)",
-        fontWeight: "700",
-        fontSize: "1.05rem",
-        letterSpacing: "0.08em",
-        textTransform: "uppercase",
-        padding: "1.4rem 3.5rem",
-        textDecoration: "none",
-        transition: "opacity 0.2s, transform 0.2s",
-        animation: "pulse 2.5s ease-in-out infinite",
-      }}
-      onClick={handleStripeClick}
-      onMouseEnter={e => { e.currentTarget.style.opacity = "0.88"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-      onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
-    >
-      {label}
-    </a>
-    {sub && (
-      <p style={{ marginTop: "0.75rem", fontSize: "0.8rem", color: "var(--cream-muted)", letterSpacing: "0.05em", fontFamily: "var(--font-sans)" }}>
-        {sub}
-      </p>
-    )}
-  </div>
+const Tag = ({ children }) => (
+  <span style={{
+    display: "inline-block",
+    fontFamily: "'Jost', sans-serif",
+    fontSize: "9px",
+    letterSpacing: "0.25em",
+    textTransform: "uppercase",
+    color: "#8B7340",
+    border: "0.5px solid rgba(139,115,64,0.35)",
+    padding: "5px 14px",
+    marginBottom: "20px",
+  }}>{children}</span>
 );
+
+const modules = [
+  { n: "01", title: "AI Foundations", desc: "Understand exactly how AI works, why most people use it wrong, and the single shift that changes your results immediately." },
+  { n: "02", title: "How to Think When Using AI", desc: "The ROLE · CONTEXT · TASK · FORMAT system that produces professional-grade output every time — and how to iterate until it's perfect." },
+  { n: "03", title: "Content Creation System", desc: "Ten high-converting content prompts, the carousel structure that drives saves, and the difference between content that gets likes versus content that builds buyers." },
+  { n: "04", title: "Content to Cash Assets", desc: "How to turn posts into leads, the CTA swipe file that works without pressure, and how to use keywords and DMs to close sales — calmly." },
+  { n: "05", title: "DM Sales System", desc: "The exact DM conversation flow from first message to confirmed purchase — without chasing, without pressure, and without losing the sale at the objection stage." },
+  { n: "06", title: "Brand & Trust System", desc: "Use your AI assistant to design, name, price, and position a digital product. The framework for creating an offer people feel they'd be foolish to pass up." },
+  { n: "07", title: "Small & Scaled Strategy", desc: "How to build a simple email funnel using AI — from lead magnet to welcome sequence to conversion emails — without a tech background." },
+  { n: "08", title: "Offer Ideas & Access Plans", desc: "A realistic, day-by-day plan for your first 10 sales. Foundation, visibility, offers, and closing — sequenced so nothing falls through." },
+  { n: "09", title: "Design Ideas & Access Plans", desc: "Why people fail with AI, how to diagnose your specific block, and the 72-hour reset that gets you back to forward momentum." },
+];
+
+const bonuses = [
+  { name: "9 Sales Prompts", price: "$17" },
+  { name: "33 AI Prompts", price: "$27" },
+  { name: "50 Cowork Skills", price: "$37" },
+  { name: "100 Secret Codes for Claude", price: "$47" },
+  { name: "Claude AI Founder Thinking Mode", price: "$47" },
+  { name: "The AI Instagram Business Kit", price: "$47" },
+  { name: "How to Start Building an AI Influencer", price: "$47" },
+  { name: "How To Use Claude Step-by-Step", price: "$27" },
+  { name: "Claude + Higgsfield MCP", price: "$47" },
+];
 
 export default function AILandingPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -92,654 +91,426 @@ export default function AILandingPage() {
   }, []);
 
   return (
-    <div style={{ fontFamily: "var(--font-serif)", background: "var(--navy)", color: "var(--cream)", minHeight: "100vh", overflowX: "hidden" }}>
+    <div style={{ fontFamily: "'Jost', sans-serif", background: "#F0E8DC", color: "#1A1A1A", minHeight: "100vh", overflowX: "hidden" }}>
       <LeadMagnetPopup />
-      <header style={{ background:"#1A1025", borderBottom:"1px solid rgba(201,169,110,0.15)", padding:"0.85rem 2rem", display:"flex", alignItems:"center", justifyContent:"center" }}>
-        <span style={{ fontFamily:"var(--font-serif)", fontSize:"1.1rem", color:"var(--gold)", letterSpacing:"0.12em" }}>Boss Era™</span>
-      </header>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500&display=swap');
-
-        :root {
-          --navy: #E8D5C4;
-          --navy-light: #F5EDE8;
-          --gold: #C9A96E;
-          --gold-light: #D4B87A;
-          --cream: #1A1025;
-          --cream-muted: rgba(26,16,37,0.55);
-          --font-serif: 'Cormorant Garamond', Georgia, serif;
-          --font-sans: 'Instrument Sans', Helvetica, sans-serif;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        h1, h2, h3, h4 { font-family: 'Bodoni Moda', Georgia, serif; }
+        body, p, li, span, a, button, input, label { font-family: 'Jost', sans-serif; font-weight: 300; }
+        body { font-size: 18px; line-height: 1.7; color: #1A1A1A; }
+        @media (max-width: 768px) { body, p, li { font-size: 16px; } }
 
-        body { background: var(--navy); }
-
-        .section { padding: 5rem 1.5rem; max-width: 780px; margin: 0 auto; }
-
-        .eyebrow {
-          font-family: var(--font-sans);
-          font-size: 0.72rem;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #7A5C3E;
-          margin-bottom: 1.2rem;
-        }
-
-        h1 {
-          font-family: var(--font-serif);
-          font-weight: 300;
-          font-size: clamp(2.6rem, 6vw, 4.2rem);
-          line-height: 1.1;
-          color: var(--cream);
-          margin-bottom: 1.5rem;
-        }
-
-        h2 {
-          font-family: var(--font-serif);
-          font-weight: 300;
-          font-size: clamp(2rem, 4vw, 3rem);
-          line-height: 1.15;
-          color: var(--cream);
-          margin-bottom: 1.2rem;
-        }
-
-        h3 {
-          font-family: var(--font-serif);
-          font-weight: 400;
-          font-size: 1.35rem;
-          color: var(--cream);
-          margin-bottom: 0.5rem;
-        }
-
-        p {
-          font-family: var(--font-sans);
-          font-size: 1rem;
-          line-height: 1.75;
-          color: rgba(26,16,37,0.75);
-        }
-
-        .gold-bar {
-          display: block;
-          width: 100%;
-          height: 3px;
-          background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-
-        .sticky-bar {
-          position: fixed;
-          top: 0; left: 0; right: 0;
-          z-index: 100;
-          background: rgba(26,16,37,0.97);
-          backdrop-filter: blur(8px);
-          border-bottom: 1px solid rgba(201,169,110,0.2);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0.85rem 2rem;
+        .sticky-nav {
+          position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+          background: #1E1530; padding: 14px 32px;
+          display: flex; justify-content: space-between; align-items: center;
           transition: transform 0.3s ease;
         }
+        .nav-brand { font-family: 'Bodoni Moda', Georgia, serif; font-size: 14px; letter-spacing: 0.15em; color: #C9A84C; text-decoration: none; }
+        .nav-cta-btn {
+          background: transparent; border: 1px solid #C9A84C; color: #C9A84C;
+          font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500;
+          letter-spacing: 0.22em; text-transform: uppercase; padding: 10px 20px;
+          text-decoration: none; cursor: pointer; transition: opacity 0.2s; display: inline-block;
+        }
+        .nav-cta-btn:hover { opacity: 0.75; }
 
-        .module-card {
-          background: var(--navy-light);
-          border: 1px solid rgba(201,169,110,0.2);
-          padding: 1.8rem 2rem;
-          margin-bottom: 1rem;
-          position: relative;
+        .hero-grid {
+          display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+          max-width: 980px; margin: 0 auto; padding: 52px 32px 60px;
+        }
+        @media (max-width: 768px) {
+          .hero-grid { grid-template-columns: 1fr; gap: 32px; padding: 40px 20px; }
+          .hero-image-col { order: -1; }
+        }
+        .hero-image-wrap { position: relative; height: 480px; overflow: hidden; }
+        @media (max-width: 768px) { .hero-image-wrap { height: 260px; } }
+        .hero-caption {
+          position: absolute; bottom: 0; left: 0; right: 0;
+          background: linear-gradient(transparent, rgba(26,18,8,0.55));
+          padding: 20px 24px;
+          font-family: 'Bodoni Moda', Georgia, serif; font-style: italic; font-size: 13px; color: #E8D5A3;
         }
 
-        .module-number {
-          position: absolute;
-          top: 1.5rem; right: 1.8rem;
-          font-family: var(--font-serif);
-          font-size: 3rem;
-          font-weight: 300;
-          color: rgba(201,169,110,0.12);
-          line-height: 1;
+        .stats-grid {
+          display: grid; grid-template-columns: 1fr 1fr 1fr;
+          max-width: 980px; margin: 0 auto;
         }
-
-        .check-row {
-          display: flex;
-          align-items: flex-start;
-          gap: 1rem;
-          margin-bottom: 1rem;
-          font-family: var(--font-sans);
-          font-size: 0.95rem;
-          color: rgba(26,16,37,0.75);
-          line-height: 1.5;
-        }
-
-        .check-icon {
-          width: 20px;
-          height: 20px;
-          min-width: 20px;
-          border-radius: 50%;
-          background: rgba(201,169,110,0.15);
-          border: 1px solid var(--gold);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: 1px;
-          font-size: 0.65rem;
-          color: var(--gold);
-        }
-
-        .value-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: baseline;
-          padding: 0.85rem 0;
-          border-bottom: 1px solid rgba(201,169,110,0.1);
-          font-family: var(--font-sans);
-          font-size: 0.92rem;
-          color: #3D2B1F;
-        }
-
-        .value-price {
-          color: var(--gold);
-          font-weight: 600;
-          font-size: 0.88rem;
-          white-space: nowrap;
-          margin-left: 1rem;
-        }
-
-        .divider {
-          width: 100%;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(201,169,110,0.25), transparent);
-          margin: 4rem 0;
-        }
-
-        .for-notfor {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 1.5rem;
-        }
-
+        .stat-cell { padding: 28px 24px; text-align: center; border-right: 0.5px solid rgba(201,168,76,0.15); }
+        .stat-cell:last-child { border-right: none; }
         @media (max-width: 640px) {
-          .for-notfor { grid-template-columns: 1fr; }
-          .section { padding: 4rem 1.25rem; }
-          .sticky-bar { padding: 0.75rem 1.25rem; }
+          .stats-grid { grid-template-columns: 1fr; }
+          .stat-cell { border-right: none; border-bottom: 0.5px solid rgba(201,168,76,0.15); }
+          .stat-cell:last-child { border-bottom: none; }
         }
 
-        .for-col {
-          background: var(--navy-light);
-          border: 1px solid rgba(201,169,110,0.18);
-          padding: 1.8rem;
+        .system-top-grid {
+          display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+          max-width: 980px; margin: 0 auto 48px;
+        }
+        @media (max-width: 768px) { .system-top-grid { grid-template-columns: 1fr; } }
+
+        .modules-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
+        @media (max-width: 768px) { .modules-grid { grid-template-columns: 1fr; } }
+
+        .bonus-grid {
+          display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
+          max-width: 980px; margin: 44px auto 0;
+        }
+        @media (max-width: 768px) {
+          .bonus-grid { grid-template-columns: 1fr; }
+          .bonus-image-col { order: -1; }
         }
 
-        .for-col h4 {
-          font-family: var(--font-sans);
-          font-size: 0.72rem;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          margin-bottom: 1.2rem;
-        }
+        .built-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 980px; margin: 0 auto; }
+        @media (max-width: 768px) { .built-grid { grid-template-columns: 1fr; } }
 
-        .for-item {
-          font-family: var(--font-sans);
-          font-size: 0.9rem;
-          color: rgba(26,16,37,0.7);
-          line-height: 1.6;
-          margin-bottom: 0.75rem;
-          padding-left: 1.2rem;
-          position: relative;
-        }
-
-        .for-item::before {
-          content: attr(data-marker);
-          position: absolute;
-          left: 0;
-          color: var(--gold);
-          font-weight: 700;
-        }
+        .outcomes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; max-width: 980px; margin: 40px auto 0; }
+        @media (max-width: 640px) { .outcomes-grid { grid-template-columns: 1fr; } }
 
         @keyframes pulse {
-          0% { box-shadow: 0 0 0 0 rgba(201,169,110,0.4); }
-          70% { box-shadow: 0 0 0 12px rgba(201,169,110,0); }
-          100% { box-shadow: 0 0 0 0 rgba(201,169,110,0); }
-        }
-
-        blockquote {
-          border-left: 2px solid var(--gold);
-          padding: 1.2rem 1.8rem;
-          font-family: var(--font-serif);
-          font-size: 1.35rem;
-          font-style: italic;
-          font-weight: 300;
-          color: var(--cream);
-          line-height: 1.5;
-          background: var(--navy-light);
-          margin: 2rem 0;
-        }
-
-        /* ── Typography overrides (Step 2) ── */
-        h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; }
-        body, p, li {
-          font-family: 'Outfit', sans-serif;
-          font-size: 18px;
-          line-height: 1.6;
-          color: #2C2C2C;
-        }
-        @media (max-width: 768px) {
-          body, p, li { font-size: 16px; }
-        }
-
-        /* ── Hero mockup (Step 3) ── */
-        .hero-mockup-wrapper { text-align: center; margin-top: 40px; }
-        .hero-mockup-img { max-width: 640px; width: 100%; height: auto; }
-
-        /* ── Core system grid (Step 5) ── */
-        .core-system-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 48px;
-          align-items: start;
-        }
-        .core-system-image img {
-          width: 100%;
-          max-width: 320px;
-          height: auto;
-          display: block;
-          margin: 0 auto;
-        }
-        @media (max-width: 768px) {
-          .core-system-grid { grid-template-columns: 1fr; }
-          .core-system-image { order: 2; }
-          .core-system-boxes { order: 1; }
-        }
-
-        /* ── Bonus vault (Step 6) ── */
-        .bonus-vault-section { background: #F5EFE6; padding: 80px 24px; }
-        .bonus-vault-inner {
-          max-width: 900px; margin: 0 auto;
-          display: grid; grid-template-columns: 1fr 1fr;
-          gap: 60px; align-items: center;
-        }
-        .bonus-vault-header { margin-bottom: 32px; }
-        .bonus-vault-label {
-          display: inline-block; background: #2D1B3D; color: #C9A84C;
-          font-family: 'Cormorant Garamond', Georgia, serif;
-          font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
-          padding: 8px 24px; border-radius: 4px;
-        }
-        .bonus-list { list-style: none; padding: 0; margin: 0 0 24px; }
-        .bonus-list li {
-          display: flex; justify-content: space-between; align-items: center;
-          padding: 14px 0; border-bottom: 0.5px solid rgba(201,168,76,0.27);
-        }
-        .bonus-title { font-family: 'Outfit', sans-serif; font-size: 16px; color: #2C2C2C; }
-        .bonus-included { font-family: 'Outfit', sans-serif; font-size: 13px; color: #C9A84C; font-style: italic; }
-        .bonus-tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; color: #C9A84C; font-size: 16px; margin: 0; }
-        .bonus-vault-image img { width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto; }
-        @media (max-width: 768px) {
-          .bonus-vault-inner { grid-template-columns: 1fr; }
-          .bonus-vault-image { order: -1; }
-        }
-
-        /* ── Trust bar (Step 8) ── */
-        .trust-bar { text-align: center; padding: 32px 24px; border-top: 0.5px solid rgba(201,168,76,0.27); }
-        .trust-delivery { font-family: 'Outfit', sans-serif; font-size: 14px; color: #6B6B6B; letter-spacing: 0.05em; margin-bottom: 16px; }
-        .payment-icons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .payment-icons span {
-          font-family: 'Outfit', sans-serif; font-size: 12px; color: #6B6B6B;
-          border: 0.5px solid rgba(201,168,76,0.4); padding: 6px 16px;
-          border-radius: 4px; letter-spacing: 0.08em; text-transform: uppercase;
+          0% { box-shadow: 0 0 0 0 rgba(201,168,76,0.35); }
+          70% { box-shadow: 0 0 0 12px rgba(201,168,76,0); }
+          100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
         }
       `}</style>
 
       {/* Sticky Nav */}
-      <div className="sticky-bar" style={{ transform: scrolled ? "translateY(0)" : "translateY(-100%)" }}>
-        <span style={{ fontFamily: "var(--font-serif)", fontSize: "1.1rem", color: "var(--gold)", letterSpacing: "0.05em" }}>
-          Boss Era™
-        </span>
-        <a
-          href={STRIPE_LINK}
-          style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.75rem",
-            fontWeight: "700",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "#1A1025",
-            background: "#C9A96E",
-            padding: "0.55rem 1.4rem",
-            textDecoration: "none",
-          }}
-        >
-          Get Access — $27
-        </a>
-      </div>
+      <nav className="sticky-nav" style={{ transform: scrolled ? "translateY(0)" : "translateY(-100%)" }}>
+        <span className="nav-brand">Boss Era™</span>
+        <a href={STRIPE_LINK} className="nav-cta-btn" onClick={handleStripeClick}>Get Access — $27</a>
+      </nav>
+
+      {/* Static Header */}
+      <header style={{ background: "#1E1530", padding: "14px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "14px", letterSpacing: "0.15em", color: "#C9A84C" }}>Boss Era™</span>
+        <a href={STRIPE_LINK} className="nav-cta-btn" onClick={handleStripeClick}>Get Access — $27</a>
+      </header>
 
       {/* Hero */}
-      <section style={{ background: "var(--navy)", paddingTop: "1.5rem", paddingBottom: "5rem" }}>
-        <div className="section" style={{ textAlign: "center" }}>
-          <div
-            style={{
-              opacity: 1,
-              animation: "fadeDown 0.9s ease both",
-            }}
-          >
-            <style>{`@keyframes fadeDown { from { opacity:0; transform: translateY(-18px); } to { opacity:1; transform: translateY(0); } }`}</style>
-            <p className="eyebrow">Boss Era™ · Premium Edition</p>
-            <svg width="160" height="110" viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg" style={{margin: "0 auto 2rem", display: "block"}} aria-hidden="true">
-              <circle cx="80" cy="55" r="5" fill="#C9A96E"/>
-              <circle cx="26.6" cy="20.6" r="3.5" fill="#C9A96E" opacity="0.7"/>
-              <circle cx="133" cy="20.6" r="3.5" fill="#C9A96E" opacity="0.7"/>
-              <circle cx="13.3" cy="75.6" r="3" fill="#C9A96E" opacity="0.5"/>
-              <circle cx="146.3" cy="75.6" r="3" fill="#C9A96E" opacity="0.5"/>
-              <circle cx="46.6" cy="93.5" r="3" fill="#C9A96E" opacity="0.5"/>
-              <circle cx="113.1" cy="93.5" r="3" fill="#C9A96E" opacity="0.5"/>
-              <circle cx="53.2" cy="13.75" r="2.5" fill="#C9A96E" opacity="0.4"/>
-              <circle cx="106.4" cy="13.75" r="2.5" fill="#C9A96E" opacity="0.4"/>
-              <line x1="80" y1="55" x2="26.6" y2="20.6" stroke="#C9A96E" strokeWidth="0.75" opacity="0.4"/>
-              <line x1="80" y1="55" x2="133" y2="20.6" stroke="#C9A96E" strokeWidth="0.75" opacity="0.4"/>
-              <line x1="80" y1="55" x2="13.3" y2="75.6" stroke="#C9A96E" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="80" y1="55" x2="146.3" y2="75.6" stroke="#C9A96E" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="80" y1="55" x2="46.6" y2="93.5" stroke="#C9A96E" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="80" y1="55" x2="113.1" y2="93.5" stroke="#C9A96E" strokeWidth="0.75" opacity="0.3"/>
-              <line x1="26.6" y1="20.6" x2="53.2" y2="13.75" stroke="#C9A96E" strokeWidth="0.5" opacity="0.25"/>
-              <line x1="133" y1="20.6" x2="106.4" y2="13.75" stroke="#C9A96E" strokeWidth="0.5" opacity="0.25"/>
-              <line x1="26.6" y1="20.6" x2="13.3" y2="75.6" stroke="#C9A96E" strokeWidth="0.5" opacity="0.2"/>
-              <line x1="133" y1="20.6" x2="146.3" y2="75.6" stroke="#C9A96E" strokeWidth="0.5" opacity="0.2"/>
-            </svg>
-            <h1 style={{ marginBottom: "1rem" }}>Stop Prompting Like an Amateur.</h1>
-            <h2 style={{ fontSize: "clamp(1.15rem, 2.5vw, 1.5rem)", fontWeight: "400", maxWidth: "640px", margin: "0 auto 2.5rem" }}>
+      <section style={{ background: "#F0E8DC" }}>
+        <div className="hero-grid">
+          {/* Left col */}
+          <div>
+            <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.28em", color: "#8B7340", textTransform: "uppercase", borderBottom: "0.5px solid rgba(139,115,64,0.25)", paddingBottom: "12px", marginBottom: "20px" }}>
+              Boss Era™ · For Creators
+            </div>
+            <h1 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "54px", fontWeight: 400, lineHeight: 1.05, marginBottom: "16px" }}>
+              Stop Using AI.<br />
+              <em style={{ color: "#8B7340" }}>Start Building</em><br />
+              With It.
+            </h1>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "16px", fontWeight: 300, color: "#555", lineHeight: 1.75, marginBottom: "28px", maxWidth: "380px" }}>
               Clone my exact AI system — generate 30 days of high-converting content in 15 minutes.
-            </h2>
-            <CTAButton sub="Instant digital access · $27 one-time · No subscription" />
-            <div className="hero-mockup-wrapper">
+            </p>
+            <a
+              href={STRIPE_LINK}
+              onClick={handleStripeClick}
+              style={{
+                display: "inline-block", background: "#2D1B3D", color: "#E8D5A3",
+                fontFamily: "'Jost', sans-serif", fontSize: "10px", fontWeight: 500,
+                letterSpacing: "0.22em", textTransform: "uppercase",
+                padding: "18px 40px", textDecoration: "none",
+                animation: "pulse 2.5s ease-in-out infinite",
+              }}
+            >
+              Get Instant Access — $27
+            </a>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#999", marginTop: "10px", letterSpacing: "0.04em" }}>
+              Instant digital access · $27 one-time · No subscription
+            </p>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#8B7340", fontStyle: "italic", marginTop: "6px" }}>
+              Access to all future updates included
+            </p>
+          </div>
+
+          {/* Right col */}
+          <div className="hero-image-col">
+            <div className="hero-image-wrap">
               <img
                 src="/images/hero-mockup.png"
-                alt="AI Content to Cash System displayed on laptop and tablet — Boss Era™"
-                className="hero-mockup-img"
+                alt="AI Content to Cash System displayed on device — Boss Era™"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                 loading="eager"
               />
+              <div className="hero-caption">The system that runs your content.</div>
             </div>
           </div>
         </div>
-        <span className="gold-bar" />
       </section>
 
-      {/* The Problem */}
-      <section style={{ background: "var(--navy-light)" }}>
-        <div className="section" style={{ textAlign: "center" }}>
-          <FadeIn>
-            <p className="eyebrow">The Real Problem</p>
-            <GoldLine />
-            <h2>Most women are using AI.<br />Almost none are building with it.</h2>
-            <p style={{ maxWidth: "580px", margin: "0 auto 2rem" }}>
-              You've opened your AI assistant. You've typed a prompt. You got something generic back and thought: <em>"This isn't that useful."</em>
-            </p>
-            <p style={{ maxWidth: "580px", margin: "0 auto 2rem" }}>
-              That moment isn't AI failing you. It's the absence of a system. The tool is powerful. The missing piece is how to use it with precision — for content that converts, offers that sell, and a business that compounds.
-            </p>
-            <blockquote style={{ maxWidth: "620px", margin: "2rem auto 0", textAlign: "left" }}>
-              "The better your input, the better its output. That single principle is the foundation of everything."
-            </blockquote>
-          </FadeIn>
-        </div>
-      </section>
-
-      <div className="divider" style={{ margin: 0 }} />
-
-      {/* What It Is */}
-      <section style={{ background: "var(--navy)" }}>
-        <div className="section" style={{ textAlign: "center" }}>
-          <FadeIn>
-            <p className="eyebrow">AI Content to Cash System</p>
-            <GoldLine />
-            <h2>A Start-to-Finish<br /><em style={{ color: "#8B5E3C" }}>AI Business Blueprint.</em></h2>
-            <p style={{ maxWidth: "580px", margin: "0 auto" }}>
-              Nine parts. Three levels. One outcome: you go from unsure how to prompt to running a structured content and income system — with AI doing the heavy work.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Modules */}
-      <section style={{ background: "var(--navy)", paddingTop: "1rem" }}>
-        <div className="section" style={{ paddingTop: "1rem" }}>
-          <div className="core-system-grid">
-          <div className="core-system-boxes">
+      {/* Stats Bar */}
+      <section style={{ background: "#1E1530", padding: "0 32px" }}>
+        <div className="stats-grid">
           {[
-            { n: "01", title: "AI Foundations", sub: "Mindset · Mechanics · Method", desc: "Understand exactly how AI works, why most people use it wrong, and the single shift that changes your results immediately." },
-            { n: "02", title: "How to Think When Using AI", sub: "The Four-Element Framework", desc: "The ROLE + CONTEXT + TASK + FORMAT system that produces professional-grade output every time — and how to iterate until it's perfect." },
-            { n: "03", title: "Content Creation System", sub: "Hooks · Carousels · Viral Topics", desc: "Ten high-converting content prompts, the carousel structure that drives saves, and the difference between content that gets likes versus content that builds buyers." },
-            { n: "04", title: "Content → Cash System", sub: "The Conversion Chain", desc: "How to turn posts into leads, the CTA swipe file that works without pressure, and how to use keywords and DMs to close sales — calmly." },
-            { n: "05", title: "DM Sales System", sub: "Scripts · Flows · Closes", desc: "The exact DM conversation flow from first message to confirmed purchase — without chasing, without pressure, and without losing the sale at the objection stage." },
-            { n: "06", title: "Offer Creation with AI", sub: "Build Something Worth Selling", desc: "Use your AI assistant to design, name, price, and position a digital product. The framework for creating an offer people feel they'd be foolish to pass up." },
-            { n: "07", title: "Email & Funnel Strategy", sub: "Sequences That Sell on Autopilot", desc: "How to build a simple email funnel using AI — from lead magnet to welcome sequence to conversion emails — without a tech background." },
-            { n: "08", title: "First-Sales Roadmap", sub: "Weeks 1–4 Plan", desc: "A realistic, day-by-day plan for your first 10 sales. Foundation, visibility, offers, and closing — sequenced so nothing falls through." },
-            { n: "09", title: "Mistakes & Reset Strategy", sub: "Fix It in 72 Hours", desc: "Why people fail with AI, how to diagnose your specific block, and the 72-hour reset that gets you back to forward momentum." },
-          ].map((mod, i) => (
-            <FadeIn key={mod.n} delay={i * 0.05}>
-              <div className="module-card">
-                <span className="module-number">{mod.n}</span>
-                <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.3rem" }}>
-                  Part {mod.n} · {mod.sub}
-                </p>
-                <h3>{mod.title}</h3>
-                <p style={{ fontSize: "0.92rem", marginTop: "0.5rem" }}>{mod.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
-
-          <FadeIn delay={0.1}>
-            <div className="module-card" style={{ borderColor: "rgba(201,169,110,0.4)", background: "rgba(201,169,110,0.06)" }}>
-              <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.5rem" }}>Bonus</p>
-              <h3>Swipe Files & Action Plans</h3>
-              <p style={{ fontSize: "0.92rem", marginTop: "0.5rem" }}>20 ready-to-use prompts across content creation, sales copywriting, business strategy, and mindset clarity. Quick-start checklist. 7-day action plan. Everything you need to go from reading to revenue.</p>
+            ["150+", "AI Prompts & Content Formulas"],
+            ["9", "Complete Modules"],
+            ["$27", "One-Time Access"],
+          ].map(([num, label]) => (
+            <div key={label} className="stat-cell">
+              <div style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "38px", color: "#C9A84C", lineHeight: 1 }}>{num}</div>
+              <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.2em", color: "#8B7340", textTransform: "uppercase", marginTop: "6px" }}>{label}</div>
             </div>
-          </FadeIn>
-          </div>{/* end core-system-boxes */}
-          <div className="core-system-image">
+          ))}
+        </div>
+      </section>
+
+      {/* System Section */}
+      <section style={{ background: "#F0E8DC", padding: "72px 32px" }}>
+        <div className="system-top-grid">
+          <div>
+            <Tag>The System</Tag>
+            <h2 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "44px", lineHeight: 1.1, marginBottom: "16px" }}>
+              A Start-to-Finish<br />
+              <em style={{ color: "#8B7340" }}>AI Business Blueprint</em>
+            </h2>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "18px", fontWeight: 300, color: "#444", lineHeight: 1.75 }}>
+              From uncertain how to prompt, to running a structured content and income system with AI doing the heavy work.
+            </p>
+          </div>
+          <div>
             <img
               src="/images/library-mockup.png"
-              alt="Boss Era™ Digital Library shown on phone — AI Content to Cash System included files"
+              alt="Boss Era™ Digital Library on phone — AI Content to Cash System included files"
+              style={{ maxWidth: "180px", width: "100%", aspectRatio: "9/16", borderRadius: "24px", display: "block", margin: "0 auto", objectFit: "cover" }}
               loading="lazy"
             />
           </div>
-          </div>{/* end core-system-grid */}
+        </div>
+
+        <div style={{ maxWidth: "980px", margin: "0 auto" }}>
+          <div className="modules-grid">
+            {modules.map((mod) => {
+              const isOdd = parseInt(mod.n) % 2 !== 0;
+              return (
+                <FadeIn key={mod.n}>
+                  <div style={{ background: isOdd ? "#1E1530" : "#EDE2D4", padding: "22px 20px", height: "100%" }}>
+                    <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.2em", color: "#C9A84C", textTransform: "uppercase", marginBottom: "8px" }}>
+                      {mod.n}
+                    </div>
+                    <div style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "16px", color: isOdd ? "#F0E8DC" : "#1A1A1A", marginBottom: "6px", lineHeight: 1.25 }}>
+                      {mod.title}
+                    </div>
+                    <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 300, color: isOdd ? "#8B7340" : "#666", lineHeight: 1.6 }}>
+                      {mod.desc}
+                    </div>
+                  </div>
+                </FadeIn>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Pull Quote */}
+      <section style={{ background: "#2D1B3D", padding: "64px 32px", textAlign: "center" }}>
+        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+          <div style={{ width: "40px", height: "0.5px", background: "#C9A84C", margin: "0 auto 28px" }} />
+          <blockquote style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "26px", fontStyle: "italic", color: "#F0E8DC", lineHeight: 1.55, marginBottom: "20px" }}>
+            "Most creators are using AI to consume content. Almost none are using it to build income."
+          </blockquote>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", letterSpacing: "0.22em", color: "#8B7340", textTransform: "uppercase", margin: 0 }}>
+            Boss Era™ · The difference that changes everything
+          </p>
         </div>
       </section>
 
       {/* Bonus Vault */}
-      <section className="bonus-vault-section">
-        <div className="bonus-vault-inner">
-          <div className="bonus-vault-content">
-            <div className="bonus-vault-header">
-              <span className="bonus-vault-label">Bonus Vault</span>
+      <section style={{ background: "#EDE2D4", padding: "72px 32px" }}>
+        <div style={{ maxWidth: "980px", margin: "0 auto" }}>
+          <Tag>Bonus Vault</Tag>
+          <h2 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "44px" }}>
+            Everything Included.<br />
+            <em style={{ color: "#8B7340" }}>All at No Extra Cost.</em>
+          </h2>
+        </div>
+        <div className="bonus-grid">
+          {/* Left — list */}
+          <div>
+            {bonuses.map((b) => (
+              <div key={b.name} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "13px 0", borderBottom: "0.5px solid rgba(139,115,64,0.2)" }}>
+                <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "15px", color: "#1A1A1A", paddingRight: "12px" }}>{b.name}</span>
+                <div style={{ textAlign: "right", flexShrink: 0 }}>
+                  <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#AAA", textDecoration: "line-through" }}>{b.price}</div>
+                  <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", color: "#8B7340", letterSpacing: "0.1em", textTransform: "uppercase" }}>Included</div>
+                </div>
+              </div>
+            ))}
+
+            {/* Urgency bar */}
+            <div style={{ background: "#1E1530", padding: "16px 20px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", fontStyle: "italic", color: "#C9A84C", lineHeight: 1.5, margin: 0 }}>
+                Launch pricing only. This bonus stack will be sold separately once the launch phase closes.
+              </p>
+              <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "28px", color: "#C9A84C", textDecoration: "line-through", textDecorationColor: "rgba(201,168,76,0.5)", flexShrink: 0 }}>$343</span>
             </div>
-            <ul className="bonus-list">
-              <li><span className="bonus-title">9 Sales Prompts</span><span className="bonus-included">Included</span></li>
-              <li><span className="bonus-title">33 AI Prompts</span><span className="bonus-included">Included</span></li>
-              <li><span className="bonus-title">50 Cowork Skills</span><span className="bonus-included">Included</span></li>
-              <li><span className="bonus-title">100 Secret Codes for Claude</span><span className="bonus-included">Included</span></li>
-              <li><span className="bonus-title">How To Use Claude Step-by-Step</span><span className="bonus-included">Included</span></li>
-              <li><span className="bonus-title">Claude + Higgsfield MCP</span><span className="bonus-included">Included</span></li>
-            </ul>
-            <p className="bonus-tagline">Build like the future depends on you.</p>
+
+            {/* Price bar */}
+            <div style={{ background: "#2D1B3D", padding: "22px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.2em", color: "#C9A84C", textTransform: "uppercase" }}>Your investment today</span>
+              <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "34px", color: "#C9A84C" }}>$27</span>
+            </div>
           </div>
-          <div className="bonus-vault-image">
+
+          {/* Right — image */}
+          <div className="bonus-image-col">
             <img
               src="/images/bonus-mockup.png"
-              alt="Boss Era™ Bonus Vault contents shown on phone screen"
+              alt="Boss Era™ Bonus Vault contents on phone screen"
+              style={{ maxWidth: "260px", width: "100%", aspectRatio: "9/16", borderRadius: "28px", display: "block", margin: "0 auto", objectFit: "cover" }}
               loading="lazy"
             />
           </div>
         </div>
       </section>
 
-      {/* Value Stack */}
-      <section style={{ background: "var(--navy-light)" }}>
-        <div className="section" style={{ textAlign: "center" }}>
-          <FadeIn>
-            <p className="eyebrow">What You're Getting</p>
-            <GoldLine />
-            <h2>Everything Inside.<br /><em style={{ color: "#8B5E3C" }}>One Price.</em></h2>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div style={{ marginTop: "2rem", textAlign: "left" }}>
-              {[
-                ["AI Foundations + Four-Element Framework", "$19"],
-                ["Content Creation System (10 prompt templates)", "$19"],
-                ["Content → Cash Conversion System", "$17"],
-                ["DM Sales Scripts & Flow", "$19"],
-                ["Offer Creation Framework with AI", "$17"],
-                ["Email & Funnel Strategy", "$15"],
-                ["First-Sales 4-Week Roadmap", "$15"],
-                ["Mistakes & 72-Hour Reset Protocol", "$12"],
-                ["20 Ready-to-Use Prompt Swipe File", "$15"],
-                ["7-Day Action Plan + Quick-Start Checklist", "$12"],
-              ].map(([item, val]) => (
-                <div className="value-row" key={item}>
-                  <span>{item}</span>
-                  <span className="value-price">{val}</span>
-                </div>
-              ))}
-              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", padding:"1.2rem 0 0.5rem", borderTop:"1px solid rgba(201,169,110,0.3)", marginTop:"0.5rem" }}>
-                <span style={{ fontFamily:"var(--font-sans)", fontSize:"0.85rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"rgba(26,16,37,0.55)" }}>Total Value</span>
-                <span style={{ fontFamily:"var(--font-serif)", fontSize:"1.5rem", color:"rgba(26,16,37,0.55)", textDecoration:"line-through", textDecorationColor:"rgba(26,16,37,0.55)", textDecorationThickness:"2px" }}>$160</span>
-              </div>
-              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", padding:"0.5rem 0 1.5rem" }}>
-                <span style={{ fontFamily:"var(--font-sans)", fontSize:"0.85rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--gold)" }}>Your Investment</span>
-                <span style={{ fontFamily:"var(--font-serif)", fontSize:"3rem", color:"var(--gold)", fontWeight:"300" }}>$27</span>
-              </div>
-            </div>
-            <CTAButton sub="Instant access · No subscription · Digital delivery" />
-          </FadeIn>
+      {/* Urgency Banner */}
+      <section style={{ background: "#C9A84C", padding: "14px 32px" }}>
+        <div style={{ maxWidth: "980px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
+          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2D1B3D", flexShrink: 0 }} />
+          <span style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: "12px", color: "#2D1B3D", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            Launch Price Ending Soon
+          </span>
+          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2D1B3D", flexShrink: 0 }} />
+          <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontStyle: "italic", fontSize: "13px", color: "#2D1B3D", opacity: 0.75 }}>
+            $27 is the launch price. Once this phase closes, the price increases. No exceptions.
+          </span>
+          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2D1B3D", flexShrink: 0 }} />
         </div>
       </section>
 
-      {/* For / Not For */}
-      <section style={{ background: "var(--navy)" }}>
-        <div className="section" style={{ textAlign: "center" }}>
-          <FadeIn>
-            <p className="eyebrow">Clarity Before You Buy</p>
-            <GoldLine />
-            <h2>Built for Her.<br /><em style={{ color: "#8B5E3C" }}>Not for Everyone.</em></h2>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div className="for-notfor" style={{ marginTop: "2.5rem", textAlign: "left" }}>
-              <div className="for-col">
-                <h4 style={{ color: "var(--gold)" }}>✦ This is for you if...</h4>
-                {[
-                  "You've tried AI but never felt like it was actually working for you",
-                  "You want to create content that builds authority and converts — not just fills your grid",
-                  "You're building a digital income stream and need a system, not scattered prompts",
-                  "You want to work smarter — not grind harder — and AI is the leverage you haven't fully used yet",
-                  "You're ready to move from experimenting to executing",
-                ].map(t => <p key={t} className="for-item" data-marker="✓">{t}</p>)}
+      {/* Built For You */}
+      <section style={{ background: "#2D1B3D", padding: "72px 32px" }}>
+        <div style={{ maxWidth: "980px", margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "38px", color: "#F0E8DC", marginBottom: "6px" }}>
+            This Was Built For You.
+          </h2>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "13px", fontWeight: 300, color: "#8B7340", letterSpacing: "0.08em", marginBottom: "44px" }}>
+            If any of this sounds familiar, you are exactly who this is for
+          </p>
+          <div className="built-grid">
+            <div>
+              <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.22em", color: "#8B7340", textTransform: "uppercase", borderBottom: "0.5px solid rgba(139,115,64,0.3)", paddingBottom: "10px", marginBottom: "16px" }}>
+                This is for you if
               </div>
-              <div className="for-col">
-                <h4 style={{ color: "var(--cream-muted)" }}>✗ This is not for you if...</h4>
-                {[
-                  "You want someone to run your business for you",
-                  "You're looking for overnight income without consistent action",
-                  "You refuse to invest in learning — even at $27",
-                  "You want theory and inspiration instead of systems and execution",
-                  "You're not building a real offer or digital product",
-                ].map(t => <p key={t} className="for-item" data-marker="✗" style={{ color: "rgba(26,16,37,0.4)" }}>{t}</p>)}
-              </div>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <p style={{ maxWidth: "520px", margin: "3rem auto 0", fontFamily: "var(--font-serif)", fontSize: "1.25rem", fontStyle: "italic", color: "var(--cream-muted)" }}>
-              "The woman this system is built for is not waiting to feel ready. She is building the readiness by moving."
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* What You Leave With */}
-      <section style={{ background: "var(--navy-light)" }}>
-        <div className="section" style={{ textAlign: "center" }}>
-          <FadeIn>
-            <p className="eyebrow">Your Outcome</p>
-            <GoldLine />
-            <h2>What You Walk Away With.</h2>
-            <p style={{ maxWidth: "560px", margin: "0 auto 2.5rem" }}>
-              Not inspiration. Not more content ideas. A complete, operational system.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div style={{ textAlign: "left", maxWidth: "580px", margin: "0 auto" }}>
               {[
-                ["A prompting framework", "that produces professional output every single time — not luck-based results"],
-                ["A content system", "built around conversion, not just engagement — posts that build trust and sell"],
-                ["A DM sales flow", "you can use immediately to close buyers without pressure or scripts that feel fake"],
-                ["An offer creation method", "to design or refine a digital product that people actually want to pay for"],
-                ["A 4-week roadmap", "to your first 10 sales — structured, realistic, actionable"],
-                ["20 ready prompts", "you can copy, customise, and deploy across every area of your business today"],
-              ].map(([bold, rest]) => (
-                <div key={bold} className="check-row">
-                  <span className="check-icon">✓</span>
-                  <span><strong style={{ color: "var(--cream)", fontWeight: "600" }}>{bold}</strong> {rest}</span>
+                "You use AI to scroll and consume, not to build and earn",
+                "You post consistently but make no sales from your content",
+                "You want a system, not another course to sit through",
+                "You are ready to treat your content like a business",
+                "$27 is nothing if it gives you back your time every month",
+              ].map(t => (
+                <div key={t} style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "16px", fontWeight: 300, color: "#E0D8CE", padding: "10px 0", borderBottom: "0.5px solid rgba(255,255,255,0.06)", lineHeight: 1.5, display: "flex", gap: "12px" }}>
+                  <span style={{ color: "#C9A84C", flexShrink: 0 }}>→</span>{t}
                 </div>
               ))}
             </div>
-          </FadeIn>
+            <div>
+              <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.22em", color: "#8B7340", textTransform: "uppercase", borderBottom: "0.5px solid rgba(139,115,64,0.3)", paddingBottom: "10px", marginBottom: "16px" }}>
+                This is not for you if
+              </div>
+              {[
+                "You want overnight results without implementation",
+                "You are looking for motivation, not a system",
+                "You will not spend time each day on your content",
+                "You believe AI will do everything without your direction",
+              ].map(t => (
+                <div key={t} style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "16px", fontWeight: 300, color: "#E0D8CE", padding: "10px 0", borderBottom: "0.5px solid rgba(255,255,255,0.06)", lineHeight: 1.5, display: "flex", gap: "12px" }}>
+                  <span style={{ color: "#555", flexShrink: 0 }}>×</span>{t}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Social proof bar */}
-      <section style={{ background: "var(--navy-light)", borderTop: "1px solid rgba(201,169,110,0.1)", borderBottom: "1px solid rgba(201,169,110,0.1)" }}>
-        <div style={{ maxWidth: "780px", margin: "0 auto", padding: "2.5rem 1.5rem", display: "flex", justifyContent: "center", gap: "3rem", flexWrap: "wrap", textAlign: "center" }}>
-          {[["150+", "AI Prompts & Content Formulas"], ["9", "Complete Modules"], ["$27", "One-Time Access"]].map(([num, label]) => (
-            <div key={label}>
-              <p style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: "300", color: "var(--gold)", margin: "0 0 0.25rem" }}>{num}</p>
-              <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(26,16,37,0.5)", margin: 0 }}>{label}</p>
-            </div>
+      {/* Outcomes */}
+      <section style={{ background: "#F0E8DC", padding: "72px 32px" }}>
+        <div style={{ maxWidth: "980px", margin: "0 auto" }}>
+          <Tag>What You Walk Away With</Tag>
+          <h2 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "44px" }}>
+            The Outcomes That<br />
+            <em style={{ color: "#8B7340" }}>Actually Matter</em>
+          </h2>
+        </div>
+        <div className="outcomes-grid">
+          {[
+            { n: "01", title: "A repeatable content framework", desc: "30 days of content planned and written in a single session. Every month." },
+            { n: "02", title: "An AI sales system", desc: "Content that moves people from follower to buyer without a sales call." },
+            { n: "03", title: "A creative method that scales", desc: "The same system works whether you have 500 or 50,000 followers." },
+            { n: "04", title: "A prompt library that compounds", desc: "150+ prompts and codes that get sharper every time you use them." },
+          ].map(card => (
+            <FadeIn key={card.n}>
+              <div style={{ background: "#EDE2D4", padding: "30px 26px" }}>
+                <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.2em", color: "#C9A84C", textTransform: "uppercase", marginBottom: "10px" }}>{card.n}</div>
+                <div style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "20px", color: "#1A1A1A", marginBottom: "8px", lineHeight: 1.2 }}>{card.title}</div>
+                <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "13px", fontWeight: 300, color: "#666", lineHeight: 1.65 }}>{card.desc}</div>
+              </div>
+            </FadeIn>
           ))}
         </div>
       </section>
 
       {/* Final CTA */}
-      <section style={{ background: "var(--navy)", borderTop: "1px solid rgba(201,169,110,0.15)" }}>
-        <div className="section" style={{ textAlign: "center" }}>
-          <FadeIn>
-            <p className="eyebrow">Boss Era™ · AI Content to Cash System</p>
-            <GoldLine />
-            <h2>Your AI Era<br /><em style={{ color: "#8B5E3C" }}>Starts Now.</em></h2>
-            <p style={{ maxWidth: "520px", margin: "0 auto 2.5rem" }}>
-              The difference between where you are and where you want to be is not information. It is implementation. This system gives you both.
-            </p>
-            <CTAButton label="Get Instant Access · $27" sub="One-time · Instant digital delivery · No subscription" />
-            <p style={{ marginTop: "3rem", fontSize: "0.78rem", fontFamily: "var(--font-sans)", color: "var(--cream-muted)", maxWidth: "440px", margin: "3rem auto 0", lineHeight: "1.7" }}>
-              Results depend on your individual effort, consistency, and market conditions. This is an educational digital product. Income figures mentioned are examples, not guarantees.
-            </p>
-          </FadeIn>
+      <section style={{ background: "#1E1530", padding: "80px 32px", textAlign: "center" }}>
+        <h2 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "52px", fontStyle: "italic", color: "#F0E8DC", lineHeight: 1.05, letterSpacing: "-0.01em", wordSpacing: "0.02em", marginBottom: "16px" }}>
+          Your AI Era Starts Now.
+        </h2>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "15px", fontWeight: 300, color: "#8B7340", lineHeight: 1.7, maxWidth: "560px", margin: "0 auto 40px" }}>
+          The difference between creators building with AI and creators watching others build is one $27 decision.
+        </p>
+        <div style={{ background: "#F0E8DC", padding: "48px 40px", maxWidth: "480px", margin: "0 auto", textAlign: "center" }}>
+          <div style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "72px", color: "#2D1B3D", lineHeight: 1, marginBottom: "6px" }}>$27</div>
+          <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.18em", color: "#8B7340", textTransform: "uppercase", marginBottom: "28px" }}>
+            One-time · Instant access · Lifetime updates
+          </div>
+          <a
+            href={STRIPE_LINK}
+            onClick={handleStripeClick}
+            style={{
+              display: "inline-block", background: "#2D1B3D", color: "#C9A84C",
+              fontFamily: "'Jost', sans-serif", fontSize: "10px", fontWeight: 500,
+              letterSpacing: "0.22em", textTransform: "uppercase",
+              padding: "18px 52px", textDecoration: "none", marginBottom: "12px",
+              animation: "pulse 2.5s ease-in-out infinite",
+            }}
+          >
+            Get Instant Access
+          </a>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#999", letterSpacing: "0.06em" }}>
+            Instant digital access · $27 one-time · No subscription
+          </p>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#8B7340", fontStyle: "italic", marginTop: "6px" }}>
+            Access to all future updates included
+          </p>
         </div>
-        <span className="gold-bar" />
       </section>
 
       {/* Trust Bar */}
-      <div className="trust-bar">
-        <p className="trust-delivery">Instant Access · Lifetime Updates · Secure Checkout via Stripe</p>
-        <div className="payment-icons">
-          <span>Stripe</span>
-          <span>Visa</span>
-          <span>Mastercard</span>
-          <span>Apple Pay</span>
-        </div>
-      </div>
+      <section style={{ background: "#F0E8DC", borderTop: "0.5px solid rgba(139,115,64,0.2)", padding: "36px 32px", textAlign: "center" }}>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.18em", color: "#AAA", textTransform: "uppercase", marginBottom: "12px" }}>
+          Secure Checkout · Instant Delivery · Lifetime Access
+        </p>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 300, fontStyle: "italic", color: "#AAA", letterSpacing: "0.06em" }}>
+          Processed securely via Stripe · Visa · Mastercard · PayPal · Apple Pay
+        </p>
+      </section>
 
       {/* Footer */}
-      <footer style={{ background: "var(--navy)", borderTop: "1px solid rgba(201,169,110,0.1)", padding: "2rem 1.5rem", textAlign: "center" }}>
-        <p style={{ fontFamily: "var(--font-serif)", fontSize: "1rem", color: "var(--gold)", letterSpacing: "0.1em", marginBottom: "0.75rem" }}>
-          Boss Era™
+      <footer style={{ background: "#0F0B1A", padding: "32px 32px", textAlign: "center" }}>
+        <p style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "12px", letterSpacing: "0.18em", color: "#C9A84C", marginBottom: "6px" }}>Boss Era™</p>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", color: "#8B7340", letterSpacing: "0.1em", marginBottom: "12px" }}>@bossdigitalbusiness</p>
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", color: "#444", lineHeight: 1.7, maxWidth: "560px", margin: "0 auto" }}>
+          Results depend on your individual effort, consistency, and market conditions. This is an educational digital product. Income figures mentioned are examples, not guarantees.
         </p>
-        <p style={{ fontSize: "0.75rem", fontFamily: "var(--font-sans)", color: "var(--cream-muted)", letterSpacing: "0.05em" }}>
-          © 2026 Boss Era™ · bossfacelessmentor.com
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", color: "#444", marginTop: "12px" }}>
+          © 2026 Boss Era™ · <a href="/privacy" style={{ color: "#8B7340", textDecoration: "none" }}>Privacy Policy</a>
         </p>
-        <p style={{ fontSize: "0.75rem", fontFamily: "var(--font-sans)", color: "rgba(26,16,37,0.3)", marginTop: "0.5rem" }}>
-          <a href="/privacy" style={{ color: "inherit", textDecoration: "underline" }}>Privacy Policy</a>
-        </p>
-        <div style={{ borderTop:"1px solid rgba(201,169,110,0.15)", paddingTop:"1.2rem", marginTop:"1.2rem" }}>
-          <p style={{ fontFamily:"'Instrument Sans',sans-serif", fontSize:"0.68rem", letterSpacing:"0.15em", textTransform:"uppercase", color:"rgba(26,16,37,0.35)", marginBottom:"0.5rem" }}>Partner offer</p>
-          <a href="/aimuse" style={{ display:"inline-block" }}>
-            <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ height:"22px", width:"auto", opacity:"0.7" }} />
+        <div style={{ borderTop: "0.5px solid rgba(201,168,76,0.15)", paddingTop: "16px", marginTop: "16px" }}>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(139,115,64,0.5)", marginBottom: "8px" }}>Partner offer</p>
+          <a href="/aimuse" style={{ display: "inline-block" }}>
+            <img src="/aimuse-logo.png" alt="AiMUSE Alchemy" style={{ height: "22px", width: "auto", opacity: 0.6 }} />
           </a>
         </div>
       </footer>
