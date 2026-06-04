@@ -98,7 +98,7 @@ export default function AILandingPage() {
         <span style={{ fontFamily:"var(--font-serif)", fontSize:"1.1rem", color:"var(--gold)", letterSpacing:"0.12em" }}>Boss Era™</span>
       </header>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500&display=swap');
 
         :root {
           --navy: #E8D5C4;
@@ -312,6 +312,80 @@ export default function AILandingPage() {
           background: var(--navy-light);
           margin: 2rem 0;
         }
+
+        /* ── Typography overrides (Step 2) ── */
+        h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; }
+        body, p, li {
+          font-family: 'Outfit', sans-serif;
+          font-size: 18px;
+          line-height: 1.6;
+          color: #2C2C2C;
+        }
+        @media (max-width: 768px) {
+          body, p, li { font-size: 16px; }
+        }
+
+        /* ── Hero mockup (Step 3) ── */
+        .hero-mockup-wrapper { text-align: center; margin-top: 40px; }
+        .hero-mockup-img { max-width: 640px; width: 100%; height: auto; }
+
+        /* ── Core system grid (Step 5) ── */
+        .core-system-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 48px;
+          align-items: start;
+        }
+        .core-system-image img {
+          width: 100%;
+          max-width: 320px;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+          .core-system-grid { grid-template-columns: 1fr; }
+          .core-system-image { order: 2; }
+          .core-system-boxes { order: 1; }
+        }
+
+        /* ── Bonus vault (Step 6) ── */
+        .bonus-vault-section { background: #F5EFE6; padding: 80px 24px; }
+        .bonus-vault-inner {
+          max-width: 900px; margin: 0 auto;
+          display: grid; grid-template-columns: 1fr 1fr;
+          gap: 60px; align-items: center;
+        }
+        .bonus-vault-header { margin-bottom: 32px; }
+        .bonus-vault-label {
+          display: inline-block; background: #2D1B3D; color: #C9A84C;
+          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+          padding: 8px 24px; border-radius: 4px;
+        }
+        .bonus-list { list-style: none; padding: 0; margin: 0 0 24px; }
+        .bonus-list li {
+          display: flex; justify-content: space-between; align-items: center;
+          padding: 14px 0; border-bottom: 0.5px solid rgba(201,168,76,0.27);
+        }
+        .bonus-title { font-family: 'Outfit', sans-serif; font-size: 16px; color: #2C2C2C; }
+        .bonus-included { font-family: 'Outfit', sans-serif; font-size: 13px; color: #C9A84C; font-style: italic; }
+        .bonus-tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; color: #C9A84C; font-size: 16px; margin: 0; }
+        .bonus-vault-image img { width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto; }
+        @media (max-width: 768px) {
+          .bonus-vault-inner { grid-template-columns: 1fr; }
+          .bonus-vault-image { order: -1; }
+        }
+
+        /* ── Trust bar (Step 8) ── */
+        .trust-bar { text-align: center; padding: 32px 24px; border-top: 0.5px solid rgba(201,168,76,0.27); }
+        .trust-delivery { font-family: 'Outfit', sans-serif; font-size: 14px; color: #6B6B6B; letter-spacing: 0.05em; margin-bottom: 16px; }
+        .payment-icons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .payment-icons span {
+          font-family: 'Outfit', sans-serif; font-size: 12px; color: #6B6B6B;
+          border: 0.5px solid rgba(201,168,76,0.4); padding: 6px 16px;
+          border-radius: 4px; letter-spacing: 0.08em; text-transform: uppercase;
+        }
       `}</style>
 
       {/* Sticky Nav */}
@@ -369,17 +443,19 @@ export default function AILandingPage() {
               <line x1="26.6" y1="20.6" x2="13.3" y2="75.6" stroke="#C9A96E" strokeWidth="0.5" opacity="0.2"/>
               <line x1="133" y1="20.6" x2="146.3" y2="75.6" stroke="#C9A96E" strokeWidth="0.5" opacity="0.2"/>
             </svg>
-            <h1>
-              Stop Using AI<br />
-              <em style={{ color: "#8B5E3C" }}>Start Building With It.</em>
-            </h1>
-            <p style={{ maxWidth: "560px", margin: "0 auto 1.25rem", fontSize: "1.1rem" }}>
-              For the woman who knows AI matters — but still hasn't turned it into something real yet.
-            </p>
-            <p style={{ maxWidth: "560px", margin: "0 auto 2.5rem", fontSize: "1.1rem" }}>
-              The complete system that turns AI into your personal content engine, offer builder, and income strategy — built for women who are done experimenting and ready to convert.
-            </p>
+            <h1 style={{ marginBottom: "1rem" }}>Stop Prompting Like an Amateur.</h1>
+            <h2 style={{ fontSize: "clamp(1.15rem, 2.5vw, 1.5rem)", fontWeight: "400", maxWidth: "640px", margin: "0 auto 2.5rem" }}>
+              Clone my exact AI system — generate 30 days of high-converting content in 15 minutes.
+            </h2>
             <CTAButton sub="Instant digital access · $27 one-time · No subscription" />
+            <div className="hero-mockup-wrapper">
+              <img
+                src="/images/hero-mockup.png"
+                alt="AI Content to Cash System displayed on laptop and tablet — Boss Era™"
+                className="hero-mockup-img"
+                loading="eager"
+              />
+            </div>
           </div>
         </div>
         <span className="gold-bar" />
@@ -424,6 +500,8 @@ export default function AILandingPage() {
       {/* Modules */}
       <section style={{ background: "var(--navy)", paddingTop: "1rem" }}>
         <div className="section" style={{ paddingTop: "1rem" }}>
+          <div className="core-system-grid">
+          <div className="core-system-boxes">
           {[
             { n: "01", title: "AI Foundations", sub: "Mindset · Mechanics · Method", desc: "Understand exactly how AI works, why most people use it wrong, and the single shift that changes your results immediately." },
             { n: "02", title: "How to Think When Using AI", sub: "The Four-Element Framework", desc: "The ROLE + CONTEXT + TASK + FORMAT system that produces professional-grade output every time — and how to iterate until it's perfect." },
@@ -454,6 +532,42 @@ export default function AILandingPage() {
               <p style={{ fontSize: "0.92rem", marginTop: "0.5rem" }}>20 ready-to-use prompts across content creation, sales copywriting, business strategy, and mindset clarity. Quick-start checklist. 7-day action plan. Everything you need to go from reading to revenue.</p>
             </div>
           </FadeIn>
+          </div>{/* end core-system-boxes */}
+          <div className="core-system-image">
+            <img
+              src="/images/library-mockup.png"
+              alt="Boss Era™ Digital Library shown on phone — AI Content to Cash System included files"
+              loading="lazy"
+            />
+          </div>
+          </div>{/* end core-system-grid */}
+        </div>
+      </section>
+
+      {/* Bonus Vault */}
+      <section className="bonus-vault-section">
+        <div className="bonus-vault-inner">
+          <div className="bonus-vault-content">
+            <div className="bonus-vault-header">
+              <span className="bonus-vault-label">Bonus Vault</span>
+            </div>
+            <ul className="bonus-list">
+              <li><span className="bonus-title">9 Sales Prompts</span><span className="bonus-included">Included</span></li>
+              <li><span className="bonus-title">33 AI Prompts</span><span className="bonus-included">Included</span></li>
+              <li><span className="bonus-title">50 Cowork Skills</span><span className="bonus-included">Included</span></li>
+              <li><span className="bonus-title">100 Secret Codes for Claude</span><span className="bonus-included">Included</span></li>
+              <li><span className="bonus-title">How To Use Claude Step-by-Step</span><span className="bonus-included">Included</span></li>
+              <li><span className="bonus-title">Claude + Higgsfield MCP</span><span className="bonus-included">Included</span></li>
+            </ul>
+            <p className="bonus-tagline">Build like the future depends on you.</p>
+          </div>
+          <div className="bonus-vault-image">
+            <img
+              src="/images/bonus-mockup.png"
+              alt="Boss Era™ Bonus Vault contents shown on phone screen"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 
@@ -572,7 +686,7 @@ export default function AILandingPage() {
       {/* Social proof bar */}
       <section style={{ background: "var(--navy-light)", borderTop: "1px solid rgba(201,169,110,0.1)", borderBottom: "1px solid rgba(201,169,110,0.1)" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto", padding: "2.5rem 1.5rem", display: "flex", justifyContent: "center", gap: "3rem", flexWrap: "wrap", textAlign: "center" }}>
-          {[["427+", "Authority Quotes"], ["9", "Complete Modules"], ["$27", "One-Time Access"]].map(([num, label]) => (
+          {[["150+", "AI Prompts & Content Formulas"], ["9", "Complete Modules"], ["$27", "One-Time Access"]].map(([num, label]) => (
             <div key={label}>
               <p style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: "300", color: "var(--gold)", margin: "0 0 0.25rem" }}>{num}</p>
               <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(26,16,37,0.5)", margin: 0 }}>{label}</p>
@@ -599,6 +713,17 @@ export default function AILandingPage() {
         </div>
         <span className="gold-bar" />
       </section>
+
+      {/* Trust Bar */}
+      <div className="trust-bar">
+        <p className="trust-delivery">Instant Access · Lifetime Updates · Secure Checkout via Stripe</p>
+        <div className="payment-icons">
+          <span>Stripe</span>
+          <span>Visa</span>
+          <span>Mastercard</span>
+          <span>Apple Pay</span>
+        </div>
+      </div>
 
       {/* Footer */}
       <footer style={{ background: "var(--navy)", borderTop: "1px solid rgba(201,169,110,0.1)", padding: "2rem 1.5rem", textAlign: "center" }}>

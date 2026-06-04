@@ -19,6 +19,7 @@ export default function LeadMagnetPopup() {
 
   useEffect(() => {
     if (localStorage.getItem("bossera_popup_seen")) return;
+    if (window.location.pathname === '/ai') return;
     const timer = setTimeout(() => setShow(true), 4000);
     return () => clearTimeout(timer);
   }, []);
