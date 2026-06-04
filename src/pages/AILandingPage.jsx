@@ -59,7 +59,7 @@ const Tag = ({ children }) => (
 );
 
 const modules = [
-  { n: "01", title: "AI Foundations", desc: "Understand exactly how AI works, why most people use it wrong, and the single shift that changes your results immediately." },
+  { n: "01", title: "AI Foundations", desc: "The complete foundation for using AI as a business tool — how it actually works, what separates results from frustration, and how to start building immediately." },
   { n: "02", title: "How to Think When Using AI", desc: "The ROLE · CONTEXT · TASK · FORMAT system that produces professional-grade output every time — and how to iterate until it's perfect." },
   { n: "03", title: "Content Creation System", desc: "Ten high-converting content prompts, the carousel structure that drives saves, and the difference between content that gets likes versus content that builds buyers." },
   { n: "04", title: "Content to Cash Assets", desc: "How to turn posts into leads, the CTA swipe file that works without pressure, and how to use keywords and DMs to close sales — calmly." },
