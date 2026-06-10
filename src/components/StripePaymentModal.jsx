@@ -167,7 +167,7 @@ export default function StripePaymentModal({ isOpen, onClose }) {
       setClientSecret(data.clientSecret);
       setStep('payment');
     } catch (err) {
-      setError('Unable to start checkout. Please check your connection and try again.');
+      setError(err.message || 'Unable to start checkout. Please check your connection and try again.');
     }
     setLoading(false);
   }

@@ -1,6 +1,8 @@
 import Stripe from 'stripe';
 
 export const handler = async (event) => {
+  console.log('create-payment-intent:', process.env.STRIPE_SECRET_KEY ? 'Key found' : 'Key missing');
+
   const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
