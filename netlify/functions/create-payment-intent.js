@@ -39,10 +39,19 @@ export const handler = async (event) => {
       },
     });
 
+    console.log('[PI] id:', paymentIntent.id);
+    console.log('[PI] status:', paymentIntent.status);
+    console.log('[PI] client_secret present:', !!paymentIntent.client_secret);
+    console.log('[PI] client_secret prefix:', paymentIntent.client_secret ? paymentIntent.client_secret.substring(0, 25) + '...' : 'MISSING');
+    console.log('[PI] livemode:', paymentIntent.livemode);
+
+    const responseBody = { clientSecret: paymentIntent.client_secret };
+    console.log('[PI] returning to frontend — clientSecret present:', !!responseBody.clientSecret);
+
     return {
       statusCode: 200,
       headers: corsHeaders,
-      body: JSON.stringify({ clientSecret: paymentIntent.client_secret }),
+      body: JSON.stringify(responseBody),
     };
   } catch (err) {
     return {

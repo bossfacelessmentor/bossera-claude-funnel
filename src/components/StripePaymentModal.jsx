@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+console.log('[Modal] PUBLISHABLE_KEY present at module load:', !!PUBLISHABLE_KEY);
+if (PUBLISHABLE_KEY) console.log('[Modal] PUBLISHABLE_KEY prefix:', PUBLISHABLE_KEY.substring(0, 12) + '...');
 
 function firePixelPurchase() {
   try {
@@ -22,7 +24,9 @@ function PaymentStep({ stripe, clientSecret, email }) {
   const mountRef = useRef(null);
 
   useEffect(() => {
+    console.log('[PaymentStep] effect — stripe:', !!stripe, 'clientSecret:', !!clientSecret, 'mountRef:', !!mountRef.current);
     if (!stripe || !clientSecret || !mountRef.current) return;
+    console.log('[PaymentStep] clientSecret prefix:', clientSecret.substring(0, 25) + '...');
     const appearance = {
       theme: 'night',
       variables: {
@@ -43,9 +47,16 @@ function PaymentStep({ stripe, clientSecret, email }) {
         '.Tab--selected': { borderColor: '#C9A84C', color: '#C9A84C' },
       },
     };
+    console.log('[PaymentStep] calling stripe.elements()');
     const els = stripe.elements({ clientSecret, appearance });
+    console.log('[PaymentStep] creating payment element');
     const pe = els.create('payment', { layout: 'tabs' });
+    pe.on('ready', () => console.log('[PaymentStep] Payment Element READY — iframe loaded'));
+    pe.on('loaderror', (e) => console.error('[PaymentStep] Payment Element LOAD ERROR:', e));
+    pe.on('change', (e) => console.log('[PaymentStep] change event — complete:', e.complete, 'error:', e.error));
+    console.log('[PaymentStep] mounting to DOM node:', mountRef.current);
     pe.mount(mountRef.current);
+    console.log('[PaymentStep] mount() called — waiting for ready event');
     setElements(els);
     return () => { try { pe.unmount(); } catch (_) {} };
   }, [stripe, clientSecret]);
@@ -163,6 +174,9 @@ export default function StripePaymentModal({ isOpen, onClose }) {
         body: JSON.stringify({ email }),
       });
       const data = await res.json();
+      console.log('[Modal] fetch response status:', res.status);
+      console.log('[Modal] clientSecret received:', data.clientSecret ? data.clientSecret.substring(0, 25) + '...' : 'MISSING');
+      console.log('[Modal] full data keys:', Object.keys(data));
       if (data.error) throw new Error(data.error);
       setClientSecret(data.clientSecret);
       setStep('payment');
