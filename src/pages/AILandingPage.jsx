@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import LeadMagnetPopup from "../components/LeadMagnetPopup";
+import StripePaymentModal from "../components/StripePaymentModal";
 
 const STRIPE_LINK = "https://buy.stripe.com/fZu00ka9ofAzcvA2jFbQY0n";
 
@@ -84,15 +85,24 @@ const bonuses = [
 
 export default function AILandingPage() {
   const [scrolled, setScrolled] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleCTAClick = (e) => {
+    e.preventDefault();
+    handleStripeClick();
+    setModalOpen(true);
+  };
+
   return (
     <div style={{ fontFamily: "'Jost', sans-serif", background: "#F0E8DC", color: "#1A1A1A", minHeight: "100vh", overflowX: "hidden" }}>
       <LeadMagnetPopup />
+      <StripePaymentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -179,13 +189,13 @@ export default function AILandingPage() {
       {/* Sticky Nav */}
       <nav className="sticky-nav" style={{ transform: scrolled ? "translateY(0)" : "translateY(-100%)" }}>
         <span className="nav-brand">Boss Era™</span>
-        <a href={STRIPE_LINK} className="nav-cta-btn" onClick={handleStripeClick}>Get Access — $27</a>
+        <a href={STRIPE_LINK} className="nav-cta-btn" onClick={handleCTAClick}>Get Access — $27</a>
       </nav>
 
       {/* Static Header */}
       <header style={{ background: "#1E1530", padding: "14px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "14px", letterSpacing: "0.15em", color: "#C9A84C" }}>Boss Era™</span>
-        <a href={STRIPE_LINK} className="nav-cta-btn" onClick={handleStripeClick}>Get Access — $27</a>
+        <a href={STRIPE_LINK} className="nav-cta-btn" onClick={handleCTAClick}>Get Access — $27</a>
       </header>
 
       {/* Hero */}
@@ -206,7 +216,7 @@ export default function AILandingPage() {
             </p>
             <a
               href={STRIPE_LINK}
-              onClick={handleStripeClick}
+              onClick={handleCTAClick}
               style={{
                 display: "inline-block", background: "#2D1B3D", color: "#E8D5A3",
                 fontFamily: "'Jost', sans-serif", fontSize: "10px", fontWeight: 500,
@@ -467,7 +477,7 @@ export default function AILandingPage() {
           </div>
           <a
             href={STRIPE_LINK}
-            onClick={handleStripeClick}
+            onClick={handleCTAClick}
             style={{
               display: "inline-block", background: "#2D1B3D", color: "#C9A84C",
               fontFamily: "'Jost', sans-serif", fontSize: "10px", fontWeight: 500,
