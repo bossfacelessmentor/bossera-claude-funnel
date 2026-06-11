@@ -81,6 +81,13 @@ function PaymentStep({ stripe, clientSecret, email }) {
       setLoading(false);
     } else if (paymentIntent && paymentIntent.status === 'succeeded') {
       firePixelPurchase();
+      try {
+        await fetch('/.netlify/functions/post-purchase', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, payment_intent_id: paymentIntent.id }),
+        });
+      } catch (_) {}
       window.location.href = '/access-confirmed-ai?session_id=' + paymentIntent.id;
     } else {
       setError('Something went wrong. Please try again.');
