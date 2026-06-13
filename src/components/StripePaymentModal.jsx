@@ -59,7 +59,7 @@ function PaymentStep({ stripe, clientSecret, email }) {
       theme: 'night',
       variables: {
         colorPrimary: '#C9A84C',
-        colorBackground: '#1E1530',
+        colorBackground: '#000000',
         colorText: '#EDE2D4',
         colorTextSecondary: '#8B7340',
         colorDanger: '#f87171',
@@ -238,7 +238,7 @@ export default function StripePaymentModal({ isOpen, onClose }) {
       onClick={onClose}
       style={{
         position: 'fixed', inset: 0, zIndex: 1000,
-        background: 'rgba(10, 6, 18, 0.88)',
+        background: 'rgba(0, 0, 0, 0.88)',
         overflowY: 'auto',
         display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
         padding: '24px 16px 60px',
@@ -248,7 +248,7 @@ export default function StripePaymentModal({ isOpen, onClose }) {
       <div
         onClick={(e) => e.stopPropagation()}
         style={{
-          background: '#2D1B3D',
+          background: '#000000',
           width: '100%', maxWidth: '460px',
           position: 'relative',
           marginTop: '12px',
@@ -256,7 +256,7 @@ export default function StripePaymentModal({ isOpen, onClose }) {
       >
         {/* Top bar */}
         <div style={{
-          background: '#1E1530', padding: '14px 20px',
+          background: '#000000', padding: '14px 20px',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           borderBottom: '0.5px solid rgba(201,168,76,0.15)',
         }}>
@@ -320,7 +320,7 @@ export default function StripePaymentModal({ isOpen, onClose }) {
                 autoComplete="email"
                 style={{
                   display: 'block', width: '100%', padding: '14px',
-                  background: '#1E1530',
+                  background: '#000000',
                   border: error ? '0.5px solid #f87171' : '0.5px solid rgba(201,168,76,0.3)',
                   color: '#EDE2D4', fontFamily: "'Jost', sans-serif", fontSize: '16px',
                   outline: 'none',
