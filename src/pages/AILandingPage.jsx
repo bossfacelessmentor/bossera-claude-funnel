@@ -112,7 +112,7 @@ export default function AILandingPage() {
 
         .sticky-nav {
           position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-          background: #1E1530; padding: 14px 32px;
+          background: #000000; padding: 14px 32px;
           display: flex; justify-content: space-between; align-items: center;
           transition: transform 0.3s ease;
         }
@@ -192,7 +192,7 @@ export default function AILandingPage() {
       </nav>
 
       {/* Static Header */}
-      <header style={{ background: "#1E1530", padding: "14px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <header style={{ background: "#000000", padding: "14px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "14px", letterSpacing: "0.15em", color: "#C9A84C" }}>Boss Era™</span>
         <a href={STRIPE_LINK} className="nav-cta-btn" onClick={handleCTAClick}>Get Access — $27</a>
       </header>
@@ -205,19 +205,17 @@ export default function AILandingPage() {
             <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.28em", color: "#8B7340", textTransform: "uppercase", borderBottom: "0.5px solid rgba(139,115,64,0.25)", paddingBottom: "12px", marginBottom: "20px" }}>
               Boss Era™ · For Creators
             </div>
-            <h1 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "54px", fontWeight: 400, lineHeight: 1.05, marginBottom: "16px" }}>
-              Stop Using AI.<br />
-              <em style={{ color: "#8B7340" }}>Start Building</em><br />
-              With It.
+            <h1 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "48px", fontWeight: 400, lineHeight: 1.1, marginBottom: "16px" }}>
+              Generate 30 Days of Selling Content in 30 Minutes
             </h1>
             <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "16px", fontWeight: 300, color: "#555", lineHeight: 1.75, marginBottom: "28px", maxWidth: "380px" }}>
-              Clone my exact AI system — generate 30 days of high-converting content in 15 minutes.
+              A done-for-you AI system that builds your content, captions, and income engine — without guessing, without wasting hours, without another course you won't finish.
             </p>
             <a
               href={STRIPE_LINK}
               onClick={handleCTAClick}
               style={{
-                display: "inline-block", background: "#2D1B3D", color: "#E8D5A3",
+                display: "inline-block", background: "#000000", color: "#E8D5A3",
                 fontFamily: "'Jost', sans-serif", fontSize: "10px", fontWeight: 500,
                 letterSpacing: "0.22em", textTransform: "uppercase",
                 padding: "18px 40px", textDecoration: "none",
@@ -249,13 +247,26 @@ export default function AILandingPage() {
         </div>
       </section>
 
+      {/* Pull Quote */}
+      <section style={{ background: "#000000", padding: "64px 32px", textAlign: "center" }}>
+        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+          <div style={{ width: "40px", height: "0.5px", background: "#C9A84C", margin: "0 auto 28px" }} />
+          <blockquote style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "26px", fontStyle: "italic", color: "#F0E8DC", lineHeight: 1.55, marginBottom: "20px" }}>
+            "Most creators are using AI to consume content. Almost none are using it to build income."
+          </blockquote>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", letterSpacing: "0.22em", color: "#8B7340", textTransform: "uppercase", margin: 0 }}>
+            Boss Era™ · The difference that changes everything
+          </p>
+        </div>
+      </section>
+
       {/* Stats Bar */}
-      <section style={{ background: "#1E1530", padding: "0 32px" }}>
+      <section style={{ background: "#000000", padding: "0 32px" }}>
         <div className="stats-grid">
           {[
-            ["150+", "AI Prompts & Content Formulas"],
-            ["9", "Complete Modules"],
-            ["$27", "One-Time Access"],
+            ["30 min/day", "to run your content system"],
+            ["$27", "one-time, no subscription"],
+            ["Instant access", "start today"],
           ].map(([num, label]) => (
             <div key={label} className="stat-cell">
               <div style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "38px", color: "#C9A84C", lineHeight: 1 }}>{num}</div>
@@ -294,7 +305,7 @@ export default function AILandingPage() {
               const isOdd = parseInt(mod.n) % 2 !== 0;
               return (
                 <FadeIn key={mod.n}>
-                  <div style={{ background: isOdd ? "#1E1530" : "#EDE2D4", padding: "22px 20px", height: "100%" }}>
+                  <div style={{ background: isOdd ? "#000000" : "#EDE2D4", padding: "22px 20px", height: "100%" }}>
                     <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.2em", color: "#C9A84C", textTransform: "uppercase", marginBottom: "8px" }}>
                       {mod.n}
                     </div>
@@ -309,19 +320,6 @@ export default function AILandingPage() {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* Pull Quote */}
-      <section style={{ background: "#2D1B3D", padding: "64px 32px", textAlign: "center" }}>
-        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <div style={{ width: "40px", height: "0.5px", background: "#C9A84C", margin: "0 auto 28px" }} />
-          <blockquote style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "26px", fontStyle: "italic", color: "#F0E8DC", lineHeight: 1.55, marginBottom: "20px" }}>
-            "Most creators are using AI to consume content. Almost none are using it to build income."
-          </blockquote>
-          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", letterSpacing: "0.22em", color: "#8B7340", textTransform: "uppercase", margin: 0 }}>
-            Boss Era™ · The difference that changes everything
-          </p>
         </div>
       </section>
 
@@ -348,7 +346,7 @@ export default function AILandingPage() {
             ))}
 
             {/* Urgency bar */}
-            <div style={{ background: "#1E1530", padding: "16px 20px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+            <div style={{ background: "#000000", padding: "16px 20px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
               <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", fontStyle: "italic", color: "#C9A84C", lineHeight: 1.5, margin: 0 }}>
                 Launch pricing only. This bonus stack will be sold separately once the launch phase closes.
               </p>
@@ -356,7 +354,7 @@ export default function AILandingPage() {
             </div>
 
             {/* Price bar */}
-            <div style={{ background: "#2D1B3D", padding: "22px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ background: "#000000", padding: "22px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.2em", color: "#C9A84C", textTransform: "uppercase" }}>Your investment today</span>
               <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "34px", color: "#C9A84C" }}>$27</span>
             </div>
@@ -377,20 +375,20 @@ export default function AILandingPage() {
       {/* Urgency Banner */}
       <section style={{ background: "#C9A84C", padding: "14px 32px" }}>
         <div style={{ maxWidth: "980px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
-          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2D1B3D", flexShrink: 0 }} />
-          <span style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: "12px", color: "#2D1B3D", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#000000", flexShrink: 0 }} />
+          <span style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: "12px", color: "#000000", letterSpacing: "0.1em", textTransform: "uppercase" }}>
             Launch Price Ending Soon
           </span>
-          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2D1B3D", flexShrink: 0 }} />
-          <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontStyle: "italic", fontSize: "13px", color: "#2D1B3D", opacity: 0.75 }}>
+          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#000000", flexShrink: 0 }} />
+          <span style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontStyle: "italic", fontSize: "13px", color: "#000000", opacity: 0.75 }}>
             $27 is the launch price. Once this phase closes, the price increases. No exceptions.
           </span>
-          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2D1B3D", flexShrink: 0 }} />
+          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#000000", flexShrink: 0 }} />
         </div>
       </section>
 
       {/* Built For You */}
-      <section style={{ background: "#2D1B3D", padding: "72px 32px" }}>
+      <section style={{ background: "#000000", padding: "72px 32px" }}>
         <div style={{ maxWidth: "980px", margin: "0 auto" }}>
           <h2 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "38px", color: "#F0E8DC", marginBottom: "6px" }}>
             This Was Built For You.
@@ -462,7 +460,7 @@ export default function AILandingPage() {
       </section>
 
       {/* Final CTA */}
-      <section style={{ background: "#1E1530", padding: "80px 32px", textAlign: "center" }}>
+      <section style={{ background: "#000000", padding: "80px 32px", textAlign: "center" }}>
         <h2 style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "52px", fontStyle: "italic", color: "#F0E8DC", lineHeight: 1.05, letterSpacing: "-0.01em", wordSpacing: "0.02em", marginBottom: "16px" }}>
           Your AI Era Starts Now.
         </h2>
@@ -470,7 +468,7 @@ export default function AILandingPage() {
           The difference between creators building with AI and creators watching others build is one $27 decision.
         </p>
         <div style={{ background: "#F0E8DC", padding: "48px 40px", maxWidth: "480px", margin: "0 auto", textAlign: "center" }}>
-          <div style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "72px", color: "#2D1B3D", lineHeight: 1, marginBottom: "6px" }}>$27</div>
+          <div style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "72px", color: "#000000", lineHeight: 1, marginBottom: "6px" }}>$27</div>
           <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", letterSpacing: "0.18em", color: "#8B7340", textTransform: "uppercase", marginBottom: "28px" }}>
             One-time · Instant access · Lifetime updates
           </div>
@@ -478,7 +476,7 @@ export default function AILandingPage() {
             href={STRIPE_LINK}
             onClick={handleCTAClick}
             style={{
-              display: "inline-block", background: "#2D1B3D", color: "#C9A84C",
+              display: "inline-block", background: "#000000", color: "#C9A84C",
               fontFamily: "'Jost', sans-serif", fontSize: "10px", fontWeight: 500,
               letterSpacing: "0.22em", textTransform: "uppercase",
               padding: "18px 52px", textDecoration: "none", marginBottom: "12px",
@@ -507,7 +505,7 @@ export default function AILandingPage() {
       </section>
 
       {/* Footer */}
-      <footer style={{ background: "#0F0B1A", padding: "32px 32px", textAlign: "center" }}>
+      <footer style={{ background: "#000000", padding: "32px 32px", textAlign: "center" }}>
         <p style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "12px", letterSpacing: "0.18em", color: "#C9A84C", marginBottom: "6px" }}>Boss Era™</p>
         <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", color: "#8B7340", letterSpacing: "0.1em", marginBottom: "12px" }}>@bossdigitalbusiness</p>
         <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", color: "#444", lineHeight: 1.7, maxWidth: "560px", margin: "0 auto" }}>
