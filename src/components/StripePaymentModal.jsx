@@ -76,7 +76,10 @@ function PaymentStep({ stripe, clientSecret, email }) {
       },
     };
     const els = stripe.elements({ clientSecret, appearance });
-    const pe = els.create('payment', { layout: 'tabs' });
+    const pe = els.create('payment', {
+      layout: 'tabs',
+      wallets: { applePay: 'auto', googlePay: 'auto' },
+    });
     pe.on('loaderror', (e) => console.error('[Stripe] Payment Element load error:', e));
     pe.mount(mountRef.current);
     setElements(els);
