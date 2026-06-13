@@ -3,6 +3,19 @@ import { useState, useEffect, useRef } from 'react';
 const PUBLISHABLE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
 
 // Fix 3: separate pixel helpers — Purchase stays on /access-confirmed-ai
+function firePixelAddToCart() {
+  try {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'AddToCart', {
+        value: 27.00,
+        currency: 'USD',
+        content_name: 'AI Content to Cash System',
+        content_type: 'product',
+      });
+    }
+  } catch (_) {}
+}
+
 function firePixelInitiateCheckout() {
   try {
     if (typeof fbq !== 'undefined') {
@@ -190,8 +203,8 @@ export default function StripePaymentModal({ isOpen, onClose }) {
     }
     if (!stripeInstance) return;
 
-    // Fix 1: fire-and-forget — launched before setLoading, never awaited,
-    // cannot block or delay the payment flow
+    // AddToCart + checkout-started fire together — both mark real purchase intent
+    firePixelAddToCart();
     fetch('/.netlify/functions/checkout-started', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

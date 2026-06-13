@@ -95,7 +95,6 @@ export default function AILandingPage() {
 
   const handleCTAClick = (e) => {
     e.preventDefault();
-    handleStripeClick();
     setModalOpen(true);
   };
 
