@@ -93,6 +93,12 @@ export default function AILandingPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('checkout') === 'true') {
+      setModalOpen(true);
+    }
+  }, []);
+
   const handleCTAClick = (e) => {
     e.preventDefault();
     setModalOpen(true);
