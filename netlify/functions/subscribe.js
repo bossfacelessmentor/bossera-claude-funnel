@@ -13,7 +13,7 @@ export async function handler(event) {
     return { statusCode: 500, body: JSON.stringify({ error: "Server misconfigured" }) };
   }
 
-  const GROUP_ID = "188462618270238382";
+  const GROUP_ID = "188194744188273666";
 
   const res = await fetch(`https://connect.mailerlite.com/api/subscribers`, {
     method: "POST",
