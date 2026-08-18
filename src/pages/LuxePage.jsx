@@ -320,6 +320,28 @@ function VaultBullets({ onDark = false }) {
 // ── Main Page ────────────────────────────────────────────────────────────────
 
 export default function LuxePage() {
+  useEffect(() => {
+    document.title = "♛ The Luxe Editorial Vault™ | Founding Access — $97";
+
+    const metaTags = {
+      'description': 'A private creative and strategic environment for founders who want to build brands people recognize, trust, desire and remember. Founding access $97.',
+      'og:title': '♛ The Luxe Editorial Vault™ | Founding Access',
+      'og:description': 'The Luxury Brand Studio for founders building brands with distinction, clarity and intention.',
+      'og:url': 'https://bossfacelessmentor.com/luxe',
+      'robots': 'index, follow'
+    };
+
+    Object.entries(metaTags).forEach(([name, content]) => {
+      let el = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(name.startsWith('og:') ? 'property' : 'name', name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    });
+  }, []);
+
   function scrollToPayment(e) {
     e.preventDefault();
     const el = document.getElementById('payment');
