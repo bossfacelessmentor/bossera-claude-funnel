@@ -409,22 +409,23 @@ export default function LuxePage() {
         <div className="luxe-hero">
           {/* Left: Copy */}
           <div style={{ padding: 'clamp(60px,8vw,80px) clamp(24px,6%,80px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            {label('The Luxury Brand Studio')}
-            <h1 style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4.2rem)', lineHeight: 1.15,
-              color: '#F7F2EA', fontWeight: 400,
-            }}>
-              ♛ The Luxe<br />
-              Editorial Vault™<br />
-              <em style={{ fontStyle: 'italic' }}>is the Luxury Brand Studio</em><br />
-              for women building<br />
-              distinctive brands<br />
-              <em style={{ color: '#D8C5A5', fontStyle: 'italic' }}>with editorial taste,</em><br />
-              <em style={{ color: '#D8C5A5', fontStyle: 'italic' }}>strategic direction</em><br />
-              <em style={{ color: '#D8C5A5', fontStyle: 'italic' }}>and intention.</em>
+            {label('The Luxury Brand Studio', { fontSize: '14px' })}
+            <h1 style={{ lineHeight: 1.15, color: '#F7F2EA', fontWeight: 400 }}>
+              <span style={{ display: 'block', fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', whiteSpace: 'nowrap', marginBottom: '6px' }}>
+                ♛ The Luxe Editorial Vault™
+              </span>
+              <span style={{ fontSize: 'clamp(2.2rem, 5vw, 4.2rem)' }}>
+                <em style={{ fontStyle: 'italic' }}>is the Luxury Brand Studio</em><br />
+                for women building<br />
+                distinctive brands<br />
+                <em style={{ color: '#D8C5A5', fontStyle: 'italic' }}>with editorial taste,</em><br />
+                <em style={{ color: '#D8C5A5', fontStyle: 'italic' }}>strategic direction</em><br />
+                <em style={{ color: '#D8C5A5', fontStyle: 'italic' }}>and intention.</em>
+              </span>
             </h1>
             <p style={{
-              fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: '18px',
+              fontFamily: "'Jost', sans-serif", fontWeight: 300,
+              fontSize: 'clamp(17px, 2vw, 20px)',
               color: '#8A8177', lineHeight: 1.8, maxWidth: '480px', marginTop: '32px',
             }}>
               110+ curated editorial scenes & creative prompts, plus the tools and strategic direction to build your brand world with intention.
@@ -434,7 +435,7 @@ export default function LuxePage() {
               className="luxe-hero-mobile-img"
               src="/images/lume-hero.jpg"
               alt="Lumé in an elegant European café surrounded by warm golden light and refined Mediterranean-inspired architecture."
-              style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', borderRadius: '2px', marginTop: '32px' }}
+              style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'left center', borderRadius: '2px', marginTop: '32px' }}
             />
             <div className="luxe-hero-btns" style={{ marginTop: '40px' }}>
               <a
@@ -447,7 +448,7 @@ export default function LuxePage() {
                   padding: '16px 40px', display: 'inline-block',
                 }}
               >
-                Enter the Studio
+                ENTER THE VAULT — $97
               </a>
               <a
                 href="#vault-section"
@@ -460,7 +461,7 @@ export default function LuxePage() {
                   padding: '16px 40px', display: 'inline-block',
                 }}
               >
-                Explore the Vault
+                EXPLORE INSIDE
               </a>
             </div>
           </div>
@@ -471,7 +472,7 @@ export default function LuxePage() {
               src="/images/lume-hero.jpg"
               alt="Lumé in an elegant European café surrounded by warm golden light and refined Mediterranean-inspired architecture."
               className="luxe-hero-img"
-              style={{ height: '100%', minHeight: '90vh' }}
+              style={{ height: '100%', minHeight: '90vh', objectPosition: 'left center' }}
             />
           </div>
         </div>
