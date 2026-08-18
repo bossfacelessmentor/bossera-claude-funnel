@@ -457,12 +457,10 @@ export default function LuxePage() {
               <span style={{ display: 'block', fontSize: 'clamp(1.8rem, 3.2vw, 2.8rem)', whiteSpace: 'nowrap', marginBottom: '6px' }}>
                 ♛ The Luxe Editorial Vault™
               </span>
-              <span style={{ fontSize: 'clamp(1.2rem, 2.2vw, 1.9rem)' }}>
+              <span style={{ fontSize: 'clamp(1.3rem, 2.4vw, 2rem)' }}>
                 <em style={{ fontStyle: 'italic' }}>is the Luxury Brand Studio</em><br />
-                for women building<br />
-                distinctive brands<br />
-                <em style={{ color: '#D8C5A5', fontStyle: 'italic' }}>with editorial taste,</em><br />
-                <em style={{ color: '#D8C5A5', fontStyle: 'italic' }}>strategic direction</em><br />
+                for women building distinctive brands<br />
+                <em style={{ color: '#D8C5A5', fontStyle: 'italic' }}>with editorial taste, strategic direction</em><br />
                 <em style={{ color: '#D8C5A5', fontStyle: 'italic' }}>and intention.</em>
               </span>
             </h1>
@@ -753,7 +751,7 @@ export default function LuxePage() {
           <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#0D0D0D', marginBottom: '24px' }}>
             Your Brand Deserves a Strategic Director.
           </h2>
-          <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: '18px', color: '#2A211C', lineHeight: 1.8, maxWidth: '600px', marginBottom: '48px' }}>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: '18px', color: '#2A211C', lineHeight: 1.8, maxWidth: '600px', marginBottom: '48px', WebkitTextFillColor: '#2A211C' }}>
             ♛ The Luxe Branding System™ Director Bot™ helps members develop positioning, brand strategy, messaging, visual direction, campaigns and content systems.
           </p>
           <div className="luxe-two-col" style={{ marginBottom: '32px' }}>
@@ -792,18 +790,37 @@ export default function LuxePage() {
             }}>
               Reserved for Premium Members
             </p>
+            <p style={{
+              fontFamily: "'Jost', sans-serif",
+              fontWeight: 300,
+              fontSize: '13px',
+              color: '#8A8177',
+              marginTop: '12px',
+              textAlign: 'left',
+            }}>
+              The Director Bot is a separate product — available independently at $27. Not included in the $97 Vault founding access.
+            </p>
           </div>
           <a
-            href="#payment"
-            onClick={scrollTo('payment')}
+            href="https://shop.beacons.ai/bossera.digital/e5817cd5-793a-4d7f-9154-73d4de8c1731"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
-              display: 'inline-block', border: '1px solid #B89A61', color: '#B89A61',
-              background: 'transparent', textDecoration: 'none',
-              fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: '13px',
-              letterSpacing: '0.15em', textTransform: 'uppercase', padding: '14px 36px',
+              display: 'inline-block',
+              border: '1px solid #B89A61',
+              color: '#B89A61',
+              background: 'transparent',
+              padding: '14px 36px',
+              fontFamily: "'Jost', sans-serif",
+              fontWeight: 300,
+              fontSize: '12px',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              marginTop: '24px',
             }}
           >
-            Meet the Director Bot™
+            GET THE DIRECTOR BOT™ — $27
           </a>
         </div>
       </section>
