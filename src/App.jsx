@@ -4,6 +4,8 @@ import AccessConfirmedAI from './pages/AccessConfirmedAI'
 import AccessConfirmedQuote from './pages/AccessConfirmedQuote'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import AiMUSE from './pages/AiMUSE'
+import LuxePage from './pages/LuxePage'
+import AccessConfirmedLuxe from './pages/AccessConfirmedLuxe'
 
 export default function App() {
   return (
@@ -15,6 +17,8 @@ export default function App() {
         <Route path="/access-confirmed-quote" element={<AccessConfirmedQuote />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/aimuse" element={<AiMUSE />} />
+        <Route path="/luxe" element={<LuxePage />} />
+        <Route path="/access-confirmed-luxe" element={<AccessConfirmedLuxe />} />
         <Route path="*" element={<Navigate to="/ai" replace />} />
       </Routes>
     </BrowserRouter>
