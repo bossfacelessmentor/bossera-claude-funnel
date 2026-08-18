@@ -457,7 +457,7 @@ export default function LuxePage() {
               <span style={{ display: 'block', fontSize: 'clamp(1.8rem, 3.2vw, 2.8rem)', whiteSpace: 'nowrap', marginBottom: '6px' }}>
                 ♛ The Luxe Editorial Vault™
               </span>
-              <span style={{ fontSize: 'clamp(1.6rem, 3.2vw, 2.8rem)' }}>
+              <span style={{ fontSize: 'clamp(1.2rem, 2.2vw, 1.9rem)' }}>
                 <em style={{ fontStyle: 'italic' }}>is the Luxury Brand Studio</em><br />
                 for women building<br />
                 distinctive brands<br />
@@ -476,7 +476,7 @@ export default function LuxePage() {
             {/* Mobile image */}
             <img
               className="luxe-hero-mobile-img"
-              src="/images/lume-hero.png"
+              src="/images/lume-hero.jpg"
               alt="Lumé in an elegant European café surrounded by warm golden light and refined Mediterranean-inspired architecture."
               style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center 15%', borderRadius: '2px', marginTop: '32px' }}
             />
@@ -512,7 +512,7 @@ export default function LuxePage() {
           {/* Right: Image (desktop only) */}
           <div className="luxe-hero-desktop-img" style={{ overflow: 'hidden', minHeight: '80vh' }}>
             <img
-              src="/images/lume-hero.png"
+              src="/images/lume-hero.jpg"
               alt="Lumé in an elegant European café surrounded by warm golden light and refined Mediterranean-inspired architecture."
               className="luxe-hero-img"
               style={{ height: '100%', minHeight: '80vh', width: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
