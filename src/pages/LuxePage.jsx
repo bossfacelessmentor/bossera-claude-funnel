@@ -411,7 +411,7 @@ export default function LuxePage() {
           <div style={{ padding: 'clamp(60px,8vw,80px) clamp(24px,6%,80px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             {label('The Luxury Brand Studio', { fontSize: '14px' })}
             <h1 style={{ lineHeight: 1.15, color: '#F7F2EA', fontWeight: 400 }}>
-              <span style={{ display: 'block', fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', whiteSpace: 'nowrap', marginBottom: '6px' }}>
+              <span style={{ display: 'block', fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', whiteSpace: 'nowrap', marginBottom: '6px' }}>
                 ♛ The Luxe Editorial Vault™
               </span>
               <span style={{ fontSize: 'clamp(2.2rem, 5vw, 4.2rem)' }}>
@@ -426,7 +426,7 @@ export default function LuxePage() {
             <p style={{
               fontFamily: "'Jost', sans-serif", fontWeight: 300,
               fontSize: 'clamp(17px, 2vw, 20px)',
-              color: '#8A8177', lineHeight: 1.8, maxWidth: '480px', marginTop: '32px',
+              color: '#8A8177', lineHeight: 1.8, maxWidth: '560px', marginTop: '32px',
             }}>
               110+ curated editorial scenes & creative prompts, plus the tools and strategic direction to build your brand world with intention.
             </p>
@@ -435,7 +435,7 @@ export default function LuxePage() {
               className="luxe-hero-mobile-img"
               src="/images/lume-hero.jpg"
               alt="Lumé in an elegant European café surrounded by warm golden light and refined Mediterranean-inspired architecture."
-              style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'left center', borderRadius: '2px', marginTop: '32px' }}
+              style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'left top', borderRadius: '2px', marginTop: '32px' }}
             />
             <div className="luxe-hero-btns" style={{ marginTop: '40px' }}>
               <a
@@ -472,7 +472,7 @@ export default function LuxePage() {
               src="/images/lume-hero.jpg"
               alt="Lumé in an elegant European café surrounded by warm golden light and refined Mediterranean-inspired architecture."
               className="luxe-hero-img"
-              style={{ height: '100%', minHeight: '90vh', objectPosition: 'left center' }}
+              style={{ height: '100%', minHeight: '90vh', objectPosition: 'left top' }}
             />
           </div>
         </div>
