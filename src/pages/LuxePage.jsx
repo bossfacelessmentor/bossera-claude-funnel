@@ -371,7 +371,7 @@ export default function LuxePage() {
         * { box-sizing: border-box; margin: 0; padding: 0; }
         h1, h2, h3 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 
-        .luxe-hero { display: grid; grid-template-columns: 62% 38%; min-height: 90vh; }
+        .luxe-hero { display: grid; grid-template-columns: 58% 42%; min-height: 80vh; }
         .luxe-hero-img { height: 100%; object-fit: cover; border-radius: 2px; width: 100%; display: block; }
         .luxe-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .luxe-four-col { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
@@ -397,6 +397,7 @@ export default function LuxePage() {
           .luxe-five-col { grid-template-columns: 1fr; }
           .luxe-benefits-grid { grid-template-columns: 1fr; }
           .luxe-hero-btns { flex-direction: column; }
+          .luxe-header-explore { display: none; }
         }
         @media (min-width: 641px) {
           .luxe-hero-mobile-img { display: none; }
@@ -404,17 +405,59 @@ export default function LuxePage() {
         }
       `}</style>
 
+      {/* ── FIXED HEADER ── */}
+      <header style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+        background: 'rgba(13,13,13,0.95)', backdropFilter: 'blur(8px)',
+        height: '64px', display: 'flex', alignItems: 'center',
+        justifyContent: 'space-between', padding: '0 clamp(20px,5%,60px)',
+        borderBottom: '0.5px solid rgba(216,197,165,0.12)',
+      }}>
+        <span style={{
+          fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 400,
+          fontSize: 'clamp(14px, 1.6vw, 16px)', letterSpacing: '0.12em', color: '#D8C5A5',
+        }}>
+          ♛ The Luxe Editorial Vault™
+        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+          <a
+            href="#vault-section"
+            onClick={scrollTo('vault-section')}
+            className="luxe-header-explore"
+            style={{
+              fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: '11px',
+              letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8A8177',
+              textDecoration: 'none',
+            }}
+          >
+            Explore Inside
+          </a>
+          <a
+            href="#payment"
+            onClick={scrollTo('payment')}
+            style={{
+              fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: '11px',
+              letterSpacing: '0.15em', textTransform: 'uppercase',
+              background: '#D8C5A5', color: '#0D0D0D', textDecoration: 'none',
+              padding: '10px 24px', display: 'inline-block',
+            }}
+          >
+            Enter the Vault — $97
+          </a>
+        </div>
+      </header>
+
       {/* ── SECTION 1 — HERO ── */}
-      <section style={{ background: '#0D0D0D', padding: 0 }}>
+      <section style={{ background: '#0D0D0D', padding: 0, paddingTop: '64px' }}>
         <div className="luxe-hero">
           {/* Left: Copy */}
-          <div style={{ padding: 'clamp(60px,8vw,80px) clamp(24px,6%,80px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div style={{ padding: 'clamp(40px,5vw,60px) clamp(24px,6%,80px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             {label('The Luxury Brand Studio', { fontSize: '14px' })}
             <h1 style={{ lineHeight: 1.15, color: '#F7F2EA', fontWeight: 400 }}>
-              <span style={{ display: 'block', fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', whiteSpace: 'nowrap', marginBottom: '6px' }}>
+              <span style={{ display: 'block', fontSize: 'clamp(1.8rem, 3.2vw, 2.8rem)', whiteSpace: 'nowrap', marginBottom: '6px' }}>
                 ♛ The Luxe Editorial Vault™
               </span>
-              <span style={{ fontSize: 'clamp(1.9rem, 3.8vw, 3.4rem)' }}>
+              <span style={{ fontSize: 'clamp(1.6rem, 3.2vw, 2.8rem)' }}>
                 <em style={{ fontStyle: 'italic' }}>is the Luxury Brand Studio</em><br />
                 for women building<br />
                 distinctive brands<br />
@@ -433,7 +476,7 @@ export default function LuxePage() {
             {/* Mobile image */}
             <img
               className="luxe-hero-mobile-img"
-              src="/images/lume-hero.jpg"
+              src="/images/lume-hero.png"
               alt="Lumé in an elegant European café surrounded by warm golden light and refined Mediterranean-inspired architecture."
               style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center 15%', borderRadius: '2px', marginTop: '32px' }}
             />
@@ -467,12 +510,12 @@ export default function LuxePage() {
           </div>
 
           {/* Right: Image (desktop only) */}
-          <div className="luxe-hero-desktop-img" style={{ overflow: 'hidden', minHeight: '75vh' }}>
+          <div className="luxe-hero-desktop-img" style={{ overflow: 'hidden', minHeight: '80vh' }}>
             <img
-              src="/images/lume-hero.jpg"
+              src="/images/lume-hero.png"
               alt="Lumé in an elegant European café surrounded by warm golden light and refined Mediterranean-inspired architecture."
               className="luxe-hero-img"
-              style={{ height: '100%', minHeight: '75vh', width: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
+              style={{ height: '100%', minHeight: '80vh', width: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
             />
           </div>
         </div>
