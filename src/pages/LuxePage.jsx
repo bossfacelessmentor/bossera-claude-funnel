@@ -371,7 +371,7 @@ export default function LuxePage() {
         * { box-sizing: border-box; margin: 0; padding: 0; }
         h1, h2, h3 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 
-        .luxe-hero { display: grid; grid-template-columns: 55% 45%; min-height: 90vh; }
+        .luxe-hero { display: grid; grid-template-columns: 62% 38%; min-height: 90vh; }
         .luxe-hero-img { height: 100%; object-fit: cover; border-radius: 2px; width: 100%; display: block; }
         .luxe-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .luxe-four-col { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
@@ -414,7 +414,7 @@ export default function LuxePage() {
               <span style={{ display: 'block', fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', whiteSpace: 'nowrap', marginBottom: '6px' }}>
                 ♛ The Luxe Editorial Vault™
               </span>
-              <span style={{ fontSize: 'clamp(2.2rem, 5vw, 4.2rem)' }}>
+              <span style={{ fontSize: 'clamp(1.9rem, 3.8vw, 3.4rem)' }}>
                 <em style={{ fontStyle: 'italic' }}>is the Luxury Brand Studio</em><br />
                 for women building<br />
                 distinctive brands<br />
@@ -435,7 +435,7 @@ export default function LuxePage() {
               className="luxe-hero-mobile-img"
               src="/images/lume-hero.jpg"
               alt="Lumé in an elegant European café surrounded by warm golden light and refined Mediterranean-inspired architecture."
-              style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'left top', borderRadius: '2px', marginTop: '32px' }}
+              style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center 15%', borderRadius: '2px', marginTop: '32px' }}
             />
             <div className="luxe-hero-btns" style={{ marginTop: '40px' }}>
               <a
@@ -467,12 +467,12 @@ export default function LuxePage() {
           </div>
 
           {/* Right: Image (desktop only) */}
-          <div className="luxe-hero-desktop-img" style={{ overflow: 'hidden', minHeight: '90vh' }}>
+          <div className="luxe-hero-desktop-img" style={{ overflow: 'hidden', minHeight: '75vh' }}>
             <img
               src="/images/lume-hero.jpg"
               alt="Lumé in an elegant European café surrounded by warm golden light and refined Mediterranean-inspired architecture."
               className="luxe-hero-img"
-              style={{ height: '100%', minHeight: '90vh', objectPosition: 'left top' }}
+              style={{ height: '100%', minHeight: '75vh', width: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
             />
           </div>
         </div>
