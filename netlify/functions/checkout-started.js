@@ -14,10 +14,10 @@ export const handler = async (event) => {
     return { statusCode: 405, headers: corsHeaders, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
-  const apiKey = process.env.MAILERLITE_API_KEY;
+  const apiKey = process.env.SENDER_API_KEY;
   if (!apiKey) {
-    console.log('[checkout-started] MAILERLITE_API_KEY missing');
-    return { statusCode: 500, headers: corsHeaders, body: JSON.stringify({ error: 'MailerLite not configured' }) };
+    console.error('[checkout-started] SENDER_API_KEY missing');
+    return { statusCode: 500, headers: corsHeaders, body: JSON.stringify({ error: 'Sender not configured' }) };
   }
 
   let email, source;
@@ -31,31 +31,44 @@ export const handler = async (event) => {
     return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: 'Email required' }) };
   }
 
-  console.log('[checkout-started] email:', email, 'source:', source);
+  // Route to correct group based on source
+  let groupId;
+  if (source === 'luxe') {
+    groupId = process.env.SENDER_GROUP_LUXE_CHECKOUT_STARTED;
+  } else {
+    // Default to AI for 'ai' or any unrecognised source
+    groupId = process.env.SENDER_GROUP_AI_CHECKOUT_STARTED;
+  }
+
+  if (!groupId) {
+    console.error('[checkout-started] group env var missing for source:', source);
+    return { statusCode: 500, headers: corsHeaders, body: JSON.stringify({ error: 'Group not configured' }) };
+  }
+
+  console.log('[checkout-started] email:', email, 'source:', source, 'group:', groupId);
 
   try {
-    const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
+    const res = await fetch('https://api.sender.net/v2/subscribers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
         'Accept': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         email,
-        groups: ['189968569624167460'],
+        groups: [groupId],
       }),
     });
 
     const data = await res.json();
-    console.log('[checkout-started] MailerLite status:', res.status);
+    console.log('[checkout-started] Sender status:', res.status);
 
     if (!res.ok) {
-      console.error('[checkout-started] MailerLite error:', JSON.stringify(data));
-      return { statusCode: 500, headers: corsHeaders, body: JSON.stringify({ error: 'MailerLite error', details: data }) };
+      console.error('[checkout-started] Sender error:', JSON.stringify(data));
+      return { statusCode: 500, headers: corsHeaders, body: JSON.stringify({ error: 'Sender error', details: data }) };
     }
 
-    console.log('[checkout-started] subscriber added, id:', data.data?.id);
     return { statusCode: 200, headers: corsHeaders, body: JSON.stringify({ ok: true }) };
   } catch (err) {
     console.error('[checkout-started] fetch error:', err.message);

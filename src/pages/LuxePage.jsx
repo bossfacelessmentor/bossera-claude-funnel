@@ -81,7 +81,7 @@ function PaymentStep({ stripe, clientSecret, email }) {
       fetch('/.netlify/functions/post-purchase', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, payment_intent_id: paymentIntent.id }),
+        body: JSON.stringify({ email, payment_intent_id: paymentIntent.id, source: 'luxe' }),
       }).catch(() => {});
       window.location.href = '/access-confirmed-luxe?session_id=' + paymentIntent.id;
     } else {
@@ -149,6 +149,14 @@ function InlinePaymentForm() {
       return;
     }
     if (!stripeInstance) return;
+
+    // Track LUXE checkout started
+    fetch('/.netlify/functions/checkout-started', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source: 'luxe' }),
+    }).catch(() => {});
+
     setLoading(true);
     setError('');
     try {

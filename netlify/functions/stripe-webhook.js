@@ -1,5 +1,9 @@
 import Stripe from 'stripe';
 
+// Stripe metadata.product values set at payment intent creation
+const PRODUCT_AI = 'AI Content to Cash System';
+const PRODUCT_LUXE = 'The Luxe Editorial Vault - Founding Access';
+
 export const handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method not allowed' };
@@ -28,39 +32,59 @@ export const handler = async (event) => {
   const email = paymentIntent.receipt_email || paymentIntent.metadata?.email;
 
   if (!email) {
-    console.log('[stripe-webhook] No email found on payment_intent:', paymentIntent.id);
+    console.log('[stripe-webhook] No email on payment_intent:', paymentIntent.id);
     return { statusCode: 200, body: JSON.stringify({ received: true, skipped: 'no email' }) };
   }
 
-  const apiKey = process.env.MAILERLITE_API_KEY;
+  const apiKey = process.env.SENDER_API_KEY;
   if (!apiKey) {
-    console.error('[stripe-webhook] MAILERLITE_API_KEY missing');
-    return { statusCode: 500, body: JSON.stringify({ error: 'MailerLite not configured' }) };
+    console.error('[stripe-webhook] SENDER_API_KEY missing');
+    return { statusCode: 500, body: JSON.stringify({ error: 'Sender not configured' }) };
   }
 
+  // Route to correct buyer group based on product metadata
+  const product = paymentIntent.metadata?.product || '';
+  let groupId;
+  if (product === PRODUCT_LUXE) {
+    groupId = process.env.SENDER_GROUP_LUXE_BUYER;
+  } else if (product === PRODUCT_AI) {
+    groupId = process.env.SENDER_GROUP_AI_BUYER;
+  } else {
+    // Unknown product — default to AI buyer and log warning
+    console.warn('[stripe-webhook] Unknown product metadata:', product, '— defaulting to AI buyer group');
+    groupId = process.env.SENDER_GROUP_AI_BUYER;
+  }
+
+  if (!groupId) {
+    console.error('[stripe-webhook] Buyer group env var missing for product:', product);
+    return { statusCode: 500, body: JSON.stringify({ error: 'Group not configured' }) };
+  }
+
+  console.log('[stripe-webhook] pi:', paymentIntent.id, 'email:', email, 'product:', product, 'group:', groupId);
+
   try {
-    const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
+    const res = await fetch('https://api.sender.net/v2/subscribers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
         'Accept': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         email,
-        groups: ['188462618270238382'],
+        groups: [groupId],
       }),
     });
 
     const data = await res.json();
-    console.log('[stripe-webhook] payment_intent:', paymentIntent.id, 'email:', email, 'MailerLite status:', res.status);
+    console.log('[stripe-webhook] Sender status:', res.status);
 
     if (!res.ok) {
-      console.error('[stripe-webhook] MailerLite error:', JSON.stringify(data));
-      return { statusCode: 500, body: JSON.stringify({ error: 'MailerLite error', details: data }) };
+      console.error('[stripe-webhook] Sender error:', JSON.stringify(data));
+      return { statusCode: 500, body: JSON.stringify({ error: 'Sender error', details: data }) };
     }
 
-    return { statusCode: 200, body: JSON.stringify({ received: true, subscriber: data.data?.id }) };
+    return { statusCode: 200, body: JSON.stringify({ received: true }) };
   } catch (err) {
     console.error('[stripe-webhook] fetch error:', err.message);
     return { statusCode: 500, body: JSON.stringify({ error: err.message }) };

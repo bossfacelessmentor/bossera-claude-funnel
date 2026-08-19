@@ -111,7 +111,7 @@ function PaymentStep({ stripe, clientSecret, email }) {
         await fetch('/.netlify/functions/post-purchase', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, payment_intent_id: paymentIntent.id }),
+          body: JSON.stringify({ email, payment_intent_id: paymentIntent.id, source: 'ai' }),
         });
       } catch (_) {}
       window.location.href = '/access-confirmed-ai?session_id=' + paymentIntent.id;
