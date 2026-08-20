@@ -62,6 +62,43 @@ export const handler = async (event) => {
 
   console.log('[stripe-webhook] pi:', paymentIntent.id, 'email:', email, 'product:', product, 'group:', groupId);
 
+  // Grant Vault access for LUXE purchases (non-fatal — runs before Sender)
+  if (product === PRODUCT_LUXE) {
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (supabaseUrl && supabaseServiceKey) {
+      const normalizedEmail = email.toLowerCase().trim();
+      try {
+        // 1. Add to pending_vault_access (handles users who sign up after purchase)
+        await fetch(`${supabaseUrl}/rest/v1/pending_vault_access`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': supabaseServiceKey,
+            'Authorization': `Bearer ${supabaseServiceKey}`,
+            'Prefer': 'resolution=ignore-duplicates',
+          },
+          body: JSON.stringify({ email: normalizedEmail, source: 'stripe' }),
+        });
+        // 2. Grant member role immediately if user already has a Supabase account
+        await fetch(`${supabaseUrl}/rest/v1/rpc/grant_vault_access_by_email`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': supabaseServiceKey,
+            'Authorization': `Bearer ${supabaseServiceKey}`,
+          },
+          body: JSON.stringify({ p_email: normalizedEmail }),
+        });
+        console.log('[stripe-webhook] Vault access granted for:', normalizedEmail);
+      } catch (err) {
+        console.error('[stripe-webhook] Vault access error (non-fatal):', err.message);
+      }
+    } else {
+      console.warn('[stripe-webhook] SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY missing — vault access not granted');
+    }
+  }
+
   try {
     const res = await fetch('https://api.sender.net/v2/subscribers', {
       method: 'POST',
