@@ -3,7 +3,12 @@ export async function handler(event) {
     return { statusCode: 405, body: "Method not allowed" };
   }
 
-  const { name, email } = JSON.parse(event.body);
+  let name, email;
+  try {
+    ({ name, email } = JSON.parse(event.body || '{}'));
+  } catch {
+    return { statusCode: 400, body: JSON.stringify({ error: 'Invalid request body' }) };
+  }
   if (!email) {
     return { statusCode: 400, body: JSON.stringify({ error: "Email is required" }) };
   }
